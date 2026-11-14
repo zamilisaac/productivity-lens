@@ -39,11 +39,11 @@ p { margin: 0; }
   <div class="chart">{{ chart_svg | safe }}</div>
   <p>{{ c.dtf.card_sentence }}</p>
 {% elif kind == 'lesson' %}
-  <p class="kicker">{{ L.sme_lessons }} · {{ lesson_no }}/3</p>
+  <p class="kicker">{{ L.sme_lessons }} · {{ lesson_no }}</p>
   <h1>{{ lesson.title }}</h1>
   <p>{{ lesson.did }}</p>
   <p><b>{{ L.starter }}:</b> {{ lesson.starter }}</p>
 {% endif %}
 </div>
-<div class="src">{{ L.source }}: {{ c.company }} {{ L.annual_report }} FY{{ c.fy }}, {{ L.p }}{{ src_page }}</div>
+<div class="src">{{ L.source }}: {{ c.company }} {{ L.annual_report }} FY{{ c.fy }}, {{ L.pp if ',' in (src_page|string) else L.p }}{{ src_page }}</div>
 </div></body></html>

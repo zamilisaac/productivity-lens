@@ -22,7 +22,7 @@ EN = {
     "lessons[].starter": 25, "lessons[].measure": 20,
     "notes": 50,
 }
-COUNTS = {"headline_results": 3, "lessons": 3, "strengths": 2, "watch": 2}
+COUNTS = {"headline_results": 3, "lessons": (1, 3), "strengths": 2, "watch": 2}  # lessons: up to three, never padded (Playbook Module 4)
 MAX_ROWS = {"key_initiatives": 10}
 
 
@@ -58,8 +58,11 @@ def check(c, lang):
             if val in (None, "") and not path.startswith(("snapshot.notes", "dtf.notes")):
                 fails.append(f"{p}: empty")
     for k, n in COUNTS.items():
-        if len(c.get(k) or []) != n:
-            fails.append(f"{k}: needs exactly {n} items, has {len(c.get(k) or [])}")
+        have = len(c.get(k) or [])
+        lo, hi = n if isinstance(n, tuple) else (n, n)
+        if not lo <= have <= hi:
+            want = f"exactly {lo}" if lo == hi else f"{lo} to {hi}"
+            fails.append(f"{k}: needs {want} items, has {have}")
     for k, n in MAX_ROWS.items():
         if len(c.get(k) or []) > n:
             fails.append(f"{k}: max {n} rows, has {len(c.get(k))}")

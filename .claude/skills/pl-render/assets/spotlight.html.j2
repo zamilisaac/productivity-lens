@@ -155,7 +155,7 @@ td.num, th.num { text-align: right; white-space: nowrap; }
   <div class="lesson" data-block="lesson{{ loop.index }}">
     <div class="lbl">{{ l.label }}</div>
     <h3>{{ l.title }}</h3>
-    <dl><dt>{{ L.did }}</dt><dd>{{ l.did }} ({{ L.p }}{{ l.page }})</dd>
+    <dl><dt>{{ L.did }}</dt><dd>{{ l.did }} ({{ L.pp if ',' in (l.page|string) else L.p }}{{ l.page }})</dd>
         <dt>{{ L.sme_version }}</dt><dd>{{ l.sme }}</dd>
         <dt>{{ L.starter }}</dt><dd>{{ l.starter }}</dd>
         <dt>{{ L.measure }}</dt><dd>{{ l.measure }}</dd></dl>

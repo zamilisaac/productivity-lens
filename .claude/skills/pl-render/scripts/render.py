@@ -17,6 +17,7 @@ cut words in the Content file and render again. Never shrink type.
 Needs: jinja2, playwright with chromium (pip install playwright jinja2 --break-system-packages;
 python -m playwright install chromium).
 """
+import os as _os_launch
 import argparse, json, re, sys, tempfile
 from pathlib import Path
 
@@ -31,6 +32,13 @@ env = Environment(loader=FileSystemLoader(str(ASSETS)), autoescape=select_autoes
 TEAL, SLATE, INK, GREY, RULE = "#0F8B7E", "#2D4258", "#0D1B2A", "#5E6B7A", "#E4DDD0"
 BANNED = re.compile(r"\b(top|best|leader|leading|ranked|outperform\w*|laggard|worst|no\. ?1)\b", re.I)
 
+
+
+def _launch_args():
+    """Use a pre-installed Chromium when PL_CHROMIUM points at it (cloud sessions ship one at
+    /opt/pw-browsers/chromium); otherwise Playwright's own download."""
+    exe = _os_launch.environ.get("PL_CHROMIUM")
+    return {"executable_path": exe} if exe else {}
 
 def next_free(path: Path):
     if not path.exists():
@@ -168,7 +176,7 @@ def check_text(c):
 
 # ------------------------------------------------------------------ commands
 def render_spotlight(c, out_dir, png_dir=None):
-    L = LABELS[c.get("lang", "en")]
+    L = {**LABELS[c.get("lang", "en")], **(c.get("label_overrides") or {})}  # per-company wording (ImprovementLog 2026-11-08)
     groups = {}
     for it in c.get("appendix", []):
         groups.setdefault(int(it["tier"]), []).append(it)
@@ -182,7 +190,7 @@ def render_spotlight(c, out_dir, png_dir=None):
     tmp.write_text(html, encoding="utf-8")
     pngs = []
     with browser() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(**_launch_args())
         pg = b.new_page(viewport={"width": 794, "height": 1123}, device_scale_factor=200 / 96)
         pg.goto(tmp.as_uri()); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready")
         fit = pg.evaluate(FIT_JS)
@@ -212,7 +220,7 @@ def render_spotlight(c, out_dir, png_dir=None):
 
 
 def render_cards(c, out_dir, start=5):
-    L = LABELS[c.get("lang", "en")]
+    L = {**LABELS[c.get("lang", "en")], **(c.get("label_overrides") or {})}  # per-company wording (ImprovementLog 2026-11-08)
     name, sfx = base_name(c)
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     tpl = env.get_template("card.html.j2")
@@ -223,7 +231,7 @@ def render_cards(c, out_dir, start=5):
         jobs.append(("lesson", {"lesson": l, "lesson_no": i, "src_page": l["page"]}))
     saved, fails = [], []
     with browser() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(**_launch_args())
         pg = b.new_page(viewport={"width": 1080, "height": 1350})
         tmpd = Path(tempfile.mkdtemp())
         for n, (kind, extra) in enumerate(jobs, start=start):
