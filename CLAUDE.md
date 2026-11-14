@@ -59,16 +59,13 @@ Output is in English and Bahasa Melayu.
 - The Style Guide v1.12 on Drive still describes Lora/Inter and teal: update it there, then copy it here.
 
 ## Reader tools (2026-11-15)
-- Nav: Home · Stories · Ideas library · Distance to Frontier (`#frontier`; old `#benchmark` links still work) · How we check. `#ask` is linked from the home "Tools" strip and footer.
+- Nav: Home · Stories · Ideas library · Distance to Frontier (`#frontier`; old `#benchmark` links still work) · How we check.
 - `#frontier`: dairy group list (alphabetical, own share only, "not a ranking"), group chart, and **Check your business**
   (value added calculator; runs only in the browser, nothing sent or stored).
-- Ideas library starts with **Find ideas** (rule-based matcher over story lessons, `PROBS` + business type) and a printable
-  **30-day plan** (template, no AI).
-- **Ask Productivity Lens**: `functions/api/ask.js` answers only from `site/kb.json` (reviewed stories, EN/BM, with pages).
-  Rebuild after any reviewed-story change: `PL_CHROMIUM=/opt/pw-browsers/chromium python scripts/build_kb.py`.
-  Needs a Workers AI binding named **`AI`** on the Pages project; without it the API returns the matching passages only.
-  Any number in an AI answer must appear in the passages and rank words are blocked, otherwise passages are shown instead.
-  Questions are not stored (privacy notice section added; `CONSENT_VERSION` 2026-11-15).
+- Ideas library starts with **Find ideas** (rule-based matcher over story lessons: problem, business type and size as
+  dropdowns); the full list below has a problem dropdown next to the company dropdown (problem match uses English text).
+- Removed at the user's request (2026-11-15): the printable 30-day plan and **Ask Productivity Lens** (no `/api/ask`,
+  no `kb.json`, no Workers AI binding needed). Privacy notice updated (`CONSENT_VERSION` 2026-11-15-2).
 
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.

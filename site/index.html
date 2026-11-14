@@ -603,9 +603,9 @@ fieldset.fl label{font-weight:400;font-size:15px;display:flex;gap:8px;align-item
 .trustgrid h3{font-size:20px;letter-spacing:-.02em;margin:0 0 10px}.trustgrid p{margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.55}
 details.fullmethod{margin-top:40px}
 @media (max-width:600px){.why.whytop>div:last-child{display:none}.sgrid .slide>p{display:none}.st-gloss dl{grid-template-columns:1fr;gap:2px}.st-gloss dd{margin-bottom:10px}.sgrid{grid-template-columns:1fr}}
-/* tools: frontier list, business check, idea matcher, 30-day plan, ask */
+/* tools: frontier list, business check, idea matcher */
 .toolstrip h2{font-size:clamp(28px,3.2vw,42px)}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
 .tcard{position:relative;background:var(--panel);border-radius:26px;padding:28px 28px 70px;box-shadow:0 1px 2px rgba(11,11,15,.04);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .tcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
 .tcard h3{font-size:19px;letter-spacing:-.02em}.tcard p{font-size:14.5px;margin-top:8px}
@@ -620,8 +620,8 @@ details.fullmethod{margin-top:40px}
 .chk{margin-top:56px}
 .chkform{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:22px}
 .chkform label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
-.chkform input,.askform input{font:inherit;font-size:16px;font-weight:500;padding:12px 14px;border-radius:14px;border:1px solid var(--hair);background:#fff;color:var(--ink);width:100%}
-.chkform input:focus,.askform input:focus{outline:2px solid var(--violet);outline-offset:1px}
+.chkform input{font:inherit;font-size:16px;font-weight:500;padding:12px 14px;border-radius:14px;border:1px solid var(--hair);background:#fff;color:var(--ink);width:100%}
+.chkform input:focus{outline:2px solid var(--violet);outline-offset:1px}
 .chkform small{font-weight:400;color:var(--muted);font-size:13px}
 .chkbtns{display:flex;gap:12px;align-items:center;grid-column:1/-1}
 .chkres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
@@ -629,28 +629,11 @@ details.fullmethod{margin-top:40px}
 .chkres .k{font-size:13.5px;color:var(--muted);font-weight:600}.chkres b{font-size:28px;letter-spacing:-.03em;font-weight:600}.chkres .s{font-size:13px;color:var(--muted)}
 .gapbar{margin-top:18px}.chkerr{margin-top:16px;color:#8A1C1C;font-weight:600}
 .matcher{margin-top:40px}
-.mrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}.mrow .glbl{min-width:110px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.mselects{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .mcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px}
 .mcard{background:var(--soft);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px}
 .mcard h3{font-size:17.5px;letter-spacing:-.02em}.mcard dl{margin:0;font-size:14px}.mcard dt{font-weight:600;color:var(--violet-ink);font-size:13px;margin-top:8px}.mcard dd{margin:2px 0 0}
-.mcard .pg{font-size:13.5px;margin-top:auto}.mpick{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600;cursor:pointer}
-.mpick input{width:18px;height:18px;accent-color:var(--violet)}
-.mplan{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:22px}
-.planov{position:fixed;inset:0;z-index:80;background:rgba(11,11,15,.45);overflow:auto;padding:32px 16px}
-.plan{max-width:820px;margin:0 auto;background:#fff;border-radius:26px;padding:36px}
-.planhd{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}.planhd h2{font-size:32px}
-.pidea{margin-top:28px;border-top:1px solid var(--line);padding-top:20px}.pidea h3{font-size:19px}
-.weeks{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
-.weeks li{display:grid;grid-template-columns:1fr 22px;gap:4px 14px;background:var(--soft);border-radius:14px;padding:12px 16px;font-size:14.5px}
-.weeks li b{font-size:13.5px;color:var(--violet-ink)}.weeks li span{grid-column:1}.weeks .tick{grid-row:1/3;grid-column:2;width:20px;height:20px;border:2px solid var(--ink);border-radius:5px;align-self:center}
-.askform{display:flex;gap:12px;margin-top:32px;max-width:860px}.askform input{flex:1}
-.askex{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.askans{margin-top:26px;background:var(--panel);border-radius:22px;padding:22px 24px;max-width:860px;font-size:16px;line-height:1.6}
-.askans p+p{margin-top:10px}.askh{margin-top:26px;font-size:17px}
-.asksrc{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:10px;max-width:860px}.asksrc li{background:var(--soft);border-radius:14px;padding:12px 16px;font-size:14.5px}
-.askwait{margin-top:22px}
-@media (max-width:900px){.tgrid{grid-template-columns:1fr}.bmrow{grid-template-columns:1fr;gap:8px}.chkres{grid-template-columns:1fr}.askform{flex-direction:column}}
-@media print{body.planopen>*:not(.planov){display:none!important}.planov{position:static;background:none;padding:0;overflow:visible}.plan{box-shadow:none;padding:0;max-width:none}.noprint{display:none}.weeks li{break-inside:avoid;border:1px solid #ccc}}
+.mcard .pg{font-size:13.5px;margin-top:auto}@media (max-width:900px){.tgrid{grid-template-columns:1fr}.bmrow{grid-template-columns:1fr;gap:8px}.chkres{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1371,11 +1354,11 @@ const PROBS=[
  {k:"skills",en:"Better-skilled teams",bm:"Pasukan lebih mahir",re:/train|skill|operator|multi|worker|staff|people|labour|kaizen/i},
  {k:"waste",en:"Less waste, fewer defects",bm:"Kurang pembaziran, kurang kecacatan",re:/quality|yield|defect|reject|waste|loss|energy|water|solar|effluent|packag|clean|recycl|diesel|biogas|steam|fuel/i},
  {k:"output",en:"More output from what you have",bm:"Lebih keluaran daripada apa yang ada",re:/line|capacity|plant|machine|shift|output|throughput|consolidat|layout|lean|process|factory|production|bottl|filling/i}];
-const probOf=r=>{const t=r.name+" "+(r.res||"");const p=PROBS.find(p=>p.re.test(t));return p?p.k:"other";};
+const probOf=r=>{const t=r.en||(r.name+" "+(r.res||""));const p=PROBS.find(p=>p.re.test(t));return p?p.k:"other";};
 function allInitiatives(){
   const rows=[];
-  COMPANIES.forEach(co=>{co.table.forEach(r=>rows.push({name:r.n[lang],res:r.r[lang],t:r.t,g:r.g,p:r.p,co}));
-    co.appendix.forEach(a=>rows.push({name:lang==="bm"?a[4]:a[3],res:"",t:a[0],g:a[1],p:a[2],co}));});
+  COMPANIES.forEach(co=>{co.table.forEach(r=>rows.push({name:r.n[lang],res:r.r[lang],en:r.n.en+" "+r.r.en,t:r.t,g:r.g,p:r.p,co}));
+    co.appendix.forEach(a=>rows.push({name:lang==="bm"?a[4]:a[3],res:"",en:a[3],t:a[0],g:a[1],p:a[2],co}));});
   return rows;
 }
 D2.en.pendText=`In preparation. ${cap(NUM_EN[NEED])} more ${NEED===1?"story":"stories"} in this sector also ${NEED===1?"unlocks":"unlock"} Distance to Frontier.`;
@@ -1550,7 +1533,7 @@ const tierChip=t=>`<span class="chip t${t}" title="${esc(LEG[lang].tiers[t-1])}"
 const GRADE_LBL={en:{A:"Figure reported",B:"Scale only",C:"Described only"},bm:{A:"Angka dilaporkan",B:"Skala sahaja",C:"Diterangkan sahaja"}};
 const gradeChip=g=>`<span class="chip g${g}" title="${esc(LEG[lang].grades["ABC".indexOf(g)])}">${GRADE_LBL[lang][g]}</span>`;
 
-/* ---------- tools for readers: frontier page, business check, idea matcher, 30-day plan, Ask ---------- */
+/* ---------- tools for readers: frontier page, business check, idea matcher ---------- */
 const TOOLS={
  en:{bmH:"Distance to Frontier",
    bmLede:"The frontier is the value added per employee that only the strongest similar companies reach (1 in 10 yearly results). Today it covers five Bursa dairy and milk-product companies. See where each story company stands, then check your own business.",
@@ -1572,21 +1555,8 @@ const TOOLS={
    mNone:"No idea from the stories matches this yet. Try another problem, or browse the full library below.",
    from:"From",reviewed:"Reviewed story",draftS:"Draft story",
    lk:["What they did","For a smaller business","First step","How to measure"],
-   pick:"Add to my 30-day plan",planBtn:n=>`Make my 30-day plan (${n})`,planNone:"Tick one to three ideas to make a plan.",
-   planH:"My 30-day plan",planSub:(t,s)=>`For a business that ${t.toLowerCase()} · ${s}`,print:"Print or save as PDF",close:"Close",
-   weeks:["Week 1 · Look","Week 2 · Measure the starting point","Week 3 · Try the change","Week 4 · Compare and decide"],
-   wk:l=>[l[2],`Write down today’s figure: ${l[3].replace(/\.$/,"").toLowerCase()}.`,l[1],"Measure again the same way. Keep the change if the figure moved the right way; if not, note why and try the next idea."],
-   planFoot:"Ideas from Productivity Lens stories, based on company annual reports. Draft content, not advice.",
-   askH:"Ask Productivity Lens",askSub:"Ask a question about the reviewed stories. Answers come only from those stories, with the report page for each fact.",
-   askPh:"For example: how did Farm Fresh raise ice-cream capacity?",askBtn:"Ask",
-   askEx:["How did Farm Fresh raise ice-cream capacity?","What did Dutch Lady change at its new plant?","What can a small business learn about stock?"],
-   askWait:"Looking through the stories…",askAI:"Answer written by AI from the passages below. Check the page references before you rely on it.",
-   askSrc:"Passages used",askNoAI:"AI answers are not switched on yet. These are the passages that best match your question:",
-   askNone:"The reviewed stories do not cover that. Try asking about a company, a result or an idea in the stories.",
-   askFail:"Sorry, something went wrong. Please try again in a minute.",askUnsure:"The AI answer could not be checked against the stories, so it is not shown. These are the passages that best match your question:",
-   askPriv:"Your question is sent to Cloudflare Workers AI to write the answer. We do not store it.",
    tH:"Tools for your business",
-   t:[["#frontier","Check your business","Work out your value added per employee and see how it compares."],["#initiatives","Find ideas","Pick a problem and get ideas with a first step and a 30-day plan."],["#ask","Ask Productivity Lens","Ask about the reviewed stories and get answers with page references."]]},
+   t:[["#frontier","Check your business","Work out your value added per employee and see how it compares."],["#initiatives","Find ideas","Pick a problem and get ideas with a first step and a way to measure it."]]},
  bm:{bmH:"Jarak ke Aras Termaju",
    bmLede:"Aras termaju ialah nilai ditambah bagi setiap pekerja yang hanya dicapai syarikat sejenis yang paling kukuh (1 daripada 10 keputusan tahunan). Buat masa ini ia meliputi lima syarikat tenusu dan produk susu Bursa. Lihat kedudukan setiap syarikat dalam kisah, kemudian semak perniagaan anda sendiri.",
    listH:"Syarikat dalam kumpulan tenusu",listNote:"Disusun mengikut abjad. Setiap angka ialah bahagian aras termaju yang dicapai syarikat itu sendiri pada tahun terkininya. Ini bukan kedudukan.",
@@ -1607,21 +1577,8 @@ const TOOLS={
    mNone:"Belum ada idea daripada kisah yang sepadan. Cuba masalah lain, atau lihat pustaka penuh di bawah.",
    from:"Daripada",reviewed:"Kisah disemak",draftS:"Kisah draf",
    lk:["Apa yang mereka lakukan","Untuk perniagaan kecil","Langkah pertama","Cara mengukur"],
-   pick:"Tambah ke pelan 30 hari saya",planBtn:n=>`Buat pelan 30 hari saya (${n})`,planNone:"Tandakan satu hingga tiga idea untuk membuat pelan.",
-   planH:"Pelan 30 hari saya",planSub:(t,s)=>`Untuk perniagaan: ${t.toLowerCase()} · ${s}`,print:"Cetak atau simpan sebagai PDF",close:"Tutup",
-   weeks:["Minggu 1 · Tinjau","Minggu 2 · Ukur titik permulaan","Minggu 3 · Cuba perubahan","Minggu 4 · Banding dan putuskan"],
-   wk:l=>[l[2],`Catat angka hari ini: ${l[3].replace(/\.$/,"").toLowerCase()}.`,l[1],"Ukur semula dengan cara yang sama. Kekalkan perubahan jika angka bergerak ke arah yang betul; jika tidak, catat sebabnya dan cuba idea seterusnya."],
-   planFoot:"Idea daripada kisah Productivity Lens, berdasarkan laporan tahunan syarikat. Kandungan draf, bukan nasihat.",
-   askH:"Tanya Productivity Lens",askSub:"Tanya soalan tentang kisah yang telah disemak. Jawapan hanya daripada kisah itu, dengan halaman laporan bagi setiap fakta.",
-   askPh:"Contohnya: bagaimana Farm Fresh menambah kapasiti aiskrim?",askBtn:"Tanya",
-   askEx:["Bagaimana Farm Fresh menambah kapasiti aiskrim?","Apa yang Dutch Lady ubah di kilang baharunya?","Apa yang perniagaan kecil boleh belajar tentang stok?"],
-   askWait:"Sedang meneliti kisah…",askAI:"Jawapan ditulis oleh AI daripada petikan di bawah. Semak rujukan halaman sebelum bergantung padanya.",
-   askSrc:"Petikan yang digunakan",askNoAI:"Jawapan AI belum dibuka. Ini petikan yang paling sepadan dengan soalan anda:",
-   askNone:"Kisah yang disemak tidak meliputi perkara itu. Cuba tanya tentang syarikat, keputusan atau idea dalam kisah.",
-   askFail:"Maaf, berlaku ralat. Sila cuba lagi sebentar lagi.",askUnsure:"Jawapan AI tidak dapat disemak dengan kisah, jadi ia tidak dipaparkan. Ini petikan yang paling sepadan dengan soalan anda:",
-   askPriv:"Soalan anda dihantar ke Cloudflare Workers AI untuk menulis jawapan. Kami tidak menyimpannya.",
    tH:"Alat untuk perniagaan anda",
-   t:[["#frontier","Semak perniagaan anda","Kira nilai ditambah bagi setiap pekerja dan lihat perbandingannya."],["#initiatives","Cari idea","Pilih masalah dan dapatkan idea dengan langkah pertama dan pelan 30 hari."],["#ask","Tanya Productivity Lens","Tanya tentang kisah yang disemak dan dapat jawapan dengan rujukan halaman."]]}
+   t:[["#frontier","Semak perniagaan anda","Kira nilai ditambah bagi setiap pekerja dan lihat perbandingannya."],["#initiatives","Cari idea","Pilih masalah dan dapatkan idea dengan langkah pertama dan cara mengukurnya."]]}
 };
 const rm=n=>(n<0?"−":"")+"RM"+Math.round(Math.abs(n)).toLocaleString("en-US");
 const num=v=>{const s=String(v||"").replace(/[,\s]/g,"").replace(/^RM/i,"").replace(/[−–]/g,"-");return s===""?0:Number(s);};
@@ -1656,65 +1613,25 @@ function bindBenchmark(){const T=TOOLS[lang],f=document.getElementById("chkForm"
       <a class="pill" href="#initiatives" style="margin-top:12px">${T.next} ${ARROW}</a>`;
     out.scrollIntoView({block:"nearest",behavior:"smooth"});});}
 
-/* idea matcher + 30-day plan (no AI: fixed rules, ideas come only from the stories) */
-const match={prob:"output",type:"make",size:"m",pick:[]};
+/* idea matcher (fixed rules, ideas come only from the stories) */
+const match={prob:"output",type:"make",size:"m"};
 const TYPE_RE={make:/manufactur|plant|line|factory|machine|kilang|mesin|barisan|production|pengeluaran|recall|batch/i,move:/distribut|reseller|stock|warehouse|agent|dealer|stok|gudang|ejen|penjual|deliver|route|lori|truck/i,serve:/office|staff|training|software|digital|approval|pekerja|latihan|perisian|pejabat|kakitangan/i};
 function allLessons(){const out=[];COMPANIES.forEach(c=>(c.lessons||[]).forEach((l,i)=>out.push({c,i,l,id:c.slug+"-"+i})));return out;}
 function lessonProb(x){const t=x.l.title.en+" "+x.l.type.en+" "+x.l.body.en[0];const p=PROBS.find(p=>p.re.test(t));return p?p.k:"other";}
 function matchIdeas(){return allLessons().map(x=>{const t=[x.l.title[lang],x.l.type[lang],...x.l.body[lang]].join(" ")+" "+x.l.body.en.join(" ");
    let ps=0;if(lessonProb(x)===match.prob)ps=3;else if(PROBS.find(p=>p.k===match.prob).re.test(x.l.title.en+" "+x.l.type.en))ps=1;
    let s=ps;if(TYPE_RE[match.type].test(t))s+=1;if(x.c.reviewed)s+=.5;return {...x,s,ps};}).filter(x=>x.ps>=1).sort((a,b)=>b.s-a.s||a.c.name.localeCompare(b.c.name)).slice(0,4);}
+const selBox=(id,lbl,opts,val,all)=>`<label class="cosel"><span class="lbl">${lbl}</span><select id="${id}" aria-label="${lbl}">${all?`<option value="">${all}</option>`:""}${opts.map(([k,l])=>`<option value="${k}" ${k===val?"selected":""}>${l}</option>`).join("")}</select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>`;
 function matcherBox(){const T=TOOLS[lang];
   return `<section class="panel matcher" id="matcher"><h2 style="font-size:clamp(26px,3vw,38px)">${T.mH}</h2><p class="muted" style="max-width:70ch">${T.mSub}</p>
-   <div class="mrow"><span class="glbl">${T.mProb}</span>${PROBS.map(p=>`<button type="button" class="fpill" data-mprob="${p.k}" aria-pressed="${match.prob===p.k}">${p[lang]}</button>`).join("")}</div>
-   <div class="mrow"><span class="glbl">${T.mType}</span>${T.types.map(([k,l])=>`<button type="button" class="fpill" data-mtype="${k}" aria-pressed="${match.type===k}">${l}</button>`).join("")}</div>
-   <div class="mrow"><span class="glbl">${T.mSize}</span>${T.sizes.map(([k,l])=>`<button type="button" class="fpill" data-msize="${k}" aria-pressed="${match.size===k}">${l}</button>`).join("")}</div>
+   <div class="mselects">${selBox("mprob",T.mProb,PROBS.map(p=>[p.k,p[lang]]),match.prob)}${selBox("mtype",T.mType,T.types,match.type)}${selBox("msize",T.mSize,T.sizes,match.size)}</div>
    <div id="mres"></div></section>`;}
 function renderMatch(){const T=TOOLS[lang],box=document.getElementById("mres");if(!box)return;const ideas=matchIdeas();
-  match.pick=match.pick.filter(id=>allLessons().some(x=>x.id===id));
   box.innerHTML=ideas.length?`<div class="mcards">${ideas.map(x=>{const b=x.l.body[lang];return `<article class="mcard"><div class="chips"><span class="chip ${x.c.reviewed?"gA":"gC"}">${x.c.reviewed?T.reviewed:T.draftS}</span><span class="chip">${esc(x.l.type[lang])}</span></div>
       <h3>${esc(x.l.title[lang])}</h3><dl>${T.lk.map((k,i)=>`<dt>${k}</dt><dd>${esc(b[i])}</dd>`).join("")}</dl>
-      <p class="pg">${T.from}: <a href="#${x.c.slug}">${esc(SHORT[x.c.slug]||x.c.name.replace(/ (Berhad|Bhd)$/,""))}</a></p>
-      <label class="mpick"><input type="checkbox" data-pick="${x.id}" ${match.pick.includes(x.id)?"checked":""}> ${T.pick}</label></article>`;}).join("")}</div>
-     <div class="mplan"><button type="button" class="pill dark" id="planBtn">${T.planBtn(match.pick.length)} ${ARROW}</button><span class="muted" id="planHint" style="font-size:14px">${match.pick.length?"":T.planNone}</span></div>`
-   :`<p class="muted" style="margin-top:18px">${T.mNone}</p>`;
-  box.querySelectorAll("[data-pick]").forEach(cb=>cb.addEventListener("change",()=>{const id=cb.dataset.pick;
-    if(cb.checked){if(match.pick.length>=3){cb.checked=false;return;}match.pick.push(id);}else match.pick=match.pick.filter(x=>x!==id);
-    document.getElementById("planBtn").innerHTML=`${T.planBtn(match.pick.length)} ${ARROW}`;document.getElementById("planHint").textContent=match.pick.length?"":T.planNone;}));
-  const pb=document.getElementById("planBtn");if(pb)pb.addEventListener("click",()=>{if(!match.pick.length){document.getElementById("planHint").textContent=T.planNone;return;}openPlan();});}
-function bindMatcher(){document.querySelectorAll("[data-mprob],[data-mtype],[data-msize]").forEach(b=>b.addEventListener("click",()=>{
-   if(b.dataset.mprob)match.prob=b.dataset.mprob;if(b.dataset.mtype)match.type=b.dataset.mtype;if(b.dataset.msize)match.size=b.dataset.msize;
-   const grp=b.dataset.mprob?"mprob":b.dataset.mtype?"mtype":"msize";document.querySelectorAll(`[data-${grp}]`).forEach(x=>x.setAttribute("aria-pressed",x===b));renderMatch();}));renderMatch();}
-function openPlan(){const T=TOOLS[lang],all=allLessons(),picked=match.pick.map(id=>all.find(x=>x.id===id)).filter(Boolean);
-  const tl=T.types.find(t=>t[0]===match.type)[1],sl=T.sizes.find(s=>s[0]===match.size)[1];
-  const el=document.createElement("div");el.className="planov";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");
-  el.innerHTML=`<div class="plan"><div class="planhd"><div><h2>${T.planH}</h2><p class="muted">${esc(T.planSub(tl,sl))}</p></div><div class="noprint"><button type="button" class="pill dark" id="planPrint">${T.print} ${ARROW}</button> <button type="button" class="fpill" id="planClose">${T.close}</button></div></div>
-   ${picked.map((x,n)=>{const w=T.wk(x.l.body[lang]);return `<section class="pidea"><h3>${n+1}. ${esc(x.l.title[lang])}</h3><p class="muted" style="font-size:13.5px">${T.from}: ${esc(SHORT[x.c.slug]||x.c.name)} · ${x.c.reviewed?T.reviewed:T.draftS}</p>
-     <ol class="weeks">${T.weeks.map((h,i)=>`<li><b>${h}</b><span>${esc(w[i])}</span><i class="tick" aria-hidden="true"></i></li>`).join("")}</ol></section>`;}).join("")}
-   <p class="muted" style="font-size:12.5px;margin-top:18px">Productivity Lens · productivitylens.pages.dev · ${T.planFoot}</p></div>`;
-  document.body.appendChild(el);document.body.classList.add("planopen");
-  const close=()=>{el.remove();document.body.classList.remove("planopen");};
-  el.querySelector("#planClose").onclick=close;el.querySelector("#planPrint").onclick=()=>print();el.addEventListener("click",e=>{if(e.target===el)close();});
-  el.querySelector("#planPrint").focus();}
-
-/* Ask: answers come from /api/ask, built only from reviewed stories (site/kb.json) */
-function viewAsk(){const T=TOOLS[lang],u=UI[lang];
-  return `<div class="draft">${u.draft}</div><h1>${T.askH}</h1><p class="lead muted">${T.askSub}</p>
-   <form id="askForm" class="askform"><input type="text" id="askQ" maxlength="300" placeholder="${T.askPh}" aria-label="${T.askH}" autocomplete="off"><button type="submit" class="pill dark">${T.askBtn} ${ARROW}</button></form>
-   <div class="askex">${T.askEx.map(q=>`<button type="button" class="fpill" data-askex>${q}</button>`).join("")}</div>
-   <p class="muted" style="font-size:13px;margin-top:10px">${T.askPriv} <a href="#privacy">${PRIV[lang].h}</a></p>
-   <div id="askOut" aria-live="polite"></div>`;}
-function bindAsk(){const T=TOOLS[lang],f=document.getElementById("askForm");if(!f)return;const q=document.getElementById("askQ"),out=document.getElementById("askOut");
-  document.querySelectorAll("[data-askex]").forEach(b=>b.addEventListener("click",()=>{q.value=b.textContent;f.requestSubmit();}));
-  const srcList=s=>s&&s.length?`<h3 class="askh">${T.askSrc}</h3><ul class="asksrc">${s.map(x=>`<li><a href="#${x.slug}">${esc(x.company)}</a> · <span class="muted">${esc(x.ref||"")}</span><br>${esc(x.text)}</li>`).join("")}</ul>`:"";
-  f.addEventListener("submit",async e=>{e.preventDefault();const v=q.value.trim();if(!v)return;out.innerHTML=`<p class="muted askwait">${T.askWait}</p>`;
-    try{const r=await fetch("/api/ask",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({q:v,lang})});
-      const d=await r.json().catch(()=>({}));
-      if(d.status==="answer")out.innerHTML=`<div class="askans"><p>${esc(d.answer).replace(/\n+/g,"</p><p>")}</p><p class="muted" style="font-size:13px">${T.askAI}</p></div>${srcList(d.sources)}`;
-      else if(d.status==="none")out.innerHTML=`<p class="askans">${T.askNone}</p>`;
-      else if(d.status==="sources")out.innerHTML=`<p class="askans">${d.reason==="unchecked"?T.askUnsure:T.askNoAI}</p>${srcList(d.sources)}`;
-      else out.innerHTML=`<p class="askans">${T.askFail}</p>`;
-    }catch(err){out.innerHTML=`<p class="askans">${T.askFail}</p>`;}});}
+      <p class="pg">${T.from}: <a href="#${x.c.slug}">${esc(SHORT[x.c.slug]||x.c.name.replace(/ (Berhad|Bhd)$/,""))}</a></p></article>`;}).join("")}</div>`
+   :`<p class="muted" style="margin-top:18px">${T.mNone}</p>`;}
+function bindMatcher(){[["mprob","prob"],["mtype","type"],["msize","size"]].forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.addEventListener("change",()=>{match[k]=el.value;renderMatch();});});renderMatch();}
 
 const NAV={
   en:{items:["Home","Stories","Ideas library","Distance to Frontier","How we check"],menu:"Menu",close:"Close",search:"Search stories and initiatives",grpS:"Stories",grpI:"Initiatives",none:"No matches. Try another word, such as “warehouse” or “training”.",hint:"Press Esc to close",top:"Back to top",
@@ -2044,10 +1961,10 @@ function viewLibrary(){
          <option value="">${lang==="bm"?"Semua syarikat":"All companies"} (${allInitiatives().length})</option>
          ${COMPANIES.map(c=>`<option value="${c.slug}" ${lib.co===c.slug?"selected":""}>${esc(c.short)} (${c.table.length+c.appendix.length})</option>`).join("")}
        </select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+     ${selBox("probsel",lang==="bm"?"Masalah":"Problem",PROBS.map(p=>[p.k,p[lang]]),lib.prob,lang==="bm"?"Semua masalah":"All problems")}
      <input type="search" id="q" placeholder="${u.search}" aria-label="${u.search}" value="${esc(lib.q)}">
    </div>
    <div class="libbar2">
-     <div class="fgroup" role="group" aria-label="Problem"><span class="glbl">${lang==="bm"?"Masalah":"Problem"}</span>${PROBS.map(p=>`<button type="button" class="fpill" data-prob="${p.k}" aria-pressed="${lib.prob===p.k}">${p[lang]}</button>`).join("")}</div>
      <div class="fgroup" role="group" aria-label="Evidence"><span class="glbl">${lang==="bm"?"Bukti":"Evidence"}</span>${["A","B","C"].map(g=>`<button type="button" class="fpill" data-grade="${g}" aria-pressed="${lib.grade===g}">${GRADE_LBL[lang][g]}</button>`).join("")}</div>
      <button type="button" class="clearf" id="clearf" ${lib.co||lib.tier||lib.grade||lib.q||lib.prob?"":"hidden"}>${lang==="bm"?"Kosongkan penapis":"Clear filters"}</button>
    </div>
@@ -2065,10 +1982,10 @@ function bindLib(){
   document.getElementById("libgrid").addEventListener("click",e=>{const a=e.target.closest("[data-goto]");if(a)pendingSection=a.dataset.goto;});
   const q=document.getElementById("q");q.addEventListener("input",()=>{lib.q=q.value;renderLib();});
   const cs=document.getElementById("cosel");cs.addEventListener("change",()=>{lib.co=cs.value;renderLib();});
-  document.getElementById("clearf").addEventListener("click",()=>{lib.co="";lib.tier=0;lib.grade="";lib.q="";lib.prob="";cs.value="";q.value="";document.querySelectorAll("[data-tier],[data-grade],[data-prob]").forEach(x=>x.setAttribute("aria-pressed","false"));renderLib();});
+  document.getElementById("clearf").addEventListener("click",()=>{lib.co="";lib.tier=0;lib.grade="";lib.q="";lib.prob="";cs.value="";document.getElementById("probsel").value="";q.value="";document.querySelectorAll("[data-tier],[data-grade],[data-prob]").forEach(x=>x.setAttribute("aria-pressed","false"));renderLib();});
   document.querySelectorAll("[data-tier]").forEach(b=>b.addEventListener("click",()=>{const t=+b.dataset.tier;lib.tier=lib.tier===t?0:t;document.querySelectorAll("[data-tier]").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.tier===lib.tier));renderLib();}));
   document.querySelectorAll("[data-grade]").forEach(b=>b.addEventListener("click",()=>{const g=b.dataset.grade;lib.grade=lib.grade===g?"":g;document.querySelectorAll("[data-grade]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.grade===lib.grade));renderLib();}));
-  document.querySelectorAll("[data-prob]").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.prob;lib.prob=lib.prob===k?"":k;document.querySelectorAll("[data-prob]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.prob===lib.prob));renderLib();}));
+  const ps=document.getElementById("probsel");ps.addEventListener("change",()=>{lib.prob=ps.value;renderLib();});
 }
 const TRUST={en:[["From the company's own report","Every figure comes from the company’s annual or sustainability report, with a short quote and the page number, so you can check it yourself."],
  ["Productivity, not promotion","We only count moves that help a company get more from its people, machines, materials or space. Plans, awards, sales growth and charity work are left out."],
@@ -2092,7 +2009,7 @@ function footer(){
   let pix="";for(let i=0;i<34;i++){pix+=`<i style="background:${r()<.45?"#fff":(r()<.2?"#A26BF7":"transparent")}"></i>`;}
   return `<div><div class="flogo"><svg class="mark" style="width:44px;height:44px" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B0B0F"/><circle cx="32" cy="32" r="17" fill="none" stroke="#D6F22E" stroke-width="5"/><circle cx="32" cy="32" r="7" fill="#A26BF7"/></svg><span>Productivity Lens</span></div><p class="small">${d.footText}</p>
      <h3 style="margin-top:34px">${d.quick}</h3>
-     <div class="links">${NAV[lang].items.map((l,i)=>`<a href="#${["","stories","initiatives","frontier","how-it-works"][i]}">${l}</a>`).join("")}<a href="#ask">${TOOLS[lang].askH}</a>${COMPANIES.map(c=>`<a href="#${c.slug}">${esc(c.short)}</a>`).join("")}<a href="#privacy">${NL[lang].privacy}</a><a href="#unsubscribe">${NL[lang].unsub}</a></div></div>
+     <div class="links">${NAV[lang].items.map((l,i)=>`<a href="#${["","stories","initiatives","frontier","how-it-works"][i]}">${l}</a>`).join("")}${COMPANIES.map(c=>`<a href="#${c.slug}">${esc(c.short)}</a>`).join("")}<a href="#privacy">${NL[lang].privacy}</a><a href="#unsubscribe">${NL[lang].unsub}</a></div></div>
    <div><h3 style="max-width:26ch">${d.footH}</h3><a class="pill lime" href="#subscribe">${NL[lang].h} ${ARROW}</a>
      <p class="small" style="margin-top:34px">${u.foot}</p><div class="pix" aria-hidden="true">${pix}</div></div>
    <div class="wordmark" aria-hidden="true">Productivity <span>Lens</span></div>`;
@@ -2171,7 +2088,7 @@ function viewUnsubscribe(){const T=UNS[lang],N=NL[lang];return `<h1>${T.h}</h1><
 function viewSubscribe(){const T=NL[lang];return `<h1>${T.page}</h1><p class="lead muted">${T.p}</p>${signupSection("page")}<p style="margin-top:24px"><a href="#privacy">${T.privacy}</a> · <a href="#unsubscribe">${T.unsub}</a></p>`;}
 const PRIV={en:{h:"Privacy notice",upd:"Last updated 15 November 2026",s:[
  ["Who we are","Productivity Lens is an independent, personal project. It is not run by or for any government body or company. This notice explains how the newsletter sign-up handles your personal data, in line with Malaysia’s Personal Data Protection Act 2010 (PDPA)."],
- ["Ask Productivity Lens and Check your business","Check your business works only in your browser: the figures you type are never sent to us or stored. When you use Ask Productivity Lens, your question is sent to Cloudflare Workers AI, which writes the answer from our reviewed stories. We do not store or log your question, and you should not type personal data into it."],
+ ["Check your business","Check your business works only in your browser: the figures you type are never sent to us or stored."],
  ["What we collect","Only what you give us in the sign-up form: your email address and the newsletter language you choose. We also record the date and time you agreed to this notice and which version of the notice it was. We do not record your IP address, and the website uses no tracking or advertising cookies."],
  ["Why we collect it","To send you an email when a new Productivity Lens story is published. We do not use your address for anything else, and we never sell, rent or share it for anyone’s marketing."],
  ["Your choice","Signing up is voluntary. If you do not sign up, you can still read everything on the website; you just won’t receive the newsletter by email."],
@@ -2181,7 +2098,7 @@ const PRIV={en:{h:"Privacy notice",upd:"Last updated 15 November 2026",s:[
  ["Contact","__CONTACT__"]]},
  bm:{h:"Notis privasi",upd:"Kemas kini terakhir 15 November 2026",s:[
  ["Siapa kami","Productivity Lens ialah projek peribadi yang bebas. Ia tidak dikendalikan oleh atau untuk mana-mana badan kerajaan atau syarikat. Notis ini menerangkan cara pendaftaran surat berita mengendalikan data peribadi anda, selaras dengan Akta Perlindungan Data Peribadi 2010 (PDPA) Malaysia."],
- ["Tanya Productivity Lens dan Semak perniagaan anda","Semak perniagaan anda berfungsi dalam pelayar anda sahaja: angka yang anda taip tidak pernah dihantar kepada kami atau disimpan. Apabila anda menggunakan Tanya Productivity Lens, soalan anda dihantar ke Cloudflare Workers AI, yang menulis jawapan daripada kisah kami yang telah disemak. Kami tidak menyimpan atau merekod soalan anda, dan anda tidak patut menaip data peribadi di dalamnya."],
+ ["Semak perniagaan anda","Semak perniagaan anda berfungsi dalam pelayar anda sahaja: angka yang anda taip tidak pernah dihantar kepada kami atau disimpan."],
  ["Apa yang kami kumpul","Hanya apa yang anda berikan dalam borang: alamat e-mel anda dan bahasa surat berita yang anda pilih. Kami juga merekod tarikh dan masa anda bersetuju dengan notis ini dan versi notis tersebut. Kami tidak merekod alamat IP anda, dan laman web ini tidak menggunakan kuki penjejakan atau pengiklanan."],
  ["Mengapa kami mengumpulnya","Untuk menghantar e-mel kepada anda apabila kisah Productivity Lens baharu diterbitkan. Kami tidak menggunakan alamat anda untuk tujuan lain, dan tidak sekali-kali menjual, menyewakan atau berkongsinya untuk pemasaran sesiapa."],
  ["Pilihan anda","Pendaftaran adalah sukarela. Jika anda tidak mendaftar, anda masih boleh membaca semua kandungan laman web ini; anda cuma tidak akan menerima surat berita melalui e-mel."],
@@ -2216,14 +2133,13 @@ function route(){
     document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));}
   else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();bindMatcher();}
   else if(h==="frontier"){app.innerHTML=viewBenchmark();bindBenchmark();}
-  else if(h==="ask"){app.innerHTML=viewAsk();bindAsk();}
   else if(h==="how-it-works"){app.innerHTML=viewMethod();}
   else if(h==="privacy"){app.innerHTML=viewPrivacy();}
   else if(h==="subscribe"){app.innerHTML=viewSubscribe();}
   else if(h==="unsubscribe"){app.innerHTML=viewUnsubscribe();}
   else {app.innerHTML=viewHome();
 }
-  const vt=({stories:NAV[lang].items[1],initiatives:NAV[lang].items[2],frontier:NAV[lang].items[3],"how-it-works":NAV[lang].items[4],ask:TOOLS[lang].askH,privacy:PRIV[lang].h,subscribe:NL[lang].page,unsubscribe:UNS[lang].h})[h];document.title=co?`${SHORT[co.slug]||co.name.replace(/ (Berhad|Bhd)$/,"")} · Productivity Lens`:vt?`${vt} · Productivity Lens`:"Productivity Lens";
+  const vt=({stories:NAV[lang].items[1],initiatives:NAV[lang].items[2],frontier:NAV[lang].items[3],"how-it-works":NAV[lang].items[4],privacy:PRIV[lang].h,subscribe:NL[lang].page,unsubscribe:UNS[lang].h})[h];document.title=co?`${SHORT[co.slug]||co.name.replace(/ (Berhad|Bhd)$/,"")} · Productivity Lens`:vt?`${vt} · Productivity Lens`:"Productivity Lens";
   bindForms();
   bindLang();
 }
