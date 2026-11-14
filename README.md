@@ -38,6 +38,7 @@ Large PDFs and rendered images are excluded by `.gitignore`; regenerate them fro
 | `pl-bm` | Bahasa Melayu Content file and consistency checks |
 | `pl-lint` | House-rules check before anything is shared |
 | `pl-render` | Spotlight PDF, snapshot PNGs, newsletter HTML |
+| `pl-classify` | Productivity test: fact questions F1–F6 + rules engine for counted / Tier / Grade / Evidence type |
 
 Claude Code loads these automatically when this repository is opened.
 

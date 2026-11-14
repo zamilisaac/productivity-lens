@@ -13,7 +13,10 @@ Output is in English and Bahasa Melayu.
 ## Repository layout
 - `.claude/skills/` – the six Productivity Lens skills (use them, do not rewrite their logic):
   `pl-ledger` (Ledger/Rules, intake), `pl-evidence` (PageMap, quote audit), `pl-calc` (8 indicators, DTF),
-  `pl-bm` (Bahasa Melayu Content file), `pl-lint` (house rules), `pl-render` (PDF, PNG, newsletter HTML).
+  `pl-bm` (Bahasa Melayu Content file), `pl-lint` (house rules), `pl-render` (PDF, PNG, newsletter HTML),
+  `pl-classify` (productivity test: Claude answers fact questions F1–F6, `classify.py` decides the labels).
+- Never label initiatives (counted, Tier, Grade, Evidence type) by judgement: use `pl-classify`.
+- `private/` is git-ignored: Drive copies and real gold sets live there, never in commits.
 - `inbox/`, `ledger/`, `data/`, `content/en|bm/`, `output/`, `templates/`, `scripts/`, `docs/` – workflow folders.
 - `site/index.html` – the live Productivity Lens · MPC website (Home, Stories, Initiative library,
   How it works, EN/BM toggle; story data is embedded in the file). `site/assets/` holds the MPC logo,

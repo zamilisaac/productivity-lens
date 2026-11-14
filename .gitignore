@@ -26,3 +26,6 @@ Thumbs.db
 # Published files for the website
 !site/**/*.pdf
 !site/**/*.png
+
+# Private working data (Drive copies, real gold sets) - never pushed to the public repo
+private/

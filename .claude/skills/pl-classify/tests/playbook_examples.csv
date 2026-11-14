@@ -1,0 +1,19 @@
+id,company,code,fy,initiative,page,source,quote,category,status,result_kind,input,figure,area,expected_counted,expected_tier,expected_grade,expected_evidence_type
+PB01,Example,0000,2026,Solar panels,1,SR,"Solar panels avoided 1,200 tCO2e in FY2026",operations,achieved,environmental_only,energy,single_impact,resource,N,,,
+PB02,Example,0000,2026,Water recycling,2,AR,"Water recycling saved RM0.4 million and cut water used per litre from 3.1 to 2.6 litres",operations,achieved,cost,water,single_impact,resource,Y,3,A,Operating result
+PB03,Example,0000,2026,Lighter packaging (plastic only),3,SR,"Lighter bottles reduced plastic use by 120 tonnes",operations,achieved,environmental_only,materials,single_impact,resource,N,,,
+PB04,Example,0000,2026,Lighter packaging (cost saved),4,AR,"Lighter bottles cut packaging material cost by RM1.1 million",operations,achieved,cost,materials,single_impact,resource,Y,3,A,Operating result
+PB05,Example,0000,2026,General training hours,5,SR,"Employees completed 5,868 training hours",operations,achieved,training_hours,people,single_impact,workforce_skills,N,,,
+PB06,Example,0000,2026,Operators trained to run two lines,6,AR,"Operators were trained to run two lines",operations,achieved,none,people,none,workforce_skills,Y,1,C,Enabler
+PB07,Example,0000,2026,New plant revenue,7,AR,"New plant revenue rose from RM14.3m to RM31.9m",operations,achieved,revenue_profit,none,before_after,new_site,N,,,
+PB08,Example,0000,2026,New hub planned capacity,8,AR,"The new hub is expected to make 1 million pieces a day",operations,planned,capacity,machine_time,single_impact,new_site,N,,,
+PB09,Example,0000,2026,Acquisition,9,AR,"Acquired a firm with 5 lines and 25 trucks",acquisition,achieved,counts_scale,none,single_impact,new_site,N,,,
+PB10,Example,0000,2026,Freezers placed,10,AR,"11,000 freezers placed with retailers",operations,achieved,counts_scale,none,single_impact,distribution_restructure,N,,,
+PB11,Example,0000,2026,Recall record and ISO,11,SR,"Zero product recalls; ISO 22000 certified",operations,achieved,compliance_award,none,none,quality_yield,N,,,
+PB12,Example,0000,2026,Agent network restructuring,12,AR,"Agents cut from 971 to 252, lowering distribution cost by RM2.1 million",operations,achieved,cost,people,single_impact,distribution_restructure,Y,1,A,Operating result
+PB13,Example,0000,2026,Drive-in racking,13,AR,"Drive-in racking raised rack utilisation by 13%",operations,achieved,utilisation,space,single_impact,process_layout,Y,1,A,Operating result
+PB14,Example,0000,2026,Second line in existing plant,14,AR,"A second line raised output from 70,000 to 180,000 pieces per day",operations,achieved,capacity,machine_time,before_after,capacity_existing_site,Y,1,A,Enabler
+PB15,Example,0000,2026,Robotic palletisers,15,AR,"12 robotic palletisers were installed",operations,achieved,investment_scale,people,single_impact,automation_digital,Y,1,B,Enabler
+PB16,Example,0000,2026,Output per worker,16,AR,"Output per worker rose by 15% after the line upgrade",operations,achieved,output_per_input,people,single_impact,line_machinery,Y,1,A,Productivity result
+PB17,Example,0000,2026,Wellbeing programme,17,SR,"Launched a wellbeing programme with flexible hours",hr_benefit,achieved,none,people,none,workforce_skills,N,,,
+PB18,Example,0000,2026,Distribution lower cost no RM,18,AR,"Fewer agents and lower distribution costs",operations,achieved,cost,people,none,distribution_restructure,Y,1,C,Enabler
