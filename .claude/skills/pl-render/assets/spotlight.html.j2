@@ -3,177 +3,245 @@
 <head>
 <meta charset="utf-8">
 <title>{{ c.company }} FY{{ c.fy }} · Productivity Lens</title>
+{#- Style A (2026-11-14): same identity as the website – Geist with real weights, ink / lime / violet palette,
+    content flows across as many pages as it needs (3–6); only the big chapters start a new page. -#}
 <style>
-@font-face { font-family: "Lora"; src: url("{{ fonts }}/Lora.ttf") format("truetype"); font-weight: 400 700; }
-@font-face { font-family: "Inter"; src: url("{{ fonts }}/Inter.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Geist"; src: url("{{ fonts }}/Geist-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Geist"; src: url("{{ fonts }}/Geist-Medium.ttf") format("truetype"); font-weight: 500; }
+@font-face { font-family: "Geist"; src: url("{{ fonts }}/Geist-SemiBold.ttf") format("truetype"); font-weight: 600; }
+@font-face { font-family: "Geist"; src: url("{{ fonts }}/Geist-Bold.ttf") format("truetype"); font-weight: 700; }
 :root {
-  --ink:#0D1B2A; --slate:#2D4258; --grey:#5E6B7A; --teal:#0F8B7E; --teal-tint:#E6F3F1;
-  --amber:#E2A42B; --coral:#D9573F; --coral-tint:#FBE9E5; --cream:#F5F0E6; --paper:#FBF8F2;
-  --rule:#E4DDD0; --light:#C4D0DC;
+  --ink:#0B0B0F; --ink2:#2A2A33; --muted:#5A5A66; --line:#E2E0E8; --soft:#F5F4F8;
+  --lime:#D4F542; --lime-ink:#2F3A05; --violet:#9466FF; --violet-ink:#4B2A9E; --violet-soft:#EFE8FF;
 }
-@page { size: A4; margin: 0; }
+@page {
+  size: A4; margin: 18mm 17mm 20mm;
+  @bottom-left { content: "Productivity Lens · {{ (c.company | replace(' Berhad','') | replace(' Bhd','') | replace('"', '')) }} · FY{{ c.fy }}"; font: 500 8pt "Geist", Arial, sans-serif; color: #5A5A66; }
+  @bottom-right { content: counter(page); font: 600 8pt "Geist", Arial, sans-serif; color: #0B0B0F; }
+}
+@page cover { margin-top: 14mm; }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--paper); }
-body { font-family: "Inter", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.4;
-       -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-.page { width: 210mm; height: 297mm; padding: 14mm 16mm; position: relative; overflow: hidden;
-        background: var(--paper); display: flex; flex-direction: column; }
-.page + .page { break-before: page; }
-.hdr { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 2.5mm;
-       border-bottom: 1.5pt solid var(--ink); font-size: 8.5pt; }
-.brand { color: var(--teal); font-weight: 700; letter-spacing: .08em; }
-.hdr .co { color: var(--grey); }
-.body { flex: 1; overflow: hidden; padding-top: 7mm; display: flex; flex-direction: column; gap: 8mm; }
-.ftr { display: flex; justify-content: space-between; color: var(--grey); font-size: 8pt; padding-top: 3mm;
-       border-top: 0.75pt solid var(--rule); }
-.sec { font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; margin: 0 0 2.5mm; }
-h1 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 22pt; line-height: 1.22; margin: 0; }
-h2 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 16pt; line-height: 1.25; margin: 0 0 3mm; }
-h3 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 13pt; line-height: 1.3; margin: 0 0 2mm; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body { font-family: "Geist", Arial, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5;
+       font-feature-settings: "tnum" 1; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 p { margin: 0; }
-.intro { font-size: 11pt; color: var(--slate); margin-top: 3mm; max-width: 165mm; }
-.note { font-size: 8pt; color: var(--grey); line-height: 1.4; }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
-.card { background: #fff; border: 1pt solid var(--rule); border-top: 3pt solid var(--teal); border-radius: 2px; padding: 4mm; }
-.big { font-family: "Lora", Georgia, serif; font-size: 27pt; line-height: 1.05; }
-.card .lbl { font-weight: 600; margin-top: 1.5mm; }
-.card .ctx { color: var(--grey); font-size: 9pt; margin-top: .5mm; }
-.insight { border-left: 3pt solid var(--amber); padding-left: 2.5mm; margin-top: 3mm; }
-.snap { background: var(--ink); color: #fff; border-radius: 2px; padding: 5mm; }
-.snap .sec { color: var(--light); }
-.snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
-.snap-grid .ind { color: var(--light); font-size: 9pt; min-height: 9mm; }
-.snap-grid .v { font-family: "Lora", Georgia, serif; font-size: 20pt; color: var(--amber); margin: 1mm 0; }
-.snap-grid .chg, .snap-grid .med { color: #fff; font-size: 9pt; }
-.snap .note { color: var(--light); margin-top: 3mm; }
-.count { font-weight: 600; }
-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt; }
-th { background: var(--ink); color: #fff; text-align: left; font-weight: 600; padding: 2mm 2mm; border: 0; box-shadow: 1px 0 0 var(--ink); }
-td { padding: 1.8mm 2mm; border-bottom: .75pt solid var(--rule); vertical-align: top; }
-tbody tr:nth-child(even) td { background: var(--cream); }
+.chapter { break-before: page; }
+.keep { break-inside: avoid; }
+h1, h2, h3 { break-after: avoid; margin: 0; }
+h1 { font-weight: 600; font-size: 29pt; line-height: 1.08; letter-spacing: -.025em; max-width: 160mm; }
+h2 { font-weight: 600; font-size: 19pt; line-height: 1.15; letter-spacing: -.02em; }
+h3 { font-weight: 600; font-size: 12.5pt; line-height: 1.3; letter-spacing: -.01em; }
+.chh { display: flex; gap: 4mm; align-items: baseline; border-top: 1.6pt solid var(--ink); padding-top: 3mm; margin: 0 0 5mm; }
+.chh .no { font-size: 9pt; font-weight: 600; color: var(--violet-ink); }
+.chh p { color: var(--muted); font-size: 9.5pt; margin-top: 1mm; }
+.note { font-size: 8.5pt; color: var(--muted); line-height: 1.45; }
+.muted { color: var(--muted); }
+.chip { display: inline-block; font-size: 8pt; font-weight: 600; padding: .6mm 2.2mm; border-radius: 99px; white-space: nowrap; }
+.ev-A { background: var(--ink); color: #fff; } .ev-B { background: var(--lime); color: var(--lime-ink); }
+.ev-C { background: #fff; color: var(--muted); border: .75pt dashed #B8B5C4; }
+.mv { background: var(--violet-soft); color: var(--violet-ink); }
+
+/* cover */
+.cover { page: cover; }
+.brandbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 11mm; }
+.brand { display: flex; align-items: center; gap: 3mm; font-weight: 600; font-size: 11pt; letter-spacing: -.01em; }
+.brand svg { width: 9mm; height: 9mm; }
+.pill { font-size: 8.5pt; font-weight: 600; background: var(--soft); border: .75pt solid var(--line); border-radius: 99px; padding: 1.2mm 3.5mm; }
+.meta { font-size: 9pt; color: var(--muted); font-weight: 500; margin-bottom: 4mm; }
+.deck { font-size: 12.5pt; font-weight: 500; line-height: 1.4; color: var(--ink2); margin-top: 5mm; max-width: 165mm; }
+.intro { font-size: 11pt; color: var(--ink2); margin-top: 3.5mm; max-width: 165mm; }
+.glance { margin-top: 9mm; border: .75pt solid var(--line); border-radius: 4mm; overflow: hidden; }
+.glance-h { background: var(--soft); padding: 2.5mm 5mm; font-size: 8pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.glance-h b { background: var(--ink); color: #fff; border-radius: 1mm; padding: .4mm 1.6mm; margin-right: 2mm; }
+.glance-g { display: grid; grid-template-columns: repeat(3, 1fr); }
+.glance-g > div { padding: 4.5mm 5mm 5mm; }
+.glance-g > div + div { border-left: .75pt solid var(--line); }
+.gl { font-size: 8.5pt; font-weight: 600; color: var(--violet-ink); }
+.gv { font-size: 21pt; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin-top: 2mm; }
+.gt { font-size: 11pt; font-weight: 600; line-height: 1.3; margin-top: 2mm; }
+.gs { font-size: 9pt; color: var(--muted); margin-top: 1.5mm; line-height: 1.4; }
+
+/* results */
+.results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 9mm; }
+.res { border: .75pt solid var(--line); border-radius: 4mm; padding: 5mm; display: flex; flex-direction: column; gap: 1.5mm; }
+.res:first-child { border-top: 2.5pt solid var(--violet); }
+.res .big { font-size: 25pt; font-weight: 600; letter-spacing: -.03em; line-height: 1.05; margin-top: 1.5mm; }
+.res .lbl { font-size: 10.5pt; font-weight: 600; line-height: 1.3; }
+.res .ctx { font-size: 9pt; color: var(--muted); }
+.res .ins { font-size: 9.5pt; color: var(--ink2); border-top: .75pt solid var(--line); padding-top: 2.5mm; margin-top: auto; }
+
+/* what they did */
+.moves { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.move { border: .75pt solid var(--line); border-radius: 4mm; padding: 4.5mm 5mm; display: flex; flex-direction: column; gap: 2.5mm; }
+.move .nm { font-weight: 600; font-size: 10.5pt; }
+.move .wd { font-size: 9.5pt; color: var(--ink2); margin-top: .8mm; }
+.move .rr { font-size: 9.5pt; margin-top: .8mm; } .move .rr b { font-weight: 600; }
+.move .side { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5mm; margin-top: auto; }
+.move .side .pg { margin-left: auto; }
+.move .pg { font-size: 8.5pt; color: var(--muted); }
+.count { font-size: 9pt; color: var(--muted); margin-top: 3mm; }
+.sw { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 6mm; }
+.sw > div { background: var(--soft); border-radius: 4mm; padding: 5mm; }
+.sw h3 { font-size: 10.5pt; display: flex; gap: 2mm; align-items: center; margin-bottom: 2.5mm; }
+.sw h3::before { content: ""; width: 2.4mm; height: 2.4mm; border-radius: .6mm; background: var(--ink); }
+.sw .watch h3::before { background: var(--violet); }
+.sw ul { margin: 0; padding-left: 4.5mm; } .sw li { font-size: 9.5pt; } .sw li + li { margin-top: 2mm; }
+
+/* lessons */
+.lessons-wrap { margin-top: 10mm; }
+.lesson { border: .75pt solid var(--line); border-radius: 4mm; padding: 6mm; margin-top: 4mm; }
+.lesson .lb { display: flex; gap: 2mm; align-items: center; margin-bottom: 2.5mm; }
+.lesson .lb .chip { background: var(--lime); color: var(--lime-ink); }
+.lesson h3 { font-size: 15pt; line-height: 1.2; letter-spacing: -.015em; margin-bottom: 4mm; }
+.lesson .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm 6mm; }
+.lesson .k { font-size: 8.5pt; font-weight: 600; color: var(--violet-ink); margin-bottom: 1mm; }
+.lesson .v { font-size: 10pt; color: var(--ink2); }
+.none { background: var(--soft); border-radius: 4mm; padding: 6mm; margin-top: 4mm; font-size: 11pt; color: var(--ink2); }
+
+/* numbers */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); border: .75pt solid var(--line); border-radius: 4mm; overflow: hidden; }
+.kpis > div { padding: 4.5mm; } .kpis > div + div { border-left: .75pt solid var(--line); }
+.kpis .k { font-size: 9pt; font-weight: 600; min-height: 10mm; line-height: 1.3; }
+.kpis .v { font-size: 17pt; font-weight: 600; letter-spacing: -.02em; margin-top: 1.5mm; }
+.kpis .d { font-size: 9pt; margin-top: .5mm; } .kpis .d.down { color: #9A2B12; }
+.kpis .m { font-size: 8.5pt; color: var(--muted); margin-top: .5mm; }
+.kpis .h { font-size: 8.5pt; color: var(--muted); border-top: .75pt solid var(--line); margin-top: 2.5mm; padding-top: 2mm; line-height: 1.35; }
+.dtf { margin-top: 2mm; }
+.dtf-row { display: flex; gap: 6mm; align-items: center; margin-bottom: 4mm; }
+.dtf-row .big { font-size: 34pt; font-weight: 600; letter-spacing: -.03em; color: var(--violet-ink); line-height: 1; }
+.chart { margin-top: 0; } .chart svg { width: 100%; height: auto; display: block; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 5mm; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 8.5pt; padding: 2mm; border-bottom: 1pt solid var(--ink); }
+td { padding: 2mm; border-bottom: .75pt solid var(--line); }
 td.num, th.num { text-align: right; white-space: nowrap; }
-.badge { display: inline-block; min-width: 5mm; text-align: center; color: #fff; font-weight: 700; font-size: 8.5pt;
-         border-radius: 2px; padding: 0 1.2mm; }
-.gA { background: var(--teal); } .gB { background: var(--amber); } .gC { background: var(--grey); }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
-.box { border: 1pt solid var(--rule); border-radius: 2px; padding: 4mm; }
-.box.good { background: var(--teal-tint); border-top: 3pt solid var(--teal); }
-.box.watch { background: var(--coral-tint); border-top: 3pt solid var(--coral); }
-.box.watch .sec { color: var(--coral); }
-.box ul { margin: 0; padding-left: 4mm; } .box li + li { margin-top: 2mm; }
-.dtf-top { display: flex; gap: 8mm; align-items: flex-end; }
-.dtf-top .big { font-size: 36pt; color: var(--teal); }
-.chart svg { width: 100%; height: auto; display: block; }
-.lesson { border: 1pt solid var(--rule); border-top: 3pt solid var(--teal); border-radius: 2px; padding: 4mm; background: #fff; }
-.lesson .lbl { font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; margin-bottom: 1.5mm; }
-.lesson dl { display: grid; grid-template-columns: 30mm 1fr; gap: 1.5mm 4mm; margin: 0; }
-.lesson dt { font-weight: 600; } .lesson dd { margin: 0; }
+.analysis { margin-top: 5mm; font-size: 10pt; }
+
+/* sources */
 .appx { columns: 2; column-gap: 8mm; }
-.appx h3 { break-after: avoid; font-size: 12pt; margin-top: 2mm; }
-.appx .it { break-inside: avoid; display: flex; justify-content: space-between; gap: 2mm; padding: 1mm 0;
-            border-bottom: .5pt solid var(--rule); font-size: 9pt; }
-.appx .it .pg { color: var(--grey); white-space: nowrap; }
+.appx h3 { font-size: 10.5pt; margin: 3mm 0 1.5mm; }
+.appx .it { break-inside: avoid; display: flex; justify-content: space-between; gap: 3mm; padding: 1.8mm 0; border-bottom: .75pt solid var(--line); font-size: 9pt; }
+.appx .it .r { display: flex; gap: 1.5mm; align-items: center; white-space: nowrap; color: var(--muted); font-size: 8.5pt; }
+.srcs { margin-top: 9mm; background: var(--soft); border-radius: 4mm; padding: 5mm; }
+.srcs p + p { margin-top: 2mm; }
 </style>
 </head>
 <body>
-{% macro header() %}<div class="hdr"><span class="brand">PRODUCTIVITY LENS</span><span class="co">{{ c.company }} · FY{{ c.fy }}</span></div>{% endmacro %}
-{% macro footer(n) %}<div class="ftr"><span>{{ L.page }} {{ n }} / {{ total_pages }}</span><span>{{ c.source_line }}</span></div>{% endmacro %}
+{%- macro pg(p) -%}{{ L.pp if (',' in (p|string) or ';' in (p|string)) else L.p }}{{ (p|string).replace('; ', ', ') }}{%- endmacro -%}
+{%- set MARK -%}<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B0B0F"/><circle cx="32" cy="32" r="17" fill="none" stroke="#D4F542" stroke-width="5"/><circle cx="32" cy="32" r="7" fill="#9466FF"/></svg>{%- endset -%}
 
-<!-- PAGE 1: THE STORY -->
-<section class="page" data-page="1">{{ header() }}
-<div class="body">
-  <div data-block="headline">
-    <p class="sec">{{ L.spotlight }} · {{ c.sector }} · {{ L.bursa }} {{ c.code }} · {{ L.year_to }} {{ c.year_end }}</p>
-    <h1>{{ c.headline }}</h1>
-    <p class="intro">{{ c.intro }}</p>
+<!-- 1 · THE STORY -->
+<section class="cover" data-block="cover">
+  <div class="brandbar"><div class="brand">{{ MARK | safe }}{{ L.brand }}</div><span class="pill">{{ L.spotlight }} · FY{{ c.fy }}</span></div>
+  <p class="meta">{{ c.company }} · {{ c.sector }} · {{ L.bursa }} {{ c.code }} · {{ L.year_to }} {{ c.year_end }}</p>
+  <h1 data-block="headline">{{ c.short_headline or c.headline }}</h1>
+  {% if c.short_headline %}<p class="deck">{{ c.headline }}</p>{% endif %}
+  <p class="intro">{{ c.intro }}</p>
+
+  <div class="glance keep" data-block="glance">
+    <div class="glance-h"><b>{{ L.start_here }}</b>{{ L.in30 }}</div>
+    <div class="glance-g">
+      {% set k0 = c.snapshot.indicators[0] %}
+      <div><p class="gl">{{ k0.label }}</p><p class="gv">{{ k0.fy_display }}</p><p class="gs">{{ k0.change_display }} {{ L.vs_prev }} · {{ L.sector_median }}: {{ k0.median_display }}</p></div>
+      <div><p class="gl">{{ L.g_frontier }}</p><p class="gv">{{ c.dtf.big_display }}</p><p class="gs">{{ c.dtf.verdict or '' }}{% if c.dtf.verdict %} · {% endif %}FY{{ c.fy }}</p></div>
+      <div><p class="gl">{{ L.g_try }}</p>
+        {% if c.lessons %}<p class="gt">{{ c.lessons[0].title }}</p><p class="gs">{{ L.lesson }} 1</p>
+        {% else %}<p class="gt">{{ L.no_lesson_short }}</p><p class="gs">{{ L.ch_try }} →</p>{% endif %}</div>
+    </div>
   </div>
-  <div data-block="results">
-    <p class="sec">{{ L.headline_results }}</p>
-    <div class="cards">
-    {% for r in c.headline_results %}
-      <div class="card">
-        <div class="big">{{ r.big }}</div>
-        <div class="lbl">{{ r.label }}</div>
-        <div class="ctx">{{ r.context }} · {{ L.p }}{{ r.page }}</div>
-        <p class="insight">{{ r.insight }}</p>
+
+  <div class="results" data-block="results">
+  {% for r in c.headline_results %}
+    <div class="res keep">
+      <p class="big">{{ r.big }}</p>
+      <p class="lbl">{{ r.label[:1] | upper }}{{ r.label[1:] }}</p>
+      <p class="ctx">{{ r.context }} · {{ pg(r.page) }}</p>
+      <p class="ins">{{ r.insight }}</p>
+    </div>
+  {% endfor %}
+  </div>
+</section>
+
+<!-- 2 · WHAT THEY DID (+ 3 · WHAT YOUR FIRM CAN TRY) -->
+<section class="chapter" data-block="did">
+  <div class="chh"><span class="no">02</span><div><h2>{{ L.ch_did }}</h2><p>{{ L.ch_did_sub }}</p></div></div>
+  <div class="moves">
+  {% for i in c.key_initiatives %}
+    <div class="move keep">
+      <div><p class="nm">{{ i.initiative }}</p><p class="wd">{{ i.what }}</p><p class="rr"><b>→</b> {{ i.result }}</p></div>
+      <div class="side"><span class="chip ev-{{ i.grade }}">{{ L['ev_' ~ i.grade] }}</span><span class="chip mv">{{ L['move' ~ i.tier] }}</span><span class="pg">{{ pg(i.page) }}</span></div>
+    </div>
+  {% endfor %}
+  </div>
+  <p class="count">{{ c.initiative_line }} · {{ c.appendix_line }}</p>
+
+  <div class="lessons-wrap" data-block="lessons">
+    {% set ch3 %}<div class="chh"><span class="no">03</span><div><h2>{{ L.ch_try }}</h2><p>{{ L.ch_try_sub }}</p></div></div>{% endset %}
+    {% if not c.lessons %}<div class="keep">{{ ch3 }}<div class="none" data-block="lesson-none">{{ c.lessons_note }}</div></div>{% endif %}
+    {% for l in c.lessons %}
+    {% if loop.first %}<div class="keep">{{ ch3 }}{% endif %}
+    <div class="lesson keep" data-block="lesson{{ loop.index }}">
+      <div class="lb"><span class="chip">{{ L.lesson }} {{ loop.index }}</span><span class="note">{{ (l.label.split('·')[-1] if '·' in l.label else l.label) | trim }}</span></div>
+      <h3>{{ l.title }}</h3>
+      <div class="grid">
+        <div><p class="k">{{ L.did }}</p><p class="v">{% set d = l.did | trim %}{% if d.endswith(')') or d.endswith(').') %}{{ d }}{% else %}{{ d.rstrip('.') }} ({{ pg(l.page) }}).{% endif %}</p></div>
+        <div><p class="k">{{ L.sme_version }}</p><p class="v">{{ l.sme }}</p></div>
+        <div><p class="k">{{ L.starter }}</p><p class="v">{{ l.starter }}</p></div>
+        <div><p class="k">{{ L.measure }}</p><p class="v">{{ l.measure }}</p></div>
       </div>
-    {% endfor %}
     </div>
-  </div>
-  <div class="snap" data-block="snapshot">
-    <p class="sec">{{ L.productivity_snapshot }} · FY{{ c.fy }}</p>
-    <div class="snap-grid">
-    {% for s in c.snapshot.indicators %}
-      <div><div class="ind">{{ s.label }}</div><div class="v">{{ s.fy_display }}</div>
-        <div class="chg">{{ s.change_display }}</div><div class="med">{{ L.sector_median }}: {{ s.median_display }}</div></div>
+    {% if loop.first %}</div>{% endif %}
     {% endfor %}
-    </div>
-    <p class="note">{{ c.snapshot.notes }}</p>
   </div>
-  <p class="count" data-block="count">{{ c.initiative_line }}</p>
-</div>{{ footer(1) }}</section>
+</section>
 
-<!-- PAGE 2: KEY INITIATIVES -->
-<section class="page" data-page="2">{{ header() }}
-<div class="body">
-  <div data-block="table">
-    <h2>{{ L.key_initiatives }}</h2>
-    <table><thead><tr><th style="width:24%">{{ L.initiative }}</th><th>{{ L.what }}</th><th>{{ L.result }}</th>
-      <th class="num">{{ L.tier }}</th><th class="num">{{ L.grade }}</th><th class="num">{{ L.page_col }}</th></tr></thead>
-    <tbody>{% for i in c.key_initiatives %}<tr><td>{{ i.initiative }}</td><td>{{ i.what }}</td><td>{{ i.result }}</td>
-      <td class="num">{{ i.tier }}</td><td class="num"><span class="badge g{{ i.grade }}">{{ i.grade }}</span></td><td class="num">{{ i.page }}</td></tr>{% endfor %}</tbody></table>
-    <p class="note" style="margin-top:2mm">{{ c.appendix_line }}</p>
+<!-- 4 · THE NUMBERS -->
+<section class="chapter" data-block="numbers">
+  <div class="chh"><span class="no">04</span><div><h2>{{ L.ch_numbers }}</h2><p>{{ L.ch_numbers_sub }}</p></div></div>
+  <div class="kpis keep" data-block="snapshot">
+  {% for s in c.snapshot.indicators %}
+    <div><p class="k">{{ s.label }}</p><p class="v">{{ s.fy_display }}</p>
+      <p class="d {{ 'down' if (s.change_display or '').startswith(('−','-')) else '' }}">{{ s.change_display }} {{ L.vs_prev }}</p>
+      <p class="m">{{ L.sector_median }}: {{ s.median_display }}</p>
+      {% if L.ind_help[loop.index0] %}<p class="h">{{ L.ind_help[loop.index0] }}</p>{% endif %}</div>
+  {% endfor %}
   </div>
-  <div class="two" data-block="sw">
-    <div class="box good"><p class="sec">{{ L.strengths }}</p><ul>{% for s in c.strengths %}<li>{{ s }}</li>{% endfor %}</ul></div>
-    <div class="box watch"><p class="sec">{{ L.areas_to_watch }}</p><ul>{% for s in c.watch %}<li>{{ s }}</li>{% endfor %}</ul></div>
-  </div>
-</div>{{ footer(2) }}</section>
+  <p class="note" style="margin-top:2.5mm">{{ c.snapshot.notes }}</p>
 
-<!-- PAGE 3: DTF -->
-<section class="page" data-page="3">{{ header() }}
-<div class="body">
-  <div class="dtf-top" data-block="dtf_big">
-    <div><h2>{{ c.dtf.title }}</h2><div class="big">{{ c.dtf.big_display }}</div></div>
-    <p style="max-width:95mm">{{ c.dtf.big_label }}</p>
+  <div class="sw keep" data-block="sw">
+    <div><h3>{{ L.went_well }}</h3><ul>{% for s in c.strengths %}<li>{{ s }}</li>{% endfor %}</ul></div>
+    <div class="watch"><h3>{{ L.to_watch }}</h3><ul>{% for s in c.watch %}<li>{{ s }}</li>{% endfor %}</ul></div>
   </div>
-  <div class="chart" data-block="chart">{{ chart_svg | safe }}
-    <p class="note">{{ L.chart_source }}</p></div>
-  <div data-block="dtf_table">
+</section>
+
+<!-- 5 · HOW CLOSE TO THE FRONTIER -->
+<section class="chapter" data-block="frontier">
+  <div class="chh"><span class="no">05</span><div><h2>{{ L.frontier_h }}</h2><p>{{ c.dtf.big_label }}</p></div></div>
+  <div class="dtf keep" data-block="dtf">
+    <div class="dtf-row"><p class="big">{{ c.dtf.big_display }}</p>
+      <div>{% if c.dtf.verdict %}<span class="verdict">{{ c.dtf.verdict }}</span>{% endif %}
+        {% if c.dtf.ringgit_line %}<p class="note" style="margin-top:1.5mm">{{ c.dtf.ringgit_line }}</p>{% endif %}</div></div>
+    <div class="chart" data-block="chart">{{ chart_svg | safe }}<p class="note">{{ L.chart_source }}</p></div>
+  </div>
+  <div class="keep" data-block="dtf_table">
     <table><thead><tr><th>{{ L.indicator }}</th>{% for h in c.dtf.table_headers %}<th class="num">{{ h }}</th>{% endfor %}</tr></thead>
     <tbody>{% for r in c.dtf.table %}<tr><td>{{ r.indicator }}</td>{% for cell in r.cells %}<td class="num">{{ cell }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>
+    <p class="analysis">{{ c.dtf.analysis }}</p>
+    <p class="note" style="margin-top:3mm">{{ c.dtf.notes }}</p>
   </div>
-  <p data-block="analysis">{{ c.dtf.analysis }}</p>
-  <p class="note" data-block="dtf_notes">{{ c.dtf.notes }}</p>
-</div>{{ footer(3) }}</section>
+</section>
 
-<!-- PAGE 4: LESSONS -->
-<section class="page" data-page="4">{{ header() }}
-<div class="body" style="gap:6mm">
-  <h2 style="margin:0">{{ L.sme_lessons }}</h2>
-  {% if not c.lessons %}<div class="lesson" data-block="lesson-none"><p style="margin:0">{{ c.lessons_note }}</p></div>{% endif %}
-  {% for l in c.lessons %}
-  <div class="lesson" data-block="lesson{{ loop.index }}">
-    <div class="lbl">{{ l.label }}</div>
-    <h3>{{ l.title }}</h3>
-    <dl><dt>{{ L.did }}</dt><dd>{{ l.did }} ({{ L.pp if ',' in (l.page|string) else L.p }}{{ l.page }})</dd>
-        <dt>{{ L.sme_version }}</dt><dd>{{ l.sme }}</dd>
-        <dt>{{ L.starter }}</dt><dd>{{ l.starter }}</dd>
-        <dt>{{ L.measure }}</dt><dd>{{ l.measure }}</dd></dl>
-  </div>
-  {% endfor %}
-  <p class="note" data-block="notes">{{ c.notes }}</p>
-</div>{{ footer(4) }}</section>
-
-<!-- APPENDIX -->
-<section class="page" data-page="5">{{ header() }}
-<div class="body">
-  <h2 style="margin:0">{{ L.appendix }}</h2>
+<!-- 5 · ALL MOVES AND SOURCES -->
+<section class="flow" data-block="sources" style="margin-top:12mm">
+  <div class="keep"><div class="chh"><span class="no">06</span><div><h2>{{ L.ch_sources }}</h2></div></div>
   <div class="appx" data-block="appendix">
   {% for tier, items in appendix_groups %}
     <h3>{{ L['tier' ~ tier] }}</h3>
-    {% for it in items %}<div class="it"><span>{{ it.name }}</span><span class="pg"><span class="badge g{{ it.grade }}">{{ it.grade }}</span> {{ L.p }}{{ it.page }}</span></div>{% endfor %}
+    {% for it in items %}<div class="it"><span>{{ it.name }}</span><span class="r"><span class="chip ev-{{ it.grade }}">{{ L['ev_' ~ it.grade] }}</span>{{ pg(it.page) }}</span></div>{% endfor %}
   {% endfor %}
+  </div></div>
+  <div class="srcs keep" data-block="notes">
+    <h3 style="margin-bottom:2mm">{{ L.sources }}</h3>
+    <p class="note">{{ c.notes }}</p>
   </div>
-</div>{{ footer(5) }}</section>
+</section>
 </body></html>

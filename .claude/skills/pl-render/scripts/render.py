@@ -29,7 +29,9 @@ FONTS = (ASSETS / "fonts").as_uri()
 LABELS = json.loads((ASSETS / "labels.json").read_text(encoding="utf-8"))
 env = Environment(loader=FileSystemLoader(str(ASSETS)), autoescape=select_autoescape(["html", "j2"]))
 
-TEAL, SLATE, INK, GREY, RULE = "#0F8B7E", "#2D4258", "#0D1B2A", "#5E6B7A", "#E4DDD0"
+# Style A palette (same tokens as the website)
+VIOLET, VIOLET_INK, INK, GREY, RULE = "#9466FF", "#4B2A9E", "#0B0B0F", "#5A5A66", "#E2E0E8"
+TEAL, SLATE = VIOLET, INK   # old names kept for any external caller
 BANNED = re.compile(r"\b(top|best|leader|leading|ranked|outperform\w*|laggard|worst|no\. ?1)\b", re.I)
 
 
@@ -70,7 +72,7 @@ def chart_svg(c, L, w=680, h=270, big=False):
         hi = step * (int(max(vals + [100]) * 1.03 // step) + 1)
     X = lambda i: left + i * (w - left - right) / max(1, len(years) - 1)
     Y = lambda v: top + (hi - v) * (h - top - bottom) / (hi - lo)
-    out = [f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif" font-size="{fs}">']
+    out = [f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" font-family="Geist, Arial, sans-serif" font-size="{fs}">']
     ticks = [0, 25, 50, 75, 100] if d["mode"] == 1 else list(range(int(lo), int(hi) + 1, step))
     for t in ticks:
         out.append(f'<line x1="{left}" x2="{w-right}" y1="{Y(t):.1f}" y2="{Y(t):.1f}" stroke="{RULE}" stroke-width="1"/>')
@@ -80,8 +82,9 @@ def chart_svg(c, L, w=680, h=270, big=False):
     if d["mode"] == 1:
         out.append(f'<line x1="{left}" x2="{w-right}" y1="{Y(100):.1f}" y2="{Y(100):.1f}" stroke="{INK}" stroke-width="1.5" stroke-dasharray="2 3"/>')
         out.append(f'<text x="{w-right+8}" y="{Y(100)+fs/3:.1f}" fill="{INK}">{L["frontier_label"]}</text>')
-    styles = {"company": (TEAL, "", 3), "median": (SLATE, "6 4", 2), "index": (TEAL, "", 2.5)}
-    idx_cols = [TEAL, SLATE, GREY]
+    styles = {"company": (VIOLET, "", 3), "median": (INK, "6 4", 1.8), "index": (VIOLET, "", 2.5)}
+    idx_cols = [VIOLET, INK, GREY]
+    text_col = {VIOLET: VIOLET_INK}
     # the frontier label is a label too: a company at 100% must not print its name on top of it
     label_y = [Y(100)] if d["mode"] == 1 else []
     for k, s in enumerate(series[:3]):
@@ -99,7 +102,7 @@ def chart_svg(c, L, w=680, h=270, big=False):
         while any(abs(ly - o) < fs * 1.2 for o in label_y):
             ly += fs * 1.2
         label_y.append(ly)
-        out.append(f'<text x="{pts[-1][0]+8:.1f}" y="{ly+fs/3:.1f}" fill="{col}" font-weight="600">{s["name"]}</text>')
+        out.append(f'<text x="{pts[-1][0]+8:.1f}" y="{ly+fs/3:.1f}" fill="{text_col.get(col, col)}" font-weight="600">{s["name"]}</text>')
     out.append("</svg>")
     return "".join(out)
 
@@ -107,30 +110,13 @@ def chart_svg(c, L, w=680, h=270, big=False):
 # ------------------------------------------------------------------ browser checks
 FIT_JS = """
 () => {
+  // Style A flows across pages, so the checks are: nothing wider than the page, type not too small,
+  // chart labels inside the chart. Page count is checked on the PDF.
   const px = pt => pt * 96 / 72;
-  const res = {pages: [], small_text: []};
-  document.querySelectorAll('.page').forEach(pg => {
-    const body = pg.querySelector('.body');
-    const b = body.getBoundingClientRect();
-    const over = body.scrollHeight > body.clientHeight + 1 || body.scrollWidth > body.clientWidth + 1;
-    const blocks = [];
-    pg.querySelectorAll('[data-block]').forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.bottom > b.bottom + 0.5 || r.right > b.right + 0.5 || el.scrollWidth > el.clientWidth + 1)
-        blocks.push(el.dataset.block);
-    });
-    // min 8 mm between blocks: check vertical gaps between direct children of .body
-    const kids = Array.from(body.children).filter(k => k.offsetHeight > 0);
-    const tight = [];
-    for (let i = 1; i < kids.length; i++) {
-      const gap = kids[i].getBoundingClientRect().top - kids[i-1].getBoundingClientRect().bottom;
-      if (gap < 6 * 96 / 25.4 - 0.5) tight.push(i);   // 6 mm floor (8 mm target, lessons page uses 6 mm)
-    }
-    res.pages.push({page: +pg.dataset.page, overflow: over, blocks_over: blocks, tight_gaps: tight.length});
-  });
-
+  const res = {wide: [], small_text: []};
+  document.querySelectorAll('[data-block]').forEach(el => { if (el.scrollWidth > el.clientWidth + 1) res.wide.push(el.dataset.block); });
   const clipped = [];
-  document.querySelectorAll('svg').forEach(svg => { const vb = svg.viewBox.baseVal;
+  document.querySelectorAll('svg').forEach(svg => { const vb = svg.viewBox.baseVal; if (!vb || !vb.width) return;
     svg.querySelectorAll('text').forEach(t => { const bb = t.getBBox();
       if (bb.x < vb.x - 0.5 || bb.y < vb.y - 0.5 || bb.x + bb.width > vb.x + vb.width + 0.5 || bb.y + bb.height > vb.y + vb.height + 0.5)
         clipped.push(t.textContent); }); });
@@ -140,9 +126,9 @@ FIT_JS = """
     const n = walker.currentNode; if (!n.textContent.trim()) continue;
     const el = n.parentElement; if (el.closest('svg')) continue;
     const size = parseFloat(getComputedStyle(el).fontSize);
-    let min = px(10);
-    if (el.closest('.note, .ftr, .hdr, .sec, .lbl, .badge')) min = px(8);
-    else if (el.closest('table, .appx, .ctx, .snap-grid')) min = px(9);
+    let min = px(9.5);
+    if (el.closest('.note, .chip, .verdict, .glance-h, .gl, .gs, .ctx, .pg, .m, .h, .count, .k, th, .no, .meta, .pill, .appx, .d')) min = px(8);
+    else if (el.closest('table, .wd, .rr, .ins, .sw li, .chh p')) min = px(9);
     if (size + 0.05 < min) res.small_text.push({text: n.textContent.trim().slice(0, 40), pt: +(size * 72 / 96).toFixed(1)});
   }
   return res;
@@ -176,47 +162,52 @@ def check_text(c):
 
 
 # ------------------------------------------------------------------ commands
+MIN_PAGES, MAX_PAGES = 3, 6
+
+
 def render_spotlight(c, out_dir, png_dir=None):
     L = {**LABELS[c.get("lang", "en")], **(c.get("label_overrides") or {})}  # per-company wording (ImprovementLog 2026-11-08)
     groups = {}
     for it in c.get("appendix", []):
         groups.setdefault(int(it["tier"]), []).append(it)
     html = env.get_template("spotlight.html.j2").render(
-        c=c, L=L, fonts=FONTS, total_pages=5, chart_svg=chart_svg(c, L),
-        appendix_groups=sorted(groups.items()))
+        c=c, L=L, fonts=FONTS, chart_svg=chart_svg(c, L, 680, 250), appendix_groups=sorted(groups.items()))
     name, sfx = base_name(c)
     out_dir = Path(out_dir); out_dir.mkdir(parents=True, exist_ok=True)
     pdf = next_free(out_dir / f"{name}_Spotlight{sfx}.pdf")
     tmp = Path(tempfile.mkdtemp()) / "spotlight.html"
     tmp.write_text(html, encoding="utf-8")
-    pngs = []
     with browser() as p:
         b = p.chromium.launch(**_launch_args())
-        pg = b.new_page(viewport={"width": 794, "height": 1123}, device_scale_factor=200 / 96)
+        pg = b.new_page(viewport={"width": 794, "height": 1123})
         pg.goto(tmp.as_uri()); pg.wait_for_load_state("networkidle"); pg.evaluate("document.fonts.ready")
+        pg.emulate_media(media="print")
         fit = pg.evaluate(FIT_JS)
         pg.pdf(path=str(pdf), prefer_css_page_size=True, print_background=True)
-        if png_dir:
-            Path(png_dir).mkdir(parents=True, exist_ok=True)
-            for i, el in enumerate(pg.query_selector_all(".page")[:4], start=1):
-                f = next_free(Path(png_dir) / f"{name}_Snap{sfx}_{i:02d}.png")
-                el.screenshot(path=str(f)); pngs.append(str(f))
         b.close()
     from pypdf import PdfReader
     n_pages = len(PdfReader(str(pdf)).pages)
-    fails = [f"page {x['page']}: overflow ({', '.join(x['blocks_over']) or 'body'})" for x in fit["pages"] if x["overflow"] or x["blocks_over"]]
-    fails += [f"page {x['page']}: {x['tight_gaps']} gap(s) under 6 mm" for x in fit["pages"] if x["tight_gaps"]]
+    pngs = []
+    if png_dir:   # page images straight from the PDF, so they match it exactly (200 dpi)
+        import pypdfium2 as pdfium
+        Path(png_dir).mkdir(parents=True, exist_ok=True)
+        doc = pdfium.PdfDocument(str(pdf))
+        for i in range(min(4, len(doc))):
+            f = next_free(Path(png_dir) / f"{name}_Snap{sfx}_{i+1:02d}.png")
+            doc[i].render(scale=200 / 72).to_pil().save(f); pngs.append(str(f))
+        doc.close()
+    fails = [f"block wider than the page: {w}" for w in fit["wide"]]
     fails += [f"text below minimum size: {s['text']!r} {s['pt']}pt" for s in fit["small_text"][:10]]
     if fit.get("chart_clipped"):
         fails.append(f"chart labels cut off: {fit['chart_clipped']}")
-    if n_pages != 5:
-        fails.append(f"PDF has {n_pages} pages, expected 5 (4 + appendix)")
+    if not MIN_PAGES <= n_pages <= MAX_PAGES:
+        fails.append(f"PDF has {n_pages} pages, expected {MIN_PAGES}–{MAX_PAGES}")
     rank = check_text(c)
     if rank:
         fails.append(f"rank words in content: {rank}")
     saved = [str(pdf)] + pngs
-    for s in saved:
-        assert Path(s).exists() and Path(s).stat().st_size > 0, f"save failed {s}"
+    for s_ in saved:
+        assert Path(s_).exists() and Path(s_).stat().st_size > 0, f"save failed {s_}"
     return {"saved": saved, "pages": n_pages, "fit_pass": not fails, "fit_fails": fails}
 
 

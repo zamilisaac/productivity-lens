@@ -12,7 +12,7 @@ Exit code 1 if any block is over budget.
 import json, math, sys, argparse
 
 EN = {
-    "headline": 20, "intro": 35,
+    "headline": 20, "short_headline": 16, "intro": 35,
     "headline_results[].label": 6, "headline_results[].insight": 15,
     "snapshot.notes": 30,
     "key_initiatives[].initiative": 8, "key_initiatives[].what": 8, "key_initiatives[].result": 8,
@@ -55,7 +55,7 @@ def check(c, lang):
             rows.append((p, n, limit))
             if n > limit:
                 fails.append(f"{p}: {n} words > {limit}")
-            if val in (None, "") and not path.startswith(("snapshot.notes", "dtf.notes", "lessons_note")):
+            if val in (None, "") and not path.startswith(("snapshot.notes", "dtf.notes", "lessons_note", "short_headline")):
                 fails.append(f"{p}: empty")
     for k, n in COUNTS.items():
         have = len(c.get(k) or [])

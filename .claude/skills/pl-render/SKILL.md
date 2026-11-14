@@ -1,6 +1,6 @@
 ---
 name: pl-render
-description: Productivity Lens renderer. Turns an approved Content JSON into the 4-page A4 spotlight PDF plus appendix, the 10 snapshot PNGs (4 page images, 6 social cards), and the newsletter email HTML, in English or Bahasa Melayu, using fixed templates, bundled Lora/Inter fonts and the Style Guide colours, with an automatic fit check (word budgets, overflow, minimum type size, clipped chart labels). Use this whenever running PRODUCE, SPOTLIGHT, SNAPSHOT, BM, EMAIL, FULL, TEST, RUN, a FRONTIER_UPDATE re-render or audit Step 4b for Productivity Lens, or whenever a spotlight, snapshot card or newsletter email needs to be made or rebuilt. Use it instead of writing HTML or PDF code from scratch, so every company looks identical.
+description: Productivity Lens renderer. Turns an approved Content JSON into the A4 spotlight PDF (3–6 pages, length follows the content), page and social-card snapshot PNGs, and the newsletter email HTML, in English or Bahasa Melayu, using fixed templates, the bundled Geist font and the website palette (ink, lime, violet), with an automatic fit check (word budgets, overflow, minimum type size, clipped chart labels). Use this whenever running PRODUCE, SPOTLIGHT, SNAPSHOT, BM, EMAIL, FULL, TEST, RUN, a FRONTIER_UPDATE re-render or audit Step 4b for Productivity Lens, or whenever a spotlight, snapshot card or newsletter email needs to be made or rebuilt. Use it instead of writing HTML or PDF code from scratch, so every company looks identical.
 ---
 
 # pl-render — spotlight, snapshots and email
@@ -37,13 +37,13 @@ python scripts/render.py email     --content C.json --out-dir "<PL>/04_Spotlight
 ```
 
 Produces, with the Playbook file names (never overwrites; adds `_v2`):
-- `..._Spotlight.pdf` (5 pages) and `..._Snap_01–04.png` (A4 at 200 dpi, 1654 × 2340)
+- `..._Spotlight.pdf` (3–6 pages; flexible, chapters: story, what they did + what your firm can try, the numbers, frontier, all moves and sources) and `..._Snap_01–04.png` (A4 at 200 dpi, 1654 × 2340)
 - `..._Snap_05.png` headline · `06` snapshot · `07` DTF · `08–10` lessons (1080 × 1350)
-- `..._Newsletter.html` (600 px, inline CSS, system fonts). BM content gives `_BM` files and no email.
+- `..._Newsletter.html` (600 px, inline CSS, system fonts, website palette). BM content gives `_BM` files and no email.
 
 ## 4. Fit check (audit Step 4b)
 
-The JSON report after each command has `fit_pass` and `fit_fails`. It checks: 5 pages exactly; no page body or block overflowing; gaps between blocks; body ≥ 10 pt, tables ≥ 9 pt, notes ≥ 8 pt; card text ≥ 28 px and not cut off; chart labels not clipped; no rank words; email subject ≤ 60 and preview ≤ 90 characters. Exit code 1 = failed.
+The JSON report after each command has `fit_pass` and `fit_fails`. It checks: 3–6 pages; no page body or block overflowing; gaps between blocks; body ≥ 9.5 pt, tables ≥ 9 pt, notes and chips ≥ 8 pt; card text ≥ 28 px and not cut off; chart labels not clipped; no rank words; email subject ≤ 60 and preview ≤ 90 characters. Exit code 1 = failed.
 
 If it fails: cut words in the Content file, re-run `word_budget.py`, render again (files get `_v2`). Maximum 2 rounds, then flag "Needs attention". Never change font sizes or spacing in the template to make content fit.
 

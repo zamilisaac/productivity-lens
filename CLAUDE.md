@@ -46,6 +46,14 @@ Output is in English and Bahasa Melayu.
 - PDPA privacy notice at `#privacy` (EN/BM). `CONTACT` in `site/index.html` is empty until the user gives a contact
   address; bump `CONSENT_VERSION` in `functions/_lib.js` and the notice date whenever the notice changes.
 
+## Spotlight design (style A, 2026-11-14)
+- `pl-render` now uses the website identity: Geist font (OFL, `assets/fonts/Geist-*.ttf`), ink #0B0B0F, lime #D4F542,
+  violet #9466FF. Spotlight PDF length follows the content (3–6 pages): story, what they did + what your firm can try,
+  the numbers, frontier, all moves and sources. Social cards and the newsletter email use the same palette.
+- Content files may carry `short_headline` (plain human headline, EN ≤ 16 words, BM ≤ 13); the data headline becomes the deck.
+  Used for Dutch Lady Content_v7 / BM_v4 and Farm Fresh Content_v8 / BM_v8.
+- The Style Guide v1.12 on Drive still describes Lora/Inter and teal: update it there, then copy it here.
+
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.
 - `docs/00_Project_Commands_and_Rules_v1.12.md` – commands (PREP, ANALYSE, FULL, PRODUCE, RUN …) and rules.
