@@ -24,5 +24,29 @@ Productivity spotlights for Bursa-listed companies, built from annual and sustai
 | `templates/` | Render templates, fonts, Style Guide assets |
 | `scripts/` | Helper scripts |
 | `docs/` | Style Guide, glossary, method notes |
+| `.claude/skills/` | Productivity Lens skills (scripts, templates, fonts) |
 
 Large PDFs and rendered images are excluded by `.gitignore`; regenerate them from the Content JSON.
+
+## Skills (`.claude/skills/`)
+
+| Skill | Role |
+| --- | --- |
+| `pl-ledger` | Ledger and Rules: intake, status order, retry cap, never repeat work |
+| `pl-evidence` | PageMap and quote audit (no quote, no number) |
+| `pl-calc` | 8 core indicators (PROFILE) and Distance to Frontier (DTF) |
+| `pl-bm` | Bahasa Melayu Content file and consistency checks |
+| `pl-lint` | House-rules check before anything is shared |
+| `pl-render` | Spotlight PDF, snapshot PNGs, newsletter HTML |
+
+Claude Code loads these automatically when this repository is opened.
+
+## Setup
+
+```bash
+pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+Fonts: Lora and Inter, under the SIL Open Font License (see `.claude/skills/pl-render/assets/fonts/`).
+`sample_content.json` is fictional test data.

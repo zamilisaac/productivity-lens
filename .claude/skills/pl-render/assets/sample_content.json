@@ -1,0 +1,397 @@
+{
+  "_sample": "FICTIONAL TEST DATA - not a real company. Shows the Content file shape only.",
+  "lang": "en",
+  "company": "Contoh Foods Berhad",
+  "short_name": "ContohFoods",
+  "code": "0000",
+  "fy": 2026,
+  "year_end": "31 March 2026",
+  "sector": "Consumer Products & Services",
+  "sub_sector": "Food & beverages",
+  "source_line": "Source: Contoh Foods Berhad Annual Report FY2026",
+  "headline": "Contoh Foods: a second line inside the Klang plant more than doubled daily output",
+  "intro": "Contoh Foods added capacity without a new building. It upgraded lines, moved to one ERP system and retrained operators to run more than one machine.",
+  "email_intro": "Contoh Foods added capacity without a new building. A second line, one ERP system and multi-skilled operators did most of the work.",
+  "headline_results": [
+    {
+      "big": "180,000",
+      "label": "packs per day at Klang",
+      "context": "up from 70,000",
+      "page": "23",
+      "insight": "Same building, same shift pattern: the gain came from the new line.",
+      "value": 180000,
+      "unit": "packs/day",
+      "scope": "Klang plant",
+      "quote": "raised output from 70,000 to 180,000 packs per day",
+      "audit_status": "Confirmed"
+    },
+    {
+      "big": "RM2.70",
+      "label": "value added per RM1 staff cost",
+      "context": "up from RM2.41",
+      "page": "88",
+      "insight": "Each ringgit of wages now creates more value than a year ago.",
+      "value": 2.7,
+      "unit": "RM per RM1",
+      "scope": "Group",
+      "quote": "analyst calculation",
+      "audit_status": "Confirmed"
+    },
+    {
+      "big": "−12.4%",
+      "label": "rework hours",
+      "context": "down from 9,800 hours",
+      "page": "41",
+      "insight": "Fewer stoppages freed operator time for planned maintenance.",
+      "value": -12.4,
+      "unit": "%",
+      "scope": "Group",
+      "quote": "rework hours fell 12.4%",
+      "audit_status": "Confirmed"
+    }
+  ],
+  "snapshot": {
+    "source_pages": "88–96",
+    "notes": "Value added is an analyst-calculated nominal proxy. Headcount includes contract staff.",
+    "indicators": [
+      {
+        "key": "va_per_emp",
+        "label": "Value added per employee",
+        "fy_display": "RM142,300",
+        "change_display": "+8.1%",
+        "median_display": "pending"
+      },
+      {
+        "key": "va_per_staff_cost",
+        "label": "Value added per RM1 staff cost",
+        "fy_display": "RM2.70",
+        "change_display": "+12.0%",
+        "median_display": "pending"
+      },
+      {
+        "key": "capex_per_emp",
+        "label": "Capex per employee",
+        "fy_display": "RM21,900",
+        "change_display": "−3.2%",
+        "median_display": "pending"
+      },
+      {
+        "key": "inv_turnover",
+        "label": "Inventory turnover",
+        "fy_display": "7.1×",
+        "change_display": "+0.4×",
+        "median_display": "pending"
+      }
+    ]
+  },
+  "initiative_line": "24 initiatives found: 14 core · 6 supporting · 4 resource",
+  "appendix_line": "All 24 initiatives are listed in the appendix.",
+  "key_initiatives": [
+    {
+      "initiative": "Sample initiative 1",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "A",
+      "page": "21"
+    },
+    {
+      "initiative": "Sample initiative 2",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "A",
+      "page": "22"
+    },
+    {
+      "initiative": "Sample initiative 3",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "A",
+      "page": "23"
+    },
+    {
+      "initiative": "Sample initiative 4",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "B",
+      "page": "24"
+    },
+    {
+      "initiative": "Sample initiative 5",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "B",
+      "page": "25"
+    },
+    {
+      "initiative": "Sample initiative 6",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 1,
+      "grade": "B",
+      "page": "26"
+    },
+    {
+      "initiative": "Sample initiative 7",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 2,
+      "grade": "B",
+      "page": "27"
+    },
+    {
+      "initiative": "Sample initiative 8",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 2,
+      "grade": "B",
+      "page": "28"
+    },
+    {
+      "initiative": "Sample initiative 9",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 2,
+      "grade": "B",
+      "page": "29"
+    },
+    {
+      "initiative": "Sample initiative 10",
+      "what": "Added a filling line at Klang",
+      "result": "Output up 40%",
+      "tier": 2,
+      "grade": "B",
+      "page": "30"
+    }
+  ],
+  "strengths": [
+    "Klang output more than doubled after the second line, with no new building.",
+    "Rework hours fell 12.4% after operator retraining and a daily line check."
+  ],
+  "watch": [
+    "Capex per employee fell 3.2%, so the pace of equipment renewal slowed.",
+    "Headcount rose faster than revenue at the Johor depot."
+  ],
+  "dtf": {
+    "mode": 2,
+    "title": "Five-year progress",
+    "big_display": "118",
+    "big_label": "Value added per employee index, FY2026 (FY2022 = 100). Sector frontier pending.",
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "series": [
+      {
+        "name": "VA per employee",
+        "role": "index",
+        "values": [
+          100,
+          104,
+          103,
+          111,
+          118
+        ]
+      },
+      {
+        "name": "Revenue per employee",
+        "role": "index",
+        "values": [
+          100,
+          102,
+          105,
+          108,
+          112
+        ]
+      }
+    ],
+    "table_headers": [
+      "FY2022",
+      "FY2026",
+      "Index FY2026"
+    ],
+    "table": [
+      {
+        "indicator": "Value added per employee",
+        "cells": [
+          "RM120,600",
+          "RM142,300",
+          "118"
+        ]
+      },
+      {
+        "indicator": "Revenue per employee",
+        "cells": [
+          "RM610,000",
+          "RM683,200",
+          "112"
+        ]
+      },
+      {
+        "indicator": "Value added per RM1 staff cost",
+        "cells": [
+          "RM2.35",
+          "RM2.70",
+          "115"
+        ]
+      },
+      {
+        "indicator": "Value added per RM1 fixed assets",
+        "cells": [
+          "RM0.61",
+          "RM0.66",
+          "108"
+        ]
+      },
+      {
+        "indicator": "Inventory turnover",
+        "cells": [
+          "6.4×",
+          "7.1×",
+          "111"
+        ]
+      }
+    ],
+    "analysis": "Value added per employee rose 18% between FY2022 and FY2026. The steepest rise came in FY2025, the year the second Klang line started. Fixed-asset productivity rose least, so new equipment is still bedding in.",
+    "notes": "Index FY2022 = 100. Sector frontier pending until five companies are profiled. Nominal analyst proxy; not a ranking.",
+    "email_line": "Five-year progress: value added per employee index 118 in FY2026 (FY2022 = 100). Sector frontier pending.",
+    "card_sentence": "Value added per employee is up 18% since FY2022.",
+    "source_pages": "88–96"
+  },
+  "lessons": [
+    {
+      "label": "Lesson 1 · New/upgraded line",
+      "title": "Add a second line inside your plant before you build a new one",
+      "did": "Contoh Foods installed a second filling line at Klang in FY2025. Output rose from 70,000 to 180,000 packs a day.",
+      "did_short": "A second Klang line took output from 70,000 to 180,000 packs a day.",
+      "sme": "Look for floor space you already pay for. A refurbished second-hand line can suit firms with 50–200 staff.",
+      "starter": "Measure one week of output per hour on your busiest line and note every stoppage.",
+      "measure": "Output per line-hour, before and after.",
+      "page": "23"
+    },
+    {
+      "label": "Lesson 2 · Workforce/skills",
+      "title": "Train each operator to run two machines",
+      "did": "Contoh Foods trained 120 operators on a second machine. Rework hours fell 12.4%.",
+      "did_short": "120 operators trained on a second machine; rework hours fell 12.4%.",
+      "sme": "Pick your two most common machines and pair operators for cross-training on quiet shifts.",
+      "starter": "List who can run which machine on one sheet this week.",
+      "measure": "Rework hours per month.",
+      "page": "41"
+    },
+    {
+      "label": "Lesson 3 · Automation/digital",
+      "title": "Put orders, stock and production on one system",
+      "did": "Contoh Foods moved three plants to one ERP system in FY2026, cutting month-end stock counts from five days to two.",
+      "did_short": "One ERP system cut stock counts from five days to two.",
+      "sme": "Start with a cloud stock system linked to sales orders before full ERP.",
+      "starter": "Time your next stock count from start to finish.",
+      "measure": "Days to close a stock count.",
+      "page": "37"
+    }
+  ],
+  "notes": "Sources: Contoh Foods Berhad Annual Report FY2026 and Sustainability Report FY2026. Figures as reported, not independently audited. Value added is an analyst proxy. Not investment advice.",
+  "appendix": [
+    {
+      "name": "Sample appendix item 1",
+      "grade": "B",
+      "page": "31",
+      "tier": 2
+    },
+    {
+      "name": "Sample appendix item 2",
+      "grade": "C",
+      "page": "32",
+      "tier": 3
+    },
+    {
+      "name": "Sample appendix item 3",
+      "grade": "A",
+      "page": "33",
+      "tier": 1
+    },
+    {
+      "name": "Sample appendix item 4",
+      "grade": "B",
+      "page": "34",
+      "tier": 2
+    },
+    {
+      "name": "Sample appendix item 5",
+      "grade": "C",
+      "page": "35",
+      "tier": 3
+    },
+    {
+      "name": "Sample appendix item 6",
+      "grade": "A",
+      "page": "36",
+      "tier": 1
+    },
+    {
+      "name": "Sample appendix item 7",
+      "grade": "B",
+      "page": "37",
+      "tier": 2
+    },
+    {
+      "name": "Sample appendix item 8",
+      "grade": "C",
+      "page": "38",
+      "tier": 3
+    },
+    {
+      "name": "Sample appendix item 9",
+      "grade": "A",
+      "page": "39",
+      "tier": 1
+    },
+    {
+      "name": "Sample appendix item 10",
+      "grade": "B",
+      "page": "40",
+      "tier": 2
+    },
+    {
+      "name": "Sample appendix item 11",
+      "grade": "C",
+      "page": "41",
+      "tier": 3
+    },
+    {
+      "name": "Sample appendix item 12",
+      "grade": "A",
+      "page": "42",
+      "tier": 1
+    },
+    {
+      "name": "Sample appendix item 13",
+      "grade": "B",
+      "page": "43",
+      "tier": 2
+    },
+    {
+      "name": "Sample appendix item 14",
+      "grade": "C",
+      "page": "44",
+      "tier": 3
+    }
+  ],
+  "audit_status": "Ready for human review",
+  "email": {
+    "subject_headline": "a second line more than doubled daily output",
+    "preview": "Klang output rose from 70,000 to 180,000 packs a day."
+  },
+  "links": {
+    "spotlight_pdf": "04_Spotlights/0000_ContohFoods_FY2026_Spotlight.pdf",
+    "bm_pdf": "04_Spotlights/0000_ContohFoods_FY2026_Spotlight_BM.pdf",
+    "snapshots": "04_Spotlights/Snapshots/"
+  }
+}

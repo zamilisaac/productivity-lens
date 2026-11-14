@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ subject }}</title></head>
+<body style="margin:0;padding:0;background:#FBF8F2;">
+<div style="display:none;max-height:0;overflow:hidden;">{{ preview }}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FBF8F2;"><tr><td align="center" style="padding:16px 8px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid #E4DDD0;font-family:Arial,Helvetica,sans-serif;color:#0D1B2A;font-size:15px;line-height:1.5;">
+<tr><td style="background:#0D1B2A;padding:14px 20px;color:#ffffff;font-size:14px;">
+  <span style="color:#0F8B7E;font-weight:bold;letter-spacing:1px;">PRODUCTIVITY LENS</span>
+  <span style="color:#C4D0DC;"> · {{ c.company }} · FY{{ c.fy }}</span></td></tr>
+<tr><td style="padding:24px 20px 8px;">
+  <h1 style="font-family:Georgia,serif;font-weight:normal;font-size:26px;line-height:1.25;margin:0 0 12px;">{{ c.headline }}</h1>
+  <p style="margin:0;color:#2D4258;">{{ c.email_intro }}</p></td></tr>
+<tr><td style="padding:16px 20px 0;"><p style="margin:0 0 8px;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">HEADLINE RESULTS</p>
+{% for r in c.headline_results %}
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:3px solid #0F8B7E;margin-bottom:10px;background:#F5F0E6;"><tr><td style="padding:12px 14px;">
+  <div style="font-family:Georgia,serif;font-size:32px;line-height:1.1;">{{ r.big }}</div>
+  <div style="font-weight:bold;">{{ r.label }}</div>
+  <div style="color:#5E6B7A;font-size:14px;">{{ r.context }} · p.{{ r.page }}</div></td></tr></table>
+{% endfor %}</td></tr>
+<tr><td style="padding:12px 20px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0D1B2A;color:#ffffff;"><tr><td style="padding:16px;">
+  <p style="margin:0 0 8px;color:#C4D0DC;font-weight:bold;font-size:13px;letter-spacing:1px;">PRODUCTIVITY SNAPSHOT · FY{{ c.fy }}</p>
+  {% for s in c.snapshot.indicators %}<p style="margin:0 0 8px;font-size:14px;color:#C4D0DC;">{{ s.label }}<br>
+  <span style="font-family:Georgia,serif;font-size:28px;color:#E2A42B;">{{ s.fy_display }}</span>
+  <span style="color:#ffffff;"> {{ s.change_display }} · Sector median: {{ s.median_display }}</span></p>{% endfor %}
+</td></tr></table></td></tr>
+<tr><td style="padding:4px 20px 12px;"><p style="margin:0;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">{{ c.dtf.title | upper }}</p>
+  <p style="margin:4px 0 0;">{{ c.dtf.email_line }}</p></td></tr>
+<tr><td style="padding:4px 20px;"><p style="margin:0 0 8px;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">THREE SME LESSONS</p>
+{% for l in c.lessons %}<div style="border-left:3px solid #E2A42B;padding-left:12px;margin-bottom:14px;">
+  <div style="font-family:Georgia,serif;font-size:18px;">{{ l.title }}</div>
+  <div>{{ l.did_short }}</div><div><b>Starter step:</b> {{ l.starter }}</div></div>{% endfor %}</td></tr>
+<tr><td style="padding:8px 20px;font-size:14px;">
+  <p style="margin:0 0 4px;"><b>Full spotlight (EN):</b> {{ links.spotlight_pdf }}</p>
+  <p style="margin:0 0 4px;"><b>Versi BM:</b> {{ links.bm_pdf }}</p>
+  <p style="margin:0;"><b>Snapshots:</b> {{ links.snapshots }}</p></td></tr>
+<tr><td style="padding:8px 20px;"><p style="margin:0;padding:10px;background:{{ '#E6F3F1' if c.audit_status.startswith('Ready') else '#FBE9E5' }};font-size:14px;"><b>Status:</b> {{ c.audit_status }}</p></td></tr>
+<tr><td style="padding:12px 20px 20px;color:#5E6B7A;font-size:14px;border-top:1px solid #E4DDD0;">
+  Source: {{ c.company }} Annual Report FY{{ c.fy }}. Figures as reported, not independently audited. Not investment advice. DRAFT – not for distribution until reviewed.</td></tr>
+</table></td></tr></table></body></html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="{{ 'ms' if c.lang == 'bm' else 'en-GB' }}">
+<head>
+<meta charset="utf-8">
+<title>{{ c.company }} FY{{ c.fy }} · Productivity Lens</title>
+<style>
+@font-face { font-family: "Lora"; src: url("{{ fonts }}/Lora.ttf") format("truetype"); font-weight: 400 700; }
+@font-face { font-family: "Inter"; src: url("{{ fonts }}/Inter.ttf") format("truetype"); font-weight: 100 900; }
+:root {
+  --ink:#0D1B2A; --slate:#2D4258; --grey:#5E6B7A; --teal:#0F8B7E; --teal-tint:#E6F3F1;
+  --amber:#E2A42B; --coral:#D9573F; --coral-tint:#FBE9E5; --cream:#F5F0E6; --paper:#FBF8F2;
+  --rule:#E4DDD0; --light:#C4D0DC;
+}
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); }
+body { font-family: "Inter", Arial, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.4;
+       -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; padding: 14mm 16mm; position: relative; overflow: hidden;
+        background: var(--paper); display: flex; flex-direction: column; }
+.page + .page { break-before: page; }
+.hdr { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 2.5mm;
+       border-bottom: 1.5pt solid var(--ink); font-size: 8.5pt; }
+.brand { color: var(--teal); font-weight: 700; letter-spacing: .08em; }
+.hdr .co { color: var(--grey); }
+.body { flex: 1; overflow: hidden; padding-top: 7mm; display: flex; flex-direction: column; gap: 8mm; }
+.ftr { display: flex; justify-content: space-between; color: var(--grey); font-size: 8pt; padding-top: 3mm;
+       border-top: 0.75pt solid var(--rule); }
+.sec { font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; margin: 0 0 2.5mm; }
+h1 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 22pt; line-height: 1.22; margin: 0; }
+h2 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 16pt; line-height: 1.25; margin: 0 0 3mm; }
+h3 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 13pt; line-height: 1.3; margin: 0 0 2mm; }
+p { margin: 0; }
+.intro { font-size: 11pt; color: var(--slate); margin-top: 3mm; max-width: 165mm; }
+.note { font-size: 8pt; color: var(--grey); line-height: 1.4; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.card { background: #fff; border: 1pt solid var(--rule); border-top: 3pt solid var(--teal); border-radius: 2px; padding: 4mm; }
+.big { font-family: "Lora", Georgia, serif; font-size: 27pt; line-height: 1.05; }
+.card .lbl { font-weight: 600; margin-top: 1.5mm; }
+.card .ctx { color: var(--grey); font-size: 9pt; margin-top: .5mm; }
+.insight { border-left: 3pt solid var(--amber); padding-left: 2.5mm; margin-top: 3mm; }
+.snap { background: var(--ink); color: #fff; border-radius: 2px; padding: 5mm; }
+.snap .sec { color: var(--light); }
+.snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+.snap-grid .ind { color: var(--light); font-size: 9pt; min-height: 9mm; }
+.snap-grid .v { font-family: "Lora", Georgia, serif; font-size: 20pt; color: var(--amber); margin: 1mm 0; }
+.snap-grid .chg, .snap-grid .med { color: #fff; font-size: 9pt; }
+.snap .note { color: var(--light); margin-top: 3mm; }
+.count { font-weight: 600; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt; }
+th { background: var(--ink); color: #fff; text-align: left; font-weight: 600; padding: 2mm 2mm; border: 0; box-shadow: 1px 0 0 var(--ink); }
+td { padding: 1.8mm 2mm; border-bottom: .75pt solid var(--rule); vertical-align: top; }
+tbody tr:nth-child(even) td { background: var(--cream); }
+td.num, th.num { text-align: right; white-space: nowrap; }
+.badge { display: inline-block; min-width: 5mm; text-align: center; color: #fff; font-weight: 700; font-size: 8.5pt;
+         border-radius: 2px; padding: 0 1.2mm; }
+.gA { background: var(--teal); } .gB { background: var(--amber); } .gC { background: var(--grey); }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.box { border: 1pt solid var(--rule); border-radius: 2px; padding: 4mm; }
+.box.good { background: var(--teal-tint); border-top: 3pt solid var(--teal); }
+.box.watch { background: var(--coral-tint); border-top: 3pt solid var(--coral); }
+.box.watch .sec { color: var(--coral); }
+.box ul { margin: 0; padding-left: 4mm; } .box li + li { margin-top: 2mm; }
+.dtf-top { display: flex; gap: 8mm; align-items: flex-end; }
+.dtf-top .big { font-size: 36pt; color: var(--teal); }
+.chart svg { width: 100%; height: auto; display: block; }
+.lesson { border: 1pt solid var(--rule); border-top: 3pt solid var(--teal); border-radius: 2px; padding: 4mm; background: #fff; }
+.lesson .lbl { font-size: 8.5pt; font-weight: 700; letter-spacing: .08em; color: var(--teal); text-transform: uppercase; margin-bottom: 1.5mm; }
+.lesson dl { display: grid; grid-template-columns: 30mm 1fr; gap: 1.5mm 4mm; margin: 0; }
+.lesson dt { font-weight: 600; } .lesson dd { margin: 0; }
+.appx { columns: 2; column-gap: 8mm; }
+.appx h3 { break-after: avoid; font-size: 12pt; margin-top: 2mm; }
+.appx .it { break-inside: avoid; display: flex; justify-content: space-between; gap: 2mm; padding: 1mm 0;
+            border-bottom: .5pt solid var(--rule); font-size: 9pt; }
+.appx .it .pg { color: var(--grey); white-space: nowrap; }
+</style>
+</head>
+<body>
+{% macro header() %}<div class="hdr"><span class="brand">PRODUCTIVITY LENS</span><span class="co">{{ c.company }} · FY{{ c.fy }}</span></div>{% endmacro %}
+{% macro footer(n) %}<div class="ftr"><span>{{ L.page }} {{ n }} / {{ total_pages }}</span><span>{{ c.source_line }}</span></div>{% endmacro %}
+
+<!-- PAGE 1: THE STORY -->
+<section class="page" data-page="1">{{ header() }}
+<div class="body">
+  <div data-block="headline">
+    <p class="sec">{{ L.spotlight }} · {{ c.sector }} · {{ L.bursa }} {{ c.code }} · {{ L.year_to }} {{ c.year_end }}</p>
+    <h1>{{ c.headline }}</h1>
+    <p class="intro">{{ c.intro }}</p>
+  </div>
+  <div data-block="results">
+    <p class="sec">{{ L.headline_results }}</p>
+    <div class="cards">
+    {% for r in c.headline_results %}
+      <div class="card">
+        <div class="big">{{ r.big }}</div>
+        <div class="lbl">{{ r.label }}</div>
+        <div class="ctx">{{ r.context }} · {{ L.p }}{{ r.page }}</div>
+        <p class="insight">{{ r.insight }}</p>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="snap" data-block="snapshot">
+    <p class="sec">{{ L.productivity_snapshot }} · FY{{ c.fy }}</p>
+    <div class="snap-grid">
+    {% for s in c.snapshot.indicators %}
+      <div><div class="ind">{{ s.label }}</div><div class="v">{{ s.fy_display }}</div>
+        <div class="chg">{{ s.change_display }}</div><div class="med">{{ L.sector_median }}: {{ s.median_display }}</div></div>
+    {% endfor %}
+    </div>
+    <p class="note">{{ c.snapshot.notes }}</p>
+  </div>
+  <p class="count" data-block="count">{{ c.initiative_line }}</p>
+</div>{{ footer(1) }}</section>
+
+<!-- PAGE 2: KEY INITIATIVES -->
+<section class="page" data-page="2">{{ header() }}
+<div class="body">
+  <div data-block="table">
+    <h2>{{ L.key_initiatives }}</h2>
+    <table><thead><tr><th style="width:24%">{{ L.initiative }}</th><th>{{ L.what }}</th><th>{{ L.result }}</th>
+      <th class="num">{{ L.tier }}</th><th class="num">{{ L.grade }}</th><th class="num">{{ L.page_col }}</th></tr></thead>
+    <tbody>{% for i in c.key_initiatives %}<tr><td>{{ i.initiative }}</td><td>{{ i.what }}</td><td>{{ i.result }}</td>
+      <td class="num">{{ i.tier }}</td><td class="num"><span class="badge g{{ i.grade }}">{{ i.grade }}</span></td><td class="num">{{ i.page }}</td></tr>{% endfor %}</tbody></table>
+    <p class="note" style="margin-top:2mm">{{ c.appendix_line }}</p>
+  </div>
+  <div class="two" data-block="sw">
+    <div class="box good"><p class="sec">{{ L.strengths }}</p><ul>{% for s in c.strengths %}<li>{{ s }}</li>{% endfor %}</ul></div>
+    <div class="box watch"><p class="sec">{{ L.areas_to_watch }}</p><ul>{% for s in c.watch %}<li>{{ s }}</li>{% endfor %}</ul></div>
+  </div>
+</div>{{ footer(2) }}</section>
+
+<!-- PAGE 3: DTF -->
+<section class="page" data-page="3">{{ header() }}
+<div class="body">
+  <div class="dtf-top" data-block="dtf_big">
+    <div><h2>{{ c.dtf.title }}</h2><div class="big">{{ c.dtf.big_display }}</div></div>
+    <p style="max-width:95mm">{{ c.dtf.big_label }}</p>
+  </div>
+  <div class="chart" data-block="chart">{{ chart_svg | safe }}
+    <p class="note">{{ L.chart_source }}</p></div>
+  <div data-block="dtf_table">
+    <table><thead><tr><th>{{ L.indicator }}</th>{% for h in c.dtf.table_headers %}<th class="num">{{ h }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for r in c.dtf.table %}<tr><td>{{ r.indicator }}</td>{% for cell in r.cells %}<td class="num">{{ cell }}</td>{% endfor %}</tr>{% endfor %}</tbody></table>
+  </div>
+  <p data-block="analysis">{{ c.dtf.analysis }}</p>
+  <p class="note" data-block="dtf_notes">{{ c.dtf.notes }}</p>
+</div>{{ footer(3) }}</section>
+
+<!-- PAGE 4: LESSONS -->
+<section class="page" data-page="4">{{ header() }}
+<div class="body" style="gap:6mm">
+  <h2 style="margin:0">{{ L.sme_lessons }}</h2>
+  {% for l in c.lessons %}
+  <div class="lesson" data-block="lesson{{ loop.index }}">
+    <div class="lbl">{{ l.label }}</div>
+    <h3>{{ l.title }}</h3>
+    <dl><dt>{{ L.did }}</dt><dd>{{ l.did }} ({{ L.p }}{{ l.page }})</dd>
+        <dt>{{ L.sme_version }}</dt><dd>{{ l.sme }}</dd>
+        <dt>{{ L.starter }}</dt><dd>{{ l.starter }}</dd>
+        <dt>{{ L.measure }}</dt><dd>{{ l.measure }}</dd></dl>
+  </div>
+  {% endfor %}
+  <p class="note" data-block="notes">{{ c.notes }}</p>
+</div>{{ footer(4) }}</section>
+
+<!-- APPENDIX -->
+<section class="page" data-page="5">{{ header() }}
+<div class="body">
+  <h2 style="margin:0">{{ L.appendix }}</h2>
+  <div class="appx" data-block="appendix">
+  {% for tier, items in appendix_groups %}
+    <h3>{{ L['tier' ~ tier] }}</h3>
+    {% for it in items %}<div class="it"><span>{{ it.name }}</span><span class="pg"><span class="badge g{{ it.grade }}">{{ it.grade }}</span> {{ L.p }}{{ it.page }}</span></div>{% endfor %}
+  {% endfor %}
+  </div>
+</div>{{ footer(5) }}</section>
+</body></html>

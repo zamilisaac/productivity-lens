@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Lora"; src: url("{{ fonts }}/Lora.ttf") format("truetype"); font-weight: 400 700; }
+@font-face { font-family: "Inter"; src: url("{{ fonts }}/Inter.ttf") format("truetype"); font-weight: 100 900; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.card { width: 1080px; height: 1350px; padding: 64px; background: #FBF8F2; color: #0D1B2A; font-family: "Inter", Arial, sans-serif;
+        font-size: 30px; line-height: 1.35; display: flex; flex-direction: column; overflow: hidden; border-top: 14px solid #0F8B7E; }
+.top { display: flex; justify-content: space-between; font-size: 28px; color: #5E6B7A; }
+.brand { color: #0F8B7E; font-weight: 700; letter-spacing: .08em; }
+.main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 36px; overflow: hidden; }
+.kicker { color: #0F8B7E; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 28px; }
+h1 { font-family: "Lora", Georgia, serif; font-weight: 400; font-size: 54px; line-height: 1.18; margin: 0; }
+.big { font-family: "Lora", Georgia, serif; font-size: 120px; line-height: 1; color: #0D1B2A; }
+.row { display: flex; gap: 28px; align-items: baseline; border-top: 2px solid #E4DDD0; padding-top: 22px; }
+.row .n { font-family: "Lora", Georgia, serif; font-size: 64px; min-width: 330px; color: #0F8B7E; }
+.row .t { font-size: 28px; }
+.dark { background: #0D1B2A; color: #fff; border-radius: 4px; padding: 40px; }
+.dark .n { color: #E2A42B; } .dark .t { color: #C4D0DC; } .dark .row { border-color: #2D4258; }
+p { margin: 0; }
+.muted { color: #5E6B7A; font-size: 28px; }
+.src { font-size: 28px; color: #5E6B7A; border-top: 2px solid #E4DDD0; padding-top: 22px; }
+.chart svg { width: 100%; height: auto; }
+</style></head>
+<body><div class="card" id="card">
+<div class="top"><span class="brand">PRODUCTIVITY LENS</span><span>{{ c.company }} · FY{{ c.fy }}</span></div>
+<div class="main">
+{% if kind == 'headline' %}
+  <h1>{{ c.headline }}</h1>
+  {% for r in c.headline_results %}<div class="row"><span class="n">{{ r.big }}</span><span class="t">{{ r.label }}</span></div>{% endfor %}
+{% elif kind == 'snapshot' %}
+  <p class="kicker">{{ L.productivity_snapshot }}</p>
+  <div class="dark">{% for s in c.snapshot.indicators %}<div class="row" {% if loop.first %}style="border:0;padding-top:0"{% endif %}>
+    <span class="n">{{ s.fy_display }}</span><span class="t">{{ s.label }}<br>{{ s.change_display }} · {{ L.sector_median }}: {{ s.median_display }}</span></div>{% endfor %}</div>
+{% elif kind == 'dtf' %}
+  <p class="kicker">{{ c.dtf.title }}</p>
+  <div class="big">{{ c.dtf.big_display }}</div>
+  <div class="chart">{{ chart_svg | safe }}</div>
+  <p>{{ c.dtf.card_sentence }}</p>
+{% elif kind == 'lesson' %}
+  <p class="kicker">{{ L.sme_lessons }} · {{ lesson_no }}/3</p>
+  <h1>{{ lesson.title }}</h1>
+  <p>{{ lesson.did }}</p>
+  <p><b>{{ L.starter }}:</b> {{ lesson.starter }}</p>
+{% endif %}
+</div>
+<div class="src">{{ L.source }}: {{ c.company }} {{ L.annual_report }} FY{{ c.fy }}, {{ L.p }}{{ src_page }}</div>
+</div></body></html>

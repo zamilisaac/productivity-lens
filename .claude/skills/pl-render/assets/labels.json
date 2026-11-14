@@ -1,0 +1,32 @@
+{
+  "en": {
+    "page": "Page", "spotlight": "Spotlight", "bursa": "Bursa", "year_to": "Year to",
+    "headline_results": "Key results", "productivity_snapshot": "Productivity snapshot",
+    "sector_median": "Sector median", "key_initiatives": "Key initiatives",
+    "initiative": "Initiative", "what": "What they did", "result": "Reported result",
+    "tier": "Tier", "grade": "Grade", "page_col": "Page",
+    "strengths": "Strengths", "areas_to_watch": "Areas to watch",
+    "indicator": "Indicator", "chart_source": "Analyst calculation from company annual reports FY2022–FY2026.",
+    "sme_lessons": "Three SME lessons", "did": "What they did and achieved", "sme_version": "The SME version",
+    "starter": "Starter step", "measure": "How to measure",
+    "appendix": "Appendix: all initiatives found",
+    "tier1": "Tier 1 core", "tier2": "Tier 2 supporting", "tier3": "Tier 3 resource",
+    "p": "p.", "source": "Source", "annual_report": "Annual Report",
+    "frontier_label": "Frontier (P90)", "median_label": "Sector median", "company_label": "Company"
+  },
+  "bm": {
+    "page": "Halaman", "spotlight": "Sorotan syarikat", "bursa": "Bursa", "year_to": "Tahun berakhir",
+    "headline_results": "Keputusan utama", "productivity_snapshot": "Ringkasan produktiviti",
+    "sector_median": "Median sektor", "key_initiatives": "Inisiatif utama",
+    "initiative": "Inisiatif", "what": "Apa yang dilakukan", "result": "Keputusan dilaporkan",
+    "tier": "Tahap", "grade": "Gred", "page_col": "Hlm.",
+    "strengths": "Kekuatan", "areas_to_watch": "Perkara untuk dipantau",
+    "indicator": "Penunjuk", "chart_source": "Kiraan penganalisis daripada laporan tahunan syarikat FY2022–FY2026.",
+    "sme_lessons": "Pengajaran untuk PKS", "did": "Apa yang dilakukan dan hasilnya", "sme_version": "Versi PKS",
+    "starter": "Langkah permulaan", "measure": "Cara mengukur",
+    "appendix": "Lampiran: semua inisiatif yang ditemui",
+    "tier1": "Tahap 1 teras", "tier2": "Tahap 2 sokongan", "tier3": "Tahap 3 sumber",
+    "p": "hlm.", "source": "Sumber", "annual_report": "Laporan Tahunan",
+    "frontier_label": "Sempadan (P90)", "median_label": "Median sektor", "company_label": "Syarikat"
+  }
+}

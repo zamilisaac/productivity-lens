@@ -1,0 +1,7 @@
+pandas
+numpy
+openpyxl
+pdfplumber
+pypdf
+jinja2
+playwright
