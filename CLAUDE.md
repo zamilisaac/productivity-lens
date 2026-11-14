@@ -51,15 +51,16 @@ Output is in English and Bahasa Melayu.
   violet #9466FF. Spotlight PDF length follows the content (3–6 pages): story, what they did + what your firm can try,
   the numbers, frontier, all moves and sources. Social cards and the newsletter email use the same palette.
 - Content files may carry `short_headline` (plain human headline, EN ≤ 16 words, BM ≤ 13); the data headline becomes the deck.
-  Used for Dutch Lady Content_v8 / BM_v5 and Farm Fresh Content_v9 / BM_v9.
-- Plain words everywhere (site and spotlights): frontier = "benchmark" / BM "penanda aras" (never "sempadan"); peers = "similar companies" /
+  Used for Dutch Lady Content_v9 / BM_v6 and Farm Fresh Content_v10 / BM_v10.
+- Plain words everywhere (site and spotlights): the measure is "Distance to Frontier" / BM "Jarak ke Aras Termaju"; the level is
+  "frontier" / "aras termaju" (user decision 2026-11-15: never "benchmark", "penanda aras" or "sempadan"); peers = "similar companies" /
   "syarikat sejenis"; peer median = "typical similar company" / "biasa bagi syarikat sejenis"; firm/SME = "business" / "perniagaan (kecil)";
   analyst proxy = "our own estimate" / "anggaran kami". Specialist method notes may keep "90th percentile".
 - The Style Guide v1.12 on Drive still describes Lora/Inter and teal: update it there, then copy it here.
 
 ## Reader tools (2026-11-15)
-- Nav: Home · Stories · Ideas library · Benchmark (`#benchmark`) · How we check. `#ask` is linked from the home "Tools" strip and footer.
-- `#benchmark`: dairy group list (alphabetical, own share only, "not a ranking"), group chart, and **Check your business**
+- Nav: Home · Stories · Ideas library · Distance to Frontier (`#frontier`; old `#benchmark` links still work) · How we check. `#ask` is linked from the home "Tools" strip and footer.
+- `#frontier`: dairy group list (alphabetical, own share only, "not a ranking"), group chart, and **Check your business**
   (value added calculator; runs only in the browser, nothing sent or stored).
 - Ideas library starts with **Find ideas** (rule-based matcher over story lessons, `PROBS` + business type) and a printable
   **30-day plan** (template, no AI).
