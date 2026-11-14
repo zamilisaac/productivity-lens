@@ -50,3 +50,7 @@ python -m playwright install chromium
 
 Fonts: Lora and Inter, under the SIL Open Font License (see `.claude/skills/pl-render/assets/fonts/`).
 `sample_content.json` is fictional test data.
+
+## Website
+
+The `site/` folder is published with Cloudflare Pages (production branch `main`, no build command, output directory `site`). Every push to `main` redeploys it.
