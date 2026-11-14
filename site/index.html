@@ -821,7 +821,7 @@ const UI2={
     tierLeg:"Tier",gradeLeg:"Evidence grade",
     methodSub:"Four promises we keep in every story. The full method is at the end of this page for specialists.",
     m:["Evidence first","Value added","Tiers and grades","Distance to Frontier"]},
-  bm:{cta:"Teroka inisiatif",spotTitle:"Kisah produktiviti",spotSub:"Bagaimana syarikat Bursa Malaysia mendapat lebih daripada pekerja, mesin dan kilang mereka, dan apa yang boleh ditiru oleh firma 50–200 pekerja. Setiap angka disertakan petikan dan nombor halaman bercetak.",
+  bm:{cta:"Teroka inisiatif",spotTitle:"Kisah produktiviti",spotSub:"Cara syarikat Bursa Malaysia mendapat lebih daripada pekerja, mesin dan kilang, dan apa yang boleh ditiru firma 50–200 pekerja. Setiap angka ada petikan dan nombor halaman.",
     choose:"Pilih sektor:",year:"Tahun kewangan",spotlight:"Kisah",pendingCard:"Empat lagi kisah Produk & Perkhidmatan Pengguna sedang disediakan. Ia juga membuka Jarak ke Sempadan bagi sektor ini.",
     tabs:["Kisahnya","Inisiatif utama","Jarak ke Sempadan","Pengajaran PKS"],
     resLead:"Tiga keputusan daripada laporan FY2026",resText:"Setiap keputusan diambil daripada laporan tahunan bersepadu FY2026 dan disemak dengan halaman bercetaknya.",
@@ -884,9 +884,9 @@ const D2={
     quick:"Quick access",footH:"New stories are added as each annual report is reviewed.",footBtn:"Open the ideas library",
     up:"up from",results:"Key results",snapH:"Productivity snapshot, FY2026",dtfH:"Distance to Frontier",initH:"Key initiatives",swH:["Strengths","Areas to watch"],lesH:"Three lessons for SMEs",
     libFilters:"Filter",clear:"Clear filters",read:"Read the story"},
-  bm:{heroSub:"Bagaimana syarikat Bursa Malaysia mendapat lebih daripada pekerja, mesin dan kilang mereka, dan apa yang boleh ditiru oleh firma 50–200 pekerja. Setiap angka disertakan petikan dan nombor halaman bercetak.",
+  bm:{heroSub:"Cara syarikat Bursa Malaysia mendapat lebih daripada pekerja, mesin dan kilang, dan apa yang boleh ditiru firma 50–200 pekerja. Setiap angka ada petikan dan nombor halaman.",
     heroBtn:"Baca kisah Farm Fresh",facts:["Laporan tahunan Bursa Malaysia","FY2022 hingga FY2026","Halaman bercetak bagi setiap angka","Bahasa Inggeris dan Bahasa Melayu"],
-    whatH:"Pelajari apa yang dilakukan syarikat tersenarai, kemudian cuba dalam firma anda",whatP:"Setiap kisah membaca laporan tahunan satu syarikat, memilih langkah yang menaikkan keluaran daripada pekerja, mesin dan kilang, dan menjadikan tiga daripadanya langkah yang boleh diambil firma kecil bulan ini.",whatBtn:"Cara ia berfungsi",
+    whatH:"Lihat langkah syarikat tersenarai, cuba di firma anda",whatP:"Setiap kisah membaca laporan tahunan satu syarikat, memilih langkah yang menaikkan keluaran daripada pekerja, mesin dan kilang, dan menjadikan tiga daripadanya langkah yang boleh diambil firma kecil bulan ini.",whatBtn:"Cara ia berfungsi",
     feat:["Setiap angka ada petikan dan halaman","Tahap dan gred menunjukkan kekuatan setiap langkah","Jarak ke Sempadan berbanding rakan setara Bursa","Tiga pengajaran untuk PKS"],
     carH:"Kisah produktiviti di satu tempat",pendTitle:"Seterusnya dalam Produk & Perkhidmatan Pengguna",pendText:"Sedang disediakan. Empat lagi kisah dalam sektor ini juga membuka Jarak ke Sempadan.",
     whyA:"Apa yang menjadikan",whyB:"kisah Productivity Lens",whyC:"berguna",whyToggle:"FY2022–FY2026",whyP:"Dibina untuk pemilik dan pengurus firma 50–200 pekerja yang mahukan bukti, bukan slogan.",
@@ -1524,7 +1524,7 @@ function viewStories(){
 /* ---------- views ---------- */
 function viewHome(){
   const u=UI[lang],d=D2[lang],bm=lang==="bm";
-  const trust=bm?["Setiap angka disertakan petikan","Nombor halaman laporan","Tiga idea untuk PKS","Bahasa Inggeris dan BM","Tiada senarai kedudukan"]
+  const trust=bm?["Setiap angka ada petikan","Nombor halaman laporan","Tiga idea untuk PKS","Bahasa Inggeris dan BM","Tiada senarai kedudukan"]
                 :["Every figure quoted","Report page numbers","Three ideas for SMEs","English and BM","No rankings"];
   const feat=bm?["Setiap angka ada petikan dan halaman","Setiap langkah ditanda mengikut kekuatan buktinya","Setiap syarikat dibandingkan dengan syarikat Bursa yang serupa","Tiga idea bersaiz untuk firma 50–200 pekerja"]
                :["Every figure has a quote and a page","Each move is marked by how strong its evidence is","Each company is compared with similar Bursa companies","Three ideas sized for a 50–200 person firm"];
