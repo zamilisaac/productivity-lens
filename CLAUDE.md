@@ -35,12 +35,12 @@ Folder "Productivity Lens" (Drive connector):
 - `03_Working/` – one folder per company (`[Code]_[Name]`); a second `03_Working` holds sector frontier / peer panel files
 - `04_Spotlights/` – spotlight PDFs (EN/BM, `_vN` = later version), `Snapshots/`, `Newsletter/` HTML
 - `05_Editions/`, `06_Distribution/`, `07_Templates/`
-Spotlights are still **Draft** in the Review sheet – do not publish them to `site/` until the user marks them Verified/Published.
+Spotlights are still **Draft** in the Review sheet; the website carries the user's own banner "Prototype. Draft content, not yet reviewed". Do not remove that banner or add new company content to `site/` unless the user asks.
 
 ## Cloudflare Pages status (as of 2026-11-14)
 - Live site: https://productivitylens.pages.dev/ – its source is now `site/index.html` in this repo.
 - The repo is **not yet connected** to that Pages project: a push to `main` produced no Cloudflare build.
-- Plan: add the existing site's source files into `site/` first, then connect Git
+- Next step: connect Git
   (production branch `main`, no build command, output directory `site`). A Direct Upload project cannot
   be switched to Git, so a new Git-connected project may be needed, with the domain moved across.
 - `*.pages.dev` is not reachable with curl from cloud sessions; WebFetch works for productivitylens.pages.dev.
