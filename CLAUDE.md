@@ -64,6 +64,9 @@ Output is in English and Bahasa Melayu.
   (value added calculator; runs only in the browser, nothing sent or stored).
 - Ideas library starts with **Find ideas** (rule-based matcher over story lessons: problem, business type and size as
   dropdowns); the full list below has a problem dropdown next to the company dropdown (problem match uses English text).
+- Ideas library filters are form rows (label left, dropdown right: `frow` + `fsel`), for Find ideas and the full list.
+- Story cards: no "Reviewed · PDF" chip (downloads stay on the story page); compact cards on phones; a company may set
+  `cardStat` to choose the card figure (Dutch Lady: value added per employee, user request 2026-11-15).
 - Removed at the user's request (2026-11-15): the printable 30-day plan and **Ask Productivity Lens** (no `/api/ask`,
   no `kb.json`, no Workers AI binding needed). Privacy notice updated (`CONSENT_VERSION` 2026-11-15-2).
 
