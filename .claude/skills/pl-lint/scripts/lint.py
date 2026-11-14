@@ -117,7 +117,7 @@ def main():
                     ctx = t[max(0, m.start() - 30): m.end() + 30].replace("\n", " ")
                     if msg == "position / 'x of y'" and re.search(r"page \d+ / \d+|halaman \d+ / \d+", ctx.lower()):
                         continue
-                    if msg == "rank word" and re.search(r"\b(not|no|never)( a)? (rank|ranking|ranked)", low[max(0, m.start()-12):m.end()]):
+                    if msg == "rank word" and re.search(r"\b(not|no|never)(\s+a)?\s+(rank|ranking|ranked)", low[max(0, m.start()-14):m.end()]):
                         continue
                     if msg == "investment language" and "not investment advice" in low[max(0, m.start()-20):m.end()+20]:
                         continue
@@ -145,7 +145,7 @@ def main():
                     if not any(sent.strip().startswith(x) for x in ALLOWED_CAPS):
                         warnings.append(f"{loc}: ALL CAPS sentence '{sent.strip()[:50]}'")
             if allowed is not None and not f.endswith(".json"):
-                has_chart = "analyst calculation" in low or "kiraan penganalisis" in low
+                has_chart = any(t in low for t in ("analyst calculation", "kiraan penganalisis", "our calculation", "kiraan kami"))
                 for m in re.finditer(r"\d[\d,]*(?:\.\d+)?", t):
                     v = float(m.group(0).replace(",", ""))
                     if has_chart and v <= 300 and v % 5 == 0:   # chart axis ticks

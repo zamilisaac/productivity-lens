@@ -51,7 +51,10 @@ Output is in English and Bahasa Melayu.
   violet #9466FF. Spotlight PDF length follows the content (3–6 pages): story, what they did + what your firm can try,
   the numbers, frontier, all moves and sources. Social cards and the newsletter email use the same palette.
 - Content files may carry `short_headline` (plain human headline, EN ≤ 16 words, BM ≤ 13); the data headline becomes the deck.
-  Used for Dutch Lady Content_v7 / BM_v4 and Farm Fresh Content_v8 / BM_v8.
+  Used for Dutch Lady Content_v8 / BM_v5 and Farm Fresh Content_v9 / BM_v9.
+- Plain words everywhere (site and spotlights): frontier = "benchmark" / BM "penanda aras" (never "sempadan"); peers = "similar companies" /
+  "syarikat sejenis"; peer median = "typical similar company" / "biasa bagi syarikat sejenis"; firm/SME = "business" / "perniagaan (kecil)";
+  analyst proxy = "our own estimate" / "anggaran kami". Specialist method notes may keep "90th percentile".
 - The Style Guide v1.12 on Drive still describes Lora/Inter and teal: update it there, then copy it here.
 
 ## Method documents (copied from Drive 07_Templates)
