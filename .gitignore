@@ -22,3 +22,7 @@ Thumbs.db
 ~$*
 .vscode/
 .idea/
+
+# Published files for the website
+!site/**/*.pdf
+!site/**/*.png
