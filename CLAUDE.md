@@ -15,8 +15,11 @@ Output is in English and Bahasa Melayu.
   `pl-ledger` (Ledger/Rules, intake), `pl-evidence` (PageMap, quote audit), `pl-calc` (8 indicators, DTF),
   `pl-bm` (Bahasa Melayu Content file), `pl-lint` (house rules), `pl-render` (PDF, PNG, newsletter HTML).
 - `inbox/`, `ledger/`, `data/`, `content/en|bm/`, `output/`, `templates/`, `scripts/`, `docs/` – workflow folders.
-- `site/index.html` – the live Productivity Lens · MPC website (single self-contained file: Home, Stories,
-  Initiative library, How it works, EN/BM toggle; story data and MPC logo are embedded in the file).
+- `site/index.html` – the live Productivity Lens · MPC website (Home, Stories, Initiative library,
+  How it works, EN/BM toggle; story data is embedded in the file). `site/assets/` holds the MPC logo,
+  favicon and the social preview image (`og-image.png`, 1200×630).
+- Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
+  no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
   This is the exact file the user hosts on Cloudflare Pages – the website must always keep working.
 - `requirements.txt` – Python dependencies (`python -m playwright install chromium` for rendering).
 
