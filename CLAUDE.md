@@ -57,6 +57,18 @@ Output is in English and Bahasa Melayu.
   analyst proxy = "our own estimate" / "anggaran kami". Specialist method notes may keep "90th percentile".
 - The Style Guide v1.12 on Drive still describes Lora/Inter and teal: update it there, then copy it here.
 
+## Reader tools (2026-11-15)
+- Nav: Home · Stories · Ideas library · Benchmark (`#benchmark`) · How we check. `#ask` is linked from the home "Tools" strip and footer.
+- `#benchmark`: dairy group list (alphabetical, own share only, "not a ranking"), group chart, and **Check your business**
+  (value added calculator; runs only in the browser, nothing sent or stored).
+- Ideas library starts with **Find ideas** (rule-based matcher over story lessons, `PROBS` + business type) and a printable
+  **30-day plan** (template, no AI).
+- **Ask Productivity Lens**: `functions/api/ask.js` answers only from `site/kb.json` (reviewed stories, EN/BM, with pages).
+  Rebuild after any reviewed-story change: `PL_CHROMIUM=/opt/pw-browsers/chromium python scripts/build_kb.py`.
+  Needs a Workers AI binding named **`AI`** on the Pages project; without it the API returns the matching passages only.
+  Any number in an AI answer must appear in the passages and rank words are blocked, otherwise passages are shown instead.
+  Questions are not stored (privacy notice section added; `CONSENT_VERSION` 2026-11-15).
+
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.
 - `docs/00_Project_Commands_and_Rules_v1.12.md` – commands (PREP, ANALYSE, FULL, PRODUCE, RUN …) and rules.

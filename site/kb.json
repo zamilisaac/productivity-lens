@@ -1,0 +1,495 @@
+{
+"built": "from site/index.html (reviewed stories only)",
+"chunks": [
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad (FY2025). Dutch Lady moved everything into one plant, and each worker now adds more value Dutch Lady: all milk production now runs in one IR4.0 plant, as value added per employee rose 17.8%. In 2025, its first full year at DLMI@Enstek, Dutch Lady used 27.6% less energy per tonne. Value added per employee rose 17.8% to RM590,993, on an approximate headcount."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.88",
+"text": "Dutch Lady Milk Industries Berhad: Energy used per tonne −27.6% (1.18 GJ/tonne in 2025). Less energy for each tonne made in the first full year at Enstek."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.98",
+"text": "Dutch Lady Milk Industries Berhad: Water used per tonne −35.5% (3.71 m³/tonne in 2025). Upgraded CIP systems and sensors cut water for each tonne produced."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.38",
+"text": "Dutch Lady Milk Industries Berhad: Stock held at year end RM219.5m (down from RM236.8m). Less stock tied up while sales volume rose 7.1%."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.34",
+"text": "Dutch Lady Milk Industries Berhad: DLMI@Enstek consolidation. All production moved to one IR4.0 plant. Result: First full year, 2025."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.33",
+"text": "Dutch Lady Milk Industries Berhad: Clean-in-Place upgrade. Two CIP systems upgraded. Result: Downtime change not reported."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.38",
+"text": "Dutch Lady Milk Industries Berhad: Inventory rebalancing. Rebalanced stock, dropped non-core products. Result: Stock RM236.8m to RM219.5m."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "p.34",
+"text": "Dutch Lady Milk Industries Berhad: Enstek Distribution Centre. Central warehouse beside the plant. Result: 25,000-pallet capacity."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad – idea for a small business: Cut slow, non-core lines and rebalance stock as volume grows. In 2025 Dutch Lady rebalanced stock and dropped some non-core products. Inventories fell from RM236.8 million to RM219.5 million while sales volume rose 7.1% (pp.38, 34). List every product line with its monthly sales and stock days. Drop or make-to-order the slowest lines, and set lower stock targets for the rest. This month, rank your products by stock days and pick the three slowest to review. Stock days or inventory turnover, before and after."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Value added per employee RM590,993 (+17.8% vs last year)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Value added per RM1 staff cost RM3.31 (+9.6% vs last year)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Capex per employee RM212,280 (−20.5% vs last year)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Inventory turnover 3.74× (+0.27× vs last year)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Value added per employee rose 17.8% to RM590,993 in FY2025, with the reported workforce steady at about 460."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Energy used per tonne fell 27.6% and water per tonne 35.5% in the first full year at DLMI@Enstek."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Value added per RM1 fixed assets was RM0.43, below the typical similar company of RM0.67, now the RM540 million plant is fully in use."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: No production, downtime or output-per-line figures are reported for the new plant, so its operating gains cannot yet be measured."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "en",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: At the benchmark: 100% of the benchmark in FY2025, up from 65% in FY2022. Dutch Lady generated RM590,993 of value added per employee in FY2025, at or beyond the benchmark of RM432,502. Its share rose 35 points from 65% in FY2022. Value added per RM1 fixed assets is 36% below the typical similar company."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad (FY2026). How Farm Fresh more than doubled ice-cream capacity without a new factory Farm Fresh: a second Taiping line lifts ice-cream capacity to 180,000 pieces a day; value added per employee up 3.4%. Farm Fresh added a second extrusion line inside its existing Taiping plant, raising extruded capacity from 70,000 to 180,000 pieces a day. Value added per employee rose 3.4% in FY2026 as headcount grew."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "pp.23, 65",
+"text": "Farm Fresh Berhad: Extruded ice-cream pieces a day 180,000 (capacity, up from 70,000 at Taiping). Capacity rose inside existing walls, with a second extrusion line."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "p.159",
+"text": "Farm Fresh Berhad: Litres less diesel a year 141,000+ (Muadzam Shah farm, biogas plant). Biogas made from manure replaced diesel at the farm."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "p.13",
+"text": "Farm Fresh Berhad: Litres of mains water saved 744.2m (up from 705.1m litres). Rainwater and tube wells replaced mains water at the farms."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "pp.23, 65",
+"text": "Farm Fresh Berhad: Taiping CPG ice-cream lines. Second extrusion line; new moulded-stick line. Result: Extruded capacity 70,000 → 180,000 pcs/day."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "p.83",
+"text": "Farm Fresh Berhad: Group processing capacity. More milk, ice-cream and powder capacity. Result: Milk capacity 202.9 → 239.5m litres."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "pp.80, 21, 81",
+"text": "Farm Fresh Berhad: Jacob Farm rotary milking parlour. Seven barns, calf pen, rotary parlour. Result: Capacity 4,000 cows; 915 in FY2026."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "p.80 (FY2024 AR)",
+"text": "Farm Fresh Berhad: Muadzam Shah UHT lines (FY2024). Two UHT lines, second filling line. Result: Capacity +22.7m to 103.7m litres."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Value added per employee RM233,304 (+3.4% vs last year)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Value added per RM1 staff cost RM2.70 (+1.2% vs last year)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Capex per employee RM116,334 (+47.9% vs last year)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Inventory turnover 3.66× (−8.9% vs last year)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "",
+"text": "Farm Fresh Berhad: Raised Taiping extruded ice-cream capacity from 70,000 to 180,000 pieces a day with a second line (pp.23, 65)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "",
+"text": "Farm Fresh Berhad: Finished goods sold rose from 130.6 million to 156.6 million litres while the agent network was cut from 443 to 252 (p.85)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "",
+"text": "Farm Fresh Berhad: Revenue per employee eased 0.8% as headcount grew faster than sales (calculated, pp.212, 189)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "",
+"text": "Farm Fresh Berhad: Inventory turnover slowed from 4.02 to 3.66 times as inventories rose to RM233.9 million (calculated, pp.210, 212)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "en",
+"ref": "",
+"text": "Farm Fresh Berhad: Closing the gap: 54% of the benchmark in FY2026, up from 42% in FY2023. Farm Fresh generated RM233,304 of value added per employee in FY2026, 54% of the benchmark of RM432,502. Its share rose 12 points from FY2023. Behind the gap: revenue per employee is 48% below the typical similar company, and value added per RM1 staff cost is 16% below it."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad (FY2025). Dutch Lady satukan pengeluaran di satu kilang, dan setiap pekerja kini menambah lebih banyak nilai Dutch Lady: semua pengeluaran susu di satu kilang IR4.0, nilai ditambah bagi setiap pekerja naik 17.8%. Pada 2025, tahun penuh pertama di DLMI@Enstek, Dutch Lady menggunakan 27.6% kurang tenaga bagi setiap tan. Nilai ditambah bagi setiap pekerja naik 17.8% kepada RM590,993, berdasarkan bilangan pekerja anggaran."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.88",
+"text": "Dutch Lady Milk Industries Berhad: Tenaga bagi setiap tan −27.6% (1.18 GJ/tan pada 2025). Kurang tenaga bagi setiap tan pada tahun penuh pertama di Enstek."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.98",
+"text": "Dutch Lady Milk Industries Berhad: Air bagi setiap tan −35.5% (3.71 m³/tan pada 2025). Sistem CIP dan sensor dinaik taraf mengurangkan air bagi setiap tan."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.38",
+"text": "Dutch Lady Milk Industries Berhad: Stok pada akhir tahun RM219.5j (turun daripada RM236.8j). Kurang stok terikat walaupun volum jualan naik 7.1%."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.34",
+"text": "Dutch Lady Milk Industries Berhad: Penyatuan DLMI@Enstek. Semua pengeluaran ke satu kilang IR4.0. Keputusan: Tahun penuh pertama, 2025."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.33",
+"text": "Dutch Lady Milk Industries Berhad: Naik taraf Clean-in-Place. Dua sistem CIP dinaik taraf. Keputusan: Perubahan masa henti tidak dilaporkan."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.38",
+"text": "Dutch Lady Milk Industries Berhad: Penyeimbangan inventori. Stok diseimbangkan, produk bukan teras dihentikan. Keputusan: Stok RM236.8j kepada RM219.5j."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "hlm.34",
+"text": "Dutch Lady Milk Industries Berhad: Pusat Pengedaran Enstek. Gudang pusat di sebelah kilang. Keputusan: Kapasiti 25,000 palet."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad – idea untuk perniagaan kecil: Hentikan produk lambat bukan teras dan seimbangkan stok apabila volum meningkat. Pada 2025 Dutch Lady menyeimbangkan stok dan menghentikan beberapa produk bukan teras. Inventori turun daripada RM236.8 juta kepada RM219.5 juta sementara volum jualan naik 7.1% (hlm.38, 34). Senaraikan setiap barisan produk dengan jualan bulanan dan hari stok. Hentikan atau buat ikut tempahan barisan paling lambat, dan tetapkan sasaran stok lebih rendah untuk yang lain. Bulan ini, susun produk anda mengikut hari stok dan pilih tiga paling lambat untuk disemak. Hari stok atau pusing ganti inventori, sebelum dan selepas."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Nilai ditambah bagi setiap pekerja RM590,993 (+17.8% berbanding tahun lepas)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Nilai ditambah bagi setiap RM1 kos kakitangan RM3.31 (+9.6% berbanding tahun lepas)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Perbelanjaan modal bagi setiap pekerja RM212,280 (−20.5% berbanding tahun lepas)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "FY2025",
+"text": "Dutch Lady Milk Industries Berhad: Pusing ganti inventori 3.74× (+0.27× berbanding tahun lepas)."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Nilai ditambah bagi setiap pekerja naik 17.8% kepada RM590,993 pada FY2025, dengan tenaga kerja dilaporkan stabil sekitar 460."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Tenaga bagi setiap tan turun 27.6% dan air bagi setiap tan 35.5% pada tahun penuh pertama di DLMI@Enstek."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Nilai ditambah bagi setiap RM1 aset tetap ialah RM0.43, di bawah paras biasa syarikat sejenis RM0.67, kini kilang RM540 juta digunakan sepenuhnya."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Tiada angka pengeluaran, masa henti atau keluaran bagi setiap barisan dilaporkan untuk kilang baharu, jadi hasil operasinya belum boleh diukur."
+},
+{
+"slug": "dutch-lady",
+"company": "Dutch Lady",
+"lang": "bm",
+"ref": "",
+"text": "Dutch Lady Milk Industries Berhad: Di paras penanda aras: 100% daripada penanda aras pada FY2025, naik daripada 65% pada FY2022. Dutch Lady menjana RM590,993 nilai ditambah bagi setiap pekerja pada FY2025, di atau melepasi penanda aras RM432,502. Bahagiannya naik 35 mata daripada 65% pada FY2022. Nilai ditambah bagi setiap RM1 aset tetap 36% di bawah paras biasa syarikat sejenis."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad (FY2026). Bagaimana Farm Fresh menggandakan kapasiti aiskrim lebih dua kali tanpa kilang baharu Farm Fresh: barisan kedua Taiping naikkan kapasiti aiskrim ke 180,000 sehari; nilai ditambah pekerja naik 3.4%. Farm Fresh menambah barisan kedua di kilang Taiping sedia ada, menaikkan kapasiti daripada 70,000 kepada 180,000 biji sehari. Nilai ditambah setiap pekerja naik 3.4% pada FY2026 kerana pekerja bertambah."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.23, 65",
+"text": "Farm Fresh Berhad: Keping aiskrim extruded sehari 180,000 (kapasiti, naik daripada 70,000 di Taiping). Kapasiti naik di dalam kilang sedia ada dengan barisan extrusion kedua."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.159",
+"text": "Farm Fresh Berhad: Liter kurang diesel setahun 141,000+ (ladang Muadzam Shah, loji biogas). Biogas daripada baja kandang menggantikan diesel di ladang."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.13",
+"text": "Farm Fresh Berhad: Liter air perbandaran dijimatkan 744.2j (naik daripada 705.1j liter). Air hujan dan telaga tiub menggantikan air paip di ladang."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.23, 65",
+"text": "Farm Fresh Berhad: Barisan aiskrim CPG Taiping. Barisan extrusion kedua; barisan moulded-stick baharu. Keputusan: Kapasiti extruded 70,000 → 180,000 keping/hari."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.83",
+"text": "Farm Fresh Berhad: Kapasiti pemprosesan Kumpulan. Tambah kapasiti susu, aiskrim dan serbuk. Keputusan: Kapasiti susu 202.9 → 239.5j liter."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.80, 21, 81",
+"text": "Farm Fresh Berhad: Rotary milking parlour Ladang Jacob. Tujuh kandang, kandang anak lembu, parlour. Keputusan: Kapasiti 4,000 lembu; 915 pada FY2026."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "hlm.80 (FY2024 AR)",
+"text": "Farm Fresh Berhad: Barisan UHT Muadzam Shah (FY2024). Dua barisan UHT, barisan pengisian kedua. Keputusan: Kapasiti +22.7j kepada 103.7j liter."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Nilai ditambah bagi setiap pekerja RM233,304 (+3.4% berbanding tahun lepas)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Nilai ditambah bagi setiap RM1 kos kakitangan RM2.70 (+1.2% berbanding tahun lepas)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Perbelanjaan modal bagi setiap pekerja RM116,334 (+47.9% berbanding tahun lepas)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "FY2026",
+"text": "Farm Fresh Berhad: Pusing ganti inventori 3.66× (−8.9% berbanding tahun lepas)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "",
+"text": "Farm Fresh Berhad: Menaikkan kapasiti aiskrim extruded Taiping daripada 70,000 kepada 180,000 keping sehari dengan barisan kedua (hlm.23, 65)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "",
+"text": "Farm Fresh Berhad: Barangan siap dijual naik daripada 130.6 juta kepada 156.6 juta liter walaupun rangkaian ejen dikurangkan daripada 443 kepada 252 (hlm.85)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "",
+"text": "Farm Fresh Berhad: Hasil bagi setiap pekerja susut 0.8% kerana bilangan pekerja naik lebih cepat daripada jualan (kiraan, hlm.212, 189)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "",
+"text": "Farm Fresh Berhad: Pusing ganti inventori perlahan daripada 4.02 kepada 3.66 kali apabila inventori naik kepada RM233.9 juta (kiraan, hlm.210, 212)."
+},
+{
+"slug": "farm-fresh",
+"company": "Farm Fresh",
+"lang": "bm",
+"ref": "",
+"text": "Farm Fresh Berhad: Jurang semakin rapat: 54% daripada penanda aras pada FY2026, naik daripada 42% pada FY2023. Farm Fresh menjana RM233,304 nilai ditambah bagi setiap pekerja pada FY2026, 54% daripada penanda aras RM432,502. Bahagiannya naik 12 mata sejak FY2023. Di sebalik jurang: hasil bagi setiap pekerja 48% di bawah paras biasa syarikat sejenis, dan nilai ditambah bagi setiap RM1 kos kakitangan 16% di bawahnya."
+}
+]
+}

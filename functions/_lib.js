@@ -2,7 +2,7 @@
 // Files starting with "_" are not routes. The D1 database is bound to the Pages project as `DB`.
 
 // Bump this when the privacy notice changes; it is stored with each consent.
-export const CONSENT_VERSION = "2026-11-14";
+export const CONSENT_VERSION = "2026-11-15";
 
 export const json = (status, body) =>
   new Response(JSON.stringify(body), {
