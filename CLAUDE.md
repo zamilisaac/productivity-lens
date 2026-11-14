@@ -27,6 +27,10 @@ Output is in English and Bahasa Melayu.
 - Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
   no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
 - `site/` is exactly what the user hosts on Cloudflare Pages – the website must always keep working.
+- Companies re-done under Playbook v1.12 are applied to the website as one data block per company, placed just
+  before `function route(){` in `site/index.html`, built from the approved Content / Content_BM files
+  (done: Dutch Lady 3026 Content_v6, Farm Fresh 5306 Content_v7). Stories may have 0–3 lessons (R045).
+- Rendering in cloud sessions: `export PL_CHROMIUM=/opt/pw-browsers/chromium` before `pl-render` scripts.
 - `scripts/requirements.txt` – Python dependencies (kept out of the repo root so Cloudflare Pages does not try to install them) (`python -m playwright install chromium` for rendering).
 
 ## Method documents (copied from Drive 07_Templates)
