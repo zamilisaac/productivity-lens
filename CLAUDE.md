@@ -60,15 +60,16 @@ Output is in English and Bahasa Melayu.
 
 ## Reader tools (2026-11-15)
 - Nav: Home · Stories · Ideas library · Distance to Frontier (`#frontier`; old `#benchmark` links still work) · How we check.
-- `#frontier`: dairy group list (alphabetical, own share only, "not a ranking"), group chart, and **Check your business**
-  (value added calculator; runs only in the browser, nothing sent or stored).
+- `#frontier`: dairy group list (alphabetical, own share only, "not a ranking"), then the Phase 1 group chart, FY2026 note and phases.
+  Group companies by sector here once a second sector is added.
 - Ideas library: one filterable list of every initiative (company, problem, evidence, search) as form rows. A sector filter
   comes when a second sector is added. "Find ideas" matcher removed (user, 2026-11-15).
 - Filter rows use `frow` + `fsel` (label left, dropdown right).
 - Story cards: no "Reviewed · PDF" chip (downloads stay on the story page); compact cards on phones; a company may set
   `cardStat` to choose the card figure (Dutch Lady: value added per employee, user request 2026-11-15).
-- Removed at the user's request (2026-11-15): the printable 30-day plan and **Ask Productivity Lens** (no `/api/ask`,
-  no `kb.json`, no Workers AI binding needed). Privacy notice updated (`CONSENT_VERSION` 2026-11-15-2).
+- Removed at the user's request (2026-11-15): the printable 30-day plan, **Ask Productivity Lens** (no `/api/ask`,
+  no `kb.json`, no Workers AI binding needed), **Check your business** and the home "Tools" strip.
+  Privacy notice back to newsletter only (`CONSENT_VERSION` 2026-11-15-3).
 
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.

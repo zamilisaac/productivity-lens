@@ -604,12 +604,6 @@ fieldset.fl label{font-weight:400;font-size:15px;display:flex;gap:8px;align-item
 details.fullmethod{margin-top:40px}
 @media (max-width:600px){.why.whytop>div:last-child{display:none}.sgrid .slide>p{display:none}.st-gloss dl{grid-template-columns:1fr;gap:2px}.st-gloss dd{margin-bottom:10px}.sgrid{grid-template-columns:1fr}}
 /* tools: frontier list, business check, idea matcher */
-.toolstrip h2{font-size:clamp(28px,3.2vw,42px)}
-.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
-.tcard{position:relative;background:var(--panel);border-radius:26px;padding:28px 28px 70px;box-shadow:0 1px 2px rgba(11,11,15,.04);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.tcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.tcard h3{font-size:19px;letter-spacing:-.02em}.tcard p{font-size:14.5px;margin-top:8px}
-.tcard .tgo{position:absolute;left:28px;bottom:24px;width:34px;height:34px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
 .bmlist{display:grid;gap:10px;margin-top:22px}
 .bmrow{display:grid;grid-template-columns:minmax(120px,180px) 1fr minmax(180px,auto) auto;gap:18px;align-items:center;background:var(--panel);border-radius:18px;padding:16px 20px}
 .bmrow .bar,.gapbar .bar{position:relative;display:block;height:10px;border-radius:99px;background:var(--violet-soft)}
@@ -617,19 +611,8 @@ details.fullmethod{margin-top:40px}
 .gapbar .bar em{position:absolute;top:-5px;width:2px;height:20px;background:var(--ink)}
 .bmrow .pc{font-size:14px;font-weight:600;color:var(--violet-ink)}.bmrow .go{font-size:13.5px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
 .bmrow .go svg{width:14px;height:14px}
-.chk{margin-top:56px}
-.chkform{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:22px}
-.chkform label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
-.chkform input{font:inherit;font-size:16px;font-weight:500;padding:12px 14px;border-radius:14px;border:1px solid var(--hair);background:#fff;color:var(--ink);width:100%}
-.chkform input:focus{outline:2px solid var(--violet);outline-offset:1px}
-.chkform small{font-weight:400;color:var(--muted);font-size:13px}
-.chkbtns{display:flex;gap:12px;align-items:center;grid-column:1/-1}
-.chkres{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-.chkres>div{background:var(--soft);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
-.chkres .k{font-size:13.5px;color:var(--muted);font-weight:600}.chkres b{font-size:28px;letter-spacing:-.03em;font-weight:600}.chkres .s{font-size:13px;color:var(--muted)}
-.gapbar{margin-top:18px}.chkerr{margin-top:16px;color:#8A1C1C;font-weight:600}
 
-@media (max-width:900px){.tgrid{grid-template-columns:1fr}.bmrow{grid-template-columns:1fr;gap:8px}.chkres{grid-template-columns:1fr}}
+@media (max-width:900px){.bmrow{grid-template-columns:1fr;gap:8px}}
 
 /* form rows: label left, control right (Ideas library) */
 .fbox{display:grid;gap:10px;margin-top:22px;max-width:760px}
@@ -1547,42 +1530,15 @@ const gradeChip=g=>`<span class="chip g${g}" title="${esc(LEG[lang].grades["ABC"
 /* ---------- tools for readers: frontier page, business check, idea matcher ---------- */
 const TOOLS={
  en:{bmH:"Distance to Frontier",
-   bmLede:"The frontier is the value added per employee that only the strongest similar companies reach (1 in 10 yearly results). Today it covers five Bursa dairy and milk-product companies. See where each story company stands, then check your own business.",
+   bmLede:"The frontier is the value added per employee that only the strongest similar companies reach (1 in 10 yearly results). Today it covers five Bursa dairy and milk-product companies. See where each story company stands.",
    listH:"Companies in the dairy group",listNote:"Listed alphabetically. Each figure is that company's own share of the frontier in its latest year. This is not a ranking.",
-   share:(a,y)=>`${a}% of the frontier, FY${y}`,read:"Read the story",outsideH:"Other stories",outside:"Not in the dairy group, so each is compared with its own past years on its story page.",
-   chkH:"Check your business",chkSub:"Type in last year’s figures from your accounts. The sums run only in your browser: nothing you type is sent or stored.",
-   f:[["pbt","Profit before tax (RM)","Use a minus sign for a loss"],["staff","Staff costs (RM)","Salaries, bonuses, EPF and SOCSO"],["dep","Depreciation and amortisation (RM)","From your income statement; 0 if none"],["fin","Interest and finance costs (RM)","0 if none"],["emp","Number of employees","Full-time staff, average for the year"]],
-   calc:"Work it out",reset:"Clear",
-   need:"Please fill in staff costs and the number of employees (more than 0).",
-   outVA:"Value added",outVAe:"Value added per employee",outVAs:"Value added per RM1 staff cost",outShare:"Share of the frontier",
-   vsTyp:t=>`Typical similar company: ${t}`,vsBm:"Frontier: "+"RM432,502",
-   read1:(s)=>s>=100?"At or beyond the frontier for these large dairy companies.":s>=75?"Close to the typical similar company. The gap to the frontier is mostly in output per person.":"Some way below these large companies. That is normal for a smaller firm; the ideas below show where others found gains.",
-   caveat:"A rough guide only. The comparison group is five large listed dairy and milk-product companies, so a small business in another sector will usually sit lower. Use it to track your own change from year to year.",
-   next:"Find ideas for your business",
-   tH:"Tools for your business",
-   t:[["#frontier","Check your business","Work out your value added per employee and see how it compares."],["#initiatives","Ideas library","Search every initiative found in the reports, by company, problem or evidence."]]},
+   share:(a,y)=>`${a}% of the frontier, FY${y}`,read:"Read the story",outsideH:"Other stories",outside:"Not in the dairy group, so each is compared with its own past years on its story page.",},
  bm:{bmH:"Jarak ke Aras Termaju",
-   bmLede:"Aras termaju ialah nilai ditambah bagi setiap pekerja yang hanya dicapai syarikat sejenis yang paling kukuh (1 daripada 10 keputusan tahunan). Buat masa ini ia meliputi lima syarikat tenusu dan produk susu Bursa. Lihat kedudukan setiap syarikat dalam kisah, kemudian semak perniagaan anda sendiri.",
+   bmLede:"Aras termaju ialah nilai ditambah bagi setiap pekerja yang hanya dicapai syarikat sejenis yang paling kukuh (1 daripada 10 keputusan tahunan). Buat masa ini ia meliputi lima syarikat tenusu dan produk susu Bursa. Lihat kedudukan setiap syarikat dalam kisah.",
    listH:"Syarikat dalam kumpulan tenusu",listNote:"Disusun mengikut abjad. Setiap angka ialah bahagian aras termaju yang dicapai syarikat itu sendiri pada tahun terkininya. Ini bukan kedudukan.",
-   share:(a,y)=>`${a}% daripada aras termaju, FY${y}`,read:"Baca kisah",outsideH:"Kisah lain",outside:"Bukan dalam kumpulan tenusu, jadi setiap syarikat dibandingkan dengan tahun-tahun lepasnya sendiri di halaman kisah.",
-   chkH:"Semak perniagaan anda",chkSub:"Masukkan angka tahun lepas daripada akaun anda. Pengiraan berlaku dalam pelayar anda sahaja: tiada apa yang anda taip dihantar atau disimpan.",
-   f:[["pbt","Untung sebelum cukai (RM)","Guna tanda tolak jika rugi"],["staff","Kos kakitangan (RM)","Gaji, bonus, KWSP dan PERKESO"],["dep","Susut nilai dan pelunasan (RM)","Daripada penyata pendapatan; 0 jika tiada"],["fin","Faedah dan kos kewangan (RM)","0 jika tiada"],["emp","Bilangan pekerja","Pekerja sepenuh masa, purata setahun"]],
-   calc:"Kira",reset:"Kosongkan",
-   need:"Sila isi kos kakitangan dan bilangan pekerja (lebih daripada 0).",
-   outVA:"Nilai ditambah",outVAe:"Nilai ditambah bagi setiap pekerja",outVAs:"Nilai ditambah bagi setiap RM1 kos kakitangan",outShare:"Bahagian aras termaju",
-   vsTyp:t=>`Biasa bagi syarikat sejenis: ${t}`,vsBm:"Aras termaju: RM432,502",
-   read1:(s)=>s>=100?"Di atau melepasi aras termaju bagi syarikat tenusu besar ini.":s>=75?"Hampir dengan paras biasa syarikat sejenis. Jurang ke aras termaju kebanyakannya pada keluaran setiap orang.":"Agak jauh di bawah syarikat besar ini. Itu biasa bagi perniagaan yang lebih kecil; idea di bawah menunjukkan di mana syarikat lain mendapat hasil.",
-   caveat:"Panduan kasar sahaja. Kumpulan perbandingan ialah lima syarikat tenusu dan produk susu besar di Bursa, jadi perniagaan kecil dalam sektor lain biasanya lebih rendah. Gunakannya untuk menjejak perubahan anda sendiri dari tahun ke tahun.",
-   next:"Cari idea untuk perniagaan anda",
-   tH:"Alat untuk perniagaan anda",
-   t:[["#frontier","Semak perniagaan anda","Kira nilai ditambah bagi setiap pekerja dan lihat perbandingannya."],["#initiatives","Pustaka idea","Cari setiap inisiatif yang ditemui dalam laporan, mengikut syarikat, masalah atau bukti."]]}
+   share:(a,y)=>`${a}% daripada aras termaju, FY${y}`,read:"Baca kisah",outsideH:"Kisah lain",outside:"Bukan dalam kumpulan tenusu, jadi setiap syarikat dibandingkan dengan tahun-tahun lepasnya sendiri di halaman kisah.",}
 };
-const rm=n=>(n<0?"−":"")+"RM"+Math.round(Math.abs(n)).toLocaleString("en-US");
-const num=v=>{const s=String(v||"").replace(/[,\s]/g,"").replace(/^RM/i,"").replace(/[−–]/g,"-");return s===""?0:Number(s);};
-const PEER_VA=353074,PEER_VAS=3.21;
 
-function toolsStrip(){const T=TOOLS[lang];
-  return `<section class="toolstrip"><h2>${T.tH}</h2><div class="tgrid">${T.t.map(([h,a,b])=>`<a class="tcard" href="${h}"><h3>${a}</h3><p class="muted">${b}</p><span class="tgo">${ARROW}</span></a>`).join("")}</div></section>`;}
 
 function viewBenchmark(){const T=TOOLS[lang],u=UI[lang];
   const sorted=[...COMPANIES].sort((a,b)=>a.name.localeCompare(b.name));
@@ -1591,24 +1547,8 @@ function viewBenchmark(){const T=TOOLS[lang],u=UI[lang];
    <section style="margin-top:48px"><h2 style="font-size:clamp(26px,3vw,38px)">${T.listH}</h2><p class="muted" style="font-size:14.5px;max-width:70ch">${T.listNote}</p>
     <div class="bmlist">${inG.map(c=>{const D=DTF.co[c.slug];return `<a class="bmrow" href="#${c.slug}"><b>${esc(SHORT[c.slug]||c.name.replace(/ (Berhad|Bhd)$/,""))}</b><span class="bar"><i style="width:${Math.min(100,D.a1)}%"></i></span><span class="pc">${T.share(D.a1,D.last)}</span><span class="go">${T.read} ${ARROW}</span></a>`;}).join("")}</div>
     ${outG.length?`<p class="muted" style="font-size:14.5px;margin-top:22px"><b>${T.outsideH}:</b> ${outG.map(c=>`<a href="#${c.slug}">${esc(SHORT[c.slug]||c.name.replace(/ (Berhad|Bhd)$/,""))}</a>`).join(" · ")}. ${T.outside}</p>`:""}</section>
-   <section id="check" class="panel chk"><h2 style="font-size:clamp(26px,3vw,38px)">${T.chkH}</h2><p class="muted" style="max-width:70ch">${T.chkSub}</p>
-    <form id="chkForm" class="chkform" autocomplete="off">${T.f.map(([k,l,h])=>`<label><span>${l}</span><input inputmode="decimal" name="${k}" id="ck-${k}" placeholder="${k==="emp"?"60":"0"}"><small>${h}</small></label>`).join("")}
-     <div class="chkbtns"><button type="submit" class="pill dark">${T.calc} ${ARROW}</button><button type="reset" class="fpill">${T.reset}</button></div></form>
-    <div id="chkOut" aria-live="polite"></div></section>
    ${dtfHome()}`;}
 
-function bindBenchmark(){const T=TOOLS[lang],f=document.getElementById("chkForm"),out=document.getElementById("chkOut");if(!f)return;
-  f.addEventListener("reset",()=>{out.innerHTML="";});
-  f.addEventListener("submit",e=>{e.preventDefault();const v=k=>num(f.elements[k].value);
-    const staff=v("staff"),emp=v("emp"),pbt=v("pbt"),dep=v("dep"),fin=v("fin");
-    if(!(staff>0&&emp>0)||[pbt,dep,fin].some(isNaN)){out.innerHTML=`<p class="chkerr">${T.need}</p>`;return;}
-    const va=pbt+staff+dep+fin,vae=va/emp,vas=va/staff,share=Math.max(0,Math.round(vae/DTF.fr*100));
-    const cell=(k,val,sub)=>`<div><span class="k">${k}</span><b>${val}</b>${sub?`<span class="s">${sub}</span>`:""}</div>`;
-    out.innerHTML=`<div class="chkres">${cell(T.outVAe,rm(vae),T.vsTyp(PEER_MED[0]))}${cell(T.outVAs,"RM"+vas.toFixed(2),T.vsTyp(PEER_MED[1]))}${cell(T.outShare,Math.min(share,100)+"%",T.vsBm)}</div>
-      <div class="gapbar"><span class="bar"><i style="width:${Math.min(share,100)}%"></i><em style="left:${Math.round(PEER_VA/DTF.fr*100)}%" title="${T.vsTyp("")}"></em></span></div>
-      <p style="margin-top:14px;font-weight:600">${T.read1(share)}</p><p class="muted" style="font-size:14px">${T.outVA}: ${rm(va)}. ${T.caveat}</p>
-      <a class="pill" href="#initiatives" style="margin-top:12px">${T.next} ${ARROW}</a>`;
-    out.scrollIntoView({block:"nearest",behavior:"smooth"});});}
 
 const fsel=(id,lbl,opts,val,all)=>`<div class="fsel"><select id="${id}" aria-label="${lbl}">${all?`<option value="">${all}</option>`:""}${opts.map(([k,l])=>`<option value="${k}" ${k===val?"selected":""}>${l}</option>`).join("")}</select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
 const frow=(lbl,ctl,forId)=>`<div class="frow"><label class="flbl"${forId?` for="${forId}"`:""}>${lbl}</label><div class="fctl">${ctl}</div></div>`;
@@ -1654,7 +1594,6 @@ function viewHome(){
    <section><div class="carhead"><h2 style="max-width:18ch">${bm?"Kisah produktiviti":"Productivity stories"}</h2></div>
      <p class="muted" style="margin-top:12px;max-width:60ch">${bm?"Setiap kisah menerangkan apa yang dilakukan satu syarikat, apa yang berubah, dan apa yang boleh dicuba oleh perniagaan yang lebih kecil.":"Each story explains what one company did, what changed, and what a smaller business can try."}</p>
      <div class="sgrid">${COMPANIES.map(storyCard).join("")}</div></section>
-   ${toolsStrip()}
 
    <section class="panel"><div class="split"><h2>${bm?"Cara setiap kisah membantu anda":"How each story helps you"}</h2>
      <div><p class="muted">${d.whatP}</p></div></div>
@@ -2060,7 +1999,6 @@ function viewUnsubscribe(){const T=UNS[lang],N=NL[lang];return `<h1>${T.h}</h1><
 function viewSubscribe(){const T=NL[lang];return `<h1>${T.page}</h1><p class="lead muted">${T.p}</p>${signupSection("page")}<p style="margin-top:24px"><a href="#privacy">${T.privacy}</a> · <a href="#unsubscribe">${T.unsub}</a></p>`;}
 const PRIV={en:{h:"Privacy notice",upd:"Last updated 15 November 2026",s:[
  ["Who we are","Productivity Lens is an independent, personal project. It is not run by or for any government body or company. This notice explains how the newsletter sign-up handles your personal data, in line with Malaysia’s Personal Data Protection Act 2010 (PDPA)."],
- ["Check your business","Check your business works only in your browser: the figures you type are never sent to us or stored."],
  ["What we collect","Only what you give us in the sign-up form: your email address and the newsletter language you choose. We also record the date and time you agreed to this notice and which version of the notice it was. We do not record your IP address, and the website uses no tracking or advertising cookies."],
  ["Why we collect it","To send you an email when a new Productivity Lens story is published. We do not use your address for anything else, and we never sell, rent or share it for anyone’s marketing."],
  ["Your choice","Signing up is voluntary. If you do not sign up, you can still read everything on the website; you just won’t receive the newsletter by email."],
@@ -2070,7 +2008,6 @@ const PRIV={en:{h:"Privacy notice",upd:"Last updated 15 November 2026",s:[
  ["Contact","__CONTACT__"]]},
  bm:{h:"Notis privasi",upd:"Kemas kini terakhir 15 November 2026",s:[
  ["Siapa kami","Productivity Lens ialah projek peribadi yang bebas. Ia tidak dikendalikan oleh atau untuk mana-mana badan kerajaan atau syarikat. Notis ini menerangkan cara pendaftaran surat berita mengendalikan data peribadi anda, selaras dengan Akta Perlindungan Data Peribadi 2010 (PDPA) Malaysia."],
- ["Semak perniagaan anda","Semak perniagaan anda berfungsi dalam pelayar anda sahaja: angka yang anda taip tidak pernah dihantar kepada kami atau disimpan."],
  ["Apa yang kami kumpul","Hanya apa yang anda berikan dalam borang: alamat e-mel anda dan bahasa surat berita yang anda pilih. Kami juga merekod tarikh dan masa anda bersetuju dengan notis ini dan versi notis tersebut. Kami tidak merekod alamat IP anda, dan laman web ini tidak menggunakan kuki penjejakan atau pengiklanan."],
  ["Mengapa kami mengumpulnya","Untuk menghantar e-mel kepada anda apabila kisah Productivity Lens baharu diterbitkan. Kami tidak menggunakan alamat anda untuk tujuan lain, dan tidak sekali-kali menjual, menyewakan atau berkongsinya untuk pemasaran sesiapa."],
  ["Pilihan anda","Pendaftaran adalah sukarela. Jika anda tidak mendaftar, anda masih boleh membaca semua kandungan laman web ini; anda cuma tidak akan menerima surat berita melalui e-mel."],
@@ -2106,7 +2043,7 @@ function route(){
   else if(h==="stories"){app.innerHTML=viewStories();
     document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));}
   else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();}
-  else if(h==="frontier"){app.innerHTML=viewBenchmark();bindBenchmark();}
+  else if(h==="frontier"){app.innerHTML=viewBenchmark();}
   else if(h==="how-it-works"){app.innerHTML=viewMethod();}
   else if(h==="privacy"){app.innerHTML=viewPrivacy();}
   else if(h==="subscribe"){app.innerHTML=viewSubscribe();}
