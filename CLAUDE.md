@@ -19,9 +19,22 @@ Output is in English and Bahasa Melayu.
   (`company`, `sector`, `fy`, `headline`, `pdf`); PDFs go in `site/spotlights/`.
 - `requirements.txt` – Python dependencies (`python -m playwright install chromium` for rendering).
 
-## Not in the repo yet
-- Productivity Lens Playbook (skills refer to v1.8), Templates workbook (`Productivity_Lens_Templates.xlsx`),
-  Style Guide, real company reports and Content files.
+## Method documents (copied from Drive 07_Templates)
+- `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.
+- `docs/00_Project_Commands_and_Rules_v1.12.md` – commands (PREP, ANALYSE, FULL, PRODUCE, RUN …) and rules.
+- `docs/Productivity_Lens_Style_Guide_v1.12.md` – wording, colours, fonts.
+- `templates/*.csv` – column layouts for DataSheet, DTF, Sector Frontier, Ledger, Rules, Review.
+- `scripts/pl_prepare_reports.py` – compresses/splits oversize report PDFs and writes text sidecars.
+If Drive has a newer version than the repo, the Drive copy wins; update the repo copy.
+
+## Google Drive (working data – stays in Drive, not in this public repo)
+Folder "Productivity Lens" (Drive connector):
+- `01_Register/` – live Ledger, Rules, Review, ImprovementLog (Google Sheet "Productivity_Lens_Templates_old.")
+- `02_Reports/` – company reports (+ `_Inbox`, `_Oversize_Originals`)
+- `03_Working/` – one folder per company (`[Code]_[Name]`); a second `03_Working` holds sector frontier / peer panel files
+- `04_Spotlights/` – spotlight PDFs (EN/BM, `_vN` = later version), `Snapshots/`, `Newsletter/` HTML
+- `05_Editions/`, `06_Distribution/`, `07_Templates/`
+Spotlights are still **Draft** in the Review sheet – do not publish them to `site/` until the user marks them Verified/Published.
 
 ## Cloudflare Pages status (as of 2026-11-14)
 - Live site: https://productivitylens.pages.dev/ – serves the existing MPC-branded "Productivity Lens · MPC"
