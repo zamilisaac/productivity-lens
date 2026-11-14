@@ -114,3 +114,19 @@ Capacity at a **new** site is `new_site`, never `capacity_existing_site`.
 | Agents 971 → 252, distribution cost down RM2.1m | operations | achieved | cost | people | single_impact | distribution_restructure | Tier 1 · A · Operating |
 | Drive-in racking raised rack utilisation 13% | operations | achieved | utilisation | space | single_impact | process_layout | Tier 1 · A · Operating |
 | Second line: 70,000 → 180,000 pcs/day | operations | achieved | capacity | machine_time | before_after | capacity_existing_site | Tier 1 · A · Enabler |
+
+## Rules-tab rules that affect the answers
+
+| Rule | How to answer |
+| --- | --- |
+| R015 | Profit or segment change credited to "efficiency" with no action described → `result_kind = revenue_profit` |
+| R016 | Capital work in progress or commitments with no project described → not a candidate; leave it out |
+| R017 | Safety or equipment-handling training (forklift, reach truck, confined space) → `category = operations`, `area = workforce_skills`; shorter working day through process changes → `area = process_layout` |
+| R032 / R033 | A headcount fall not linked by the company to the programme is not its result → `result_kind = none`, `figure = none` (Grade C) |
+| R033 | No stated result → `figure = none`; the Grade stays C whatever the Tier |
+| R036 | Too few lessons → add initiatives from the FY-2 and FY-4 annual reports, with the report year in `page` (e.g. `27 (FY2024 AR)`) |
+| R040 | Disposal or consolidation → `area = consolidation`; it counts only with a productivity or operating result (engine rule) |
+| R041 | Information too unclear to answer (e.g. a trial with no outcome) → `rule = R041`, `rule_outcome = skip` |
+| R042 | Clearly environment-only results → `result_kind = environmental_only`; the engine keeps them out of every list |
+
+Policy switches for these rules are at the top of `scripts/classify.py` (`POLICY`).

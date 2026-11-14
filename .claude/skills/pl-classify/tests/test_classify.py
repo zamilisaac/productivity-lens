@@ -64,12 +64,40 @@ def test_input_saving_passes_tier3():
     assert (c["counted"], c["tier"], c["grade"], c["evidence_type"]) == ("Y", 3, "A", "Operating result")
 
 
-def test_tier3_saving_is_lesson_eligible_but_only_one_chosen():
+def test_tier3_never_a_lesson_under_R035():
     rows = [base(id=f"t{i}", area="resource", result_kind="input_saving", input="energy", figure="single_impact",
                  quote="diesel use cut by 141,000 litres", type=f"Resource {i}") for i in range(3)]
     res = C.run_rows(rows)
-    assert all(r["lesson_eligible"] == "Y" for r in res)
-    assert len(C.select_lessons(res)) == 1
+    assert all(r["counted"] == "Y" and r["lesson_eligible"] == "N" for r in res)
+    assert C.select_lessons(res) == []
+
+
+def test_tier3_allowed_once_when_policy_allows():
+    C.POLICY["tier3_lessons"] = True
+    try:
+        rows = [base(id=f"t{i}", area="resource", result_kind="input_saving", input="energy", figure="single_impact",
+                     quote="diesel use cut by 141,000 litres", type=f"Resource {i}") for i in range(3)]
+        assert len(C.select_lessons(C.run_rows(rows))) == 1
+    finally:
+        C.POLICY["tier3_lessons"] = False
+
+
+def test_consolidation_needs_result_R040():
+    c = C.classify(base(area="consolidation", result_kind="investment_scale", input="space", quote="sold farm, cows 3,394 to 1,614"))
+    assert c["counted"] == "N" and "R040" in c["fail_reason"]
+    c = C.classify(base(area="consolidation", result_kind="cost", input="space", figure="single_impact", quote="saved RM2m a year"))
+    assert c["counted"] == "Y"
+
+
+def test_skip_and_environment_only_not_listed():
+    assert C.classify(base(rule="R041", rule_outcome="skip"))["listed"] == "N"
+    c = C.classify(base(result_kind="environmental_only", area="resource", quote="581 million litres recycled"))
+    assert (c["counted"], c["listed"]) == ("N", "N")
+
+
+def test_repeat_type_when_too_few_types_R035():
+    rows = [base(id=f"x{i}", result_kind="time", input="people", figure="single_impact", quote="lead time cut 20%", type="Process redesign") for i in range(3)]
+    assert len(C.select_lessons(C.run_rows(rows))) == 3
 
 
 def test_lessons_prefer_tier1_productivity_and_distinct_types():
@@ -78,7 +106,7 @@ def test_lessons_prefer_tier1_productivity_and_distinct_types():
             base(id="c", result_kind="output_per_input", input="people", figure="single_impact", quote="output per worker up 15%", type="New/upgraded line"),
             base(id="d", result_kind="downtime", input="machine_time", figure="single_impact", quote="downtime fell 30%", type="New/upgraded line")]
     ids = [r["id"] for r in C.select_lessons(C.run_rows(rows))]
-    assert ids == ["c", "b", "a"], ids
+    assert ids == ["c", "b", "d"], ids  # Tier 3 "a" never chosen (R035); type repeated instead
 
 
 def test_validate_rejects_unknown_values():

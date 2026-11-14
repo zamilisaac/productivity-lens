@@ -22,6 +22,22 @@ from pathlib import Path
 
 PLAYBOOK = "v1.12"
 
+# Rules-tab policy (the Rules tab overrides the Playbook where it says so). Change here, re-run, re-test.
+POLICY = {
+    # R035 (user, 2026-11-10): SME lessons are Tier 1, or Tier 2 if needed; never Tier 3 sustainability
+    # items, even at Grade A. Supersedes the Playbook Module 4 "one Tier 3 lesson" allowance.
+    "tier3_lessons": False,
+    # R035: if fewer than three productivity types have results, repeat a type rather than use a weaker lesson.
+    "repeat_type_if_needed": True,
+    # R034/R035: keep at least two Tier 1 lessons.
+    "min_tier1_lessons": 2,
+    # R040 (user, 2026-11-14): disposal or consolidation counts only when it leads to a productivity or
+    # operating result.
+    "consolidation_needs_result": True,
+    # R042 (user, 2026-11-14): clearly environment-only items are not listed (kept in Answers for audit).
+    "list_environment_only": False,
+}
+
 ANSWER_COLS = ["id", "company", "code", "fy", "initiative", "page", "source", "quote",
                "category", "status", "result_kind", "input", "figure", "area"]
 OPTIONAL_COLS = ["type", "what_they_did", "investment", "reported_result", "where",
@@ -116,14 +132,14 @@ def validate(rows):
         if r.get("id") in seen:
             errors.append(f"row {n}: duplicate id '{r.get('id')}'")
         seen.add(r.get("id"))
-        if r.get("rule_outcome") and r["rule_outcome"] not in {"pass", "fail"}:
-            errors.append(f"row {n}: rule_outcome must be pass or fail")
+        if r.get("rule_outcome") and r["rule_outcome"] not in {"pass", "fail", "skip"}:
+            errors.append(f"row {n}: rule_outcome must be pass, fail or skip")
     return errors
 
 
 def classify(a):
     """Apply Playbook Module 2A to one row of answers. Returns a dict of labels."""
-    out = {"counted": "Y", "fail_reason": "", "tier": TIER[a["area"]], "grade": "",
+    out = {"counted": "Y", "listed": "Y", "fail_reason": "", "tier": TIER[a["area"]], "grade": "",
            "evidence_type": "", "lesson_eligible": "N", "headline_role": "", "warnings": [],
            "decision_needed": ""}
     rk, fig, area = a["result_kind"], a["figure"], a["area"]
@@ -156,6 +172,10 @@ def classify(a):
         fail("quality item without a measured defect, yield or downtime figure")
     if area == "distribution_restructure" and rk not in MEASURED:
         fail("distribution item without an operating measure")
+    if area == "consolidation" and POLICY["consolidation_needs_result"] and not operating_measure:
+        fail("R040: disposal or consolidation without a productivity or operating result")
+    if rk == "environmental_only" and not POLICY["list_environment_only"]:
+        out["listed"] = "N"
 
     # Evidence type: highest the quote supports; capacity or scale alone is an Enabler
     if quantified and rk in PRODUCTIVITY:
@@ -174,6 +194,9 @@ def classify(a):
         out["grade"] = "C"
 
     # Rules tab override (recorded, never silent)
+    if a.get("rule_outcome") == "skip":
+        out.update(counted="N", listed="N", fail_reason=f"{a.get('rule') or 'user'}: skipped, information not clear")
+        return out
     if a.get("rule") and a.get("rule_outcome"):
         before = out["counted"]
         out["counted"] = "Y" if a["rule_outcome"] == "pass" else "N"
@@ -188,7 +211,7 @@ def classify(a):
         # Playbook Module 4 "SME lessons" eligibility: passes the test, Grade A, Operating or
         # Productivity result (never an Enabler), achieved. Tier is NOT an eligibility rule; it only
         # orders the choice (see select_lessons), with at most one Tier 3 lesson.
-        if out["grade"] == "A" and out["evidence_type"] != "Enabler":
+        if out["grade"] == "A" and out["evidence_type"] != "Enabler" and (out["tier"] != 3 or POLICY["tier3_lessons"]):
             out["lesson_eligible"] = "Y"
         # Playbook headline hierarchy (Module 4): Tier 1, Grade A only
         if out["tier"] == 1 and out["grade"] == "A":
@@ -237,7 +260,8 @@ INIT_COLS = ["company", "code", "sector", "fy", "initiative", "type", "tier", "g
              "lesson_eligible", "headline_role", "warnings", "id"]
 NC_COLS = ["initiative", "fail_reason", "page", "quote", "id"]
 DEC_COLS = ["id", "initiative", "page", "counted", "tier", "grade", "evidence_type", "warnings", "quote"]
-ANS_COLS = ANSWER_COLS + ["uncertain", "uncertain_reason", "rule", "rule_outcome"]
+ANS_COLS = ANSWER_COLS + ["uncertain", "uncertain_reason", "rule", "rule_outcome",
+                          "counted", "listed", "fail_reason", "tier", "grade", "evidence_type"]
 
 
 def write_xlsx(path, res):
@@ -245,7 +269,7 @@ def write_xlsx(path, res):
     from openpyxl.styles import Font
     wb = openpyxl.Workbook()
     sheets = [("Initiatives", INIT_COLS, [r for r in res if r["counted"] == "Y"]),
-              ("Not counted", NC_COLS, [r for r in res if r["counted"] == "N"]),
+              ("Not counted", NC_COLS, [r for r in res if r["counted"] == "N" and r["listed"] == "Y"]),
               ("Decisions", DEC_COLS, [r for r in res if r["decision_needed"] == "Y"]),
               ("Answers", ANS_COLS, res)]
     for i, (name, cols, data) in enumerate(sheets):
@@ -265,9 +289,9 @@ EVID_RANK = {"Productivity result": 0, "Operating result": 1}
 
 
 def select_lessons(res):
-    """Playbook Module 4 selection: Tier 1 first (Tier 2 only if needed) -> Productivity before Operating
-    -> at most one Tier 3 lesson -> three different initiative types. Items without a type are treated
-    as distinct. Ties keep file order; the analyst still judges impact and SME fit among equals."""
+    """Playbook Module 4 selection + Rules: Tier 1 first (Tier 2 only if needed) -> Productivity before
+    Operating -> at most one Tier 3 (only if POLICY allows) -> three different initiative types, repeating
+    a type only if needed (R035). Ties keep file order; the analyst still judges impact and SME fit."""
     pool = sorted([r for r in res if r["counted"] == "Y" and r["lesson_eligible"] == "Y"],
                   key=lambda r: (int(r["tier"]), EVID_RANK[r["evidence_type"]]))
     chosen, types, tier3 = [], set(), 0
@@ -278,10 +302,18 @@ def select_lessons(res):
         if t and t in types:
             continue
         chosen.append(r)
-        types.add(t) if t else None
+        if t:
+            types.add(t)
         tier3 += int(r["tier"]) == 3
         if len(chosen) == 3:
-            break
+            return chosen
+    if POLICY["repeat_type_if_needed"]:
+        for r in pool:
+            if len(chosen) == 3:
+                break
+            if r not in chosen and not (int(r["tier"]) == 3 and tier3):
+                chosen.append(r)
+                tier3 += int(r["tier"]) == 3
     return chosen
 
 
@@ -297,7 +329,9 @@ def summary(res):
             "fail_reasons": by("fail_reason", [r for r in res if r["counted"] == "N"]),
             "lesson_candidates": [f"{r['id']} {r['initiative']} (Tier {r['tier']}, {r['evidence_type']})"
                                   for r in select_lessons(res)],
-            "enough_for_story": len(select_lessons(res)) >= 3}
+            "not_listed": sum(1 for r in res if r["listed"] == "N"),
+            "enough_for_story": len(select_lessons(res)) >= 3
+                                and sum(1 for r in select_lessons(res) if int(r["tier"]) == 1) >= POLICY["min_tier1_lessons"]}
 
 
 def cmd_run(a):
@@ -313,7 +347,7 @@ def cmd_run(a):
     out.with_suffix(".summary.json").write_text(json.dumps(s, indent=2, ensure_ascii=False))
     print(json.dumps(s, indent=2, ensure_ascii=False))
     if not s["enough_for_story"]:
-        print(f"\nOnly {len(s['lesson_candidates'])} lesson(s) can be chosen (max one Tier 3, three different types): "
+        print(f"\n{len(s['lesson_candidates'])} lesson(s) can be chosen; need 3 with at least {POLICY['min_tier1_lessons']} Tier 1 (R034, R035): "
               "read the FY-2, then FY-4 reports (Playbook 2A) and add their initiatives to this answers file.")
     return 0
 
