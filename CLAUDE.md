@@ -20,7 +20,7 @@ Output is in English and Bahasa Melayu.
   favicon and the social preview image (`og-image.png`, 1200×630).
 - Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
   no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
-  This is the exact file the user hosts on Cloudflare Pages – the website must always keep working.
+- `site/` is exactly what the user hosts on Cloudflare Pages – the website must always keep working.
 - `requirements.txt` – Python dependencies (`python -m playwright install chromium` for rendering).
 
 ## Method documents (copied from Drive 07_Templates)
