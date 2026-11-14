@@ -27,7 +27,7 @@ Output is in English and Bahasa Melayu.
 - Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
   no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
 - `site/` is exactly what the user hosts on Cloudflare Pages – the website must always keep working.
-- `requirements.txt` – Python dependencies (`python -m playwright install chromium` for rendering).
+- `scripts/requirements.txt` – Python dependencies (kept out of the repo root so Cloudflare Pages does not try to install them) (`python -m playwright install chromium` for rendering).
 
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.

@@ -45,7 +45,7 @@ Claude Code loads these automatically when this repository is opened.
 ## Setup
 
 ```bash
-pip install -r requirements.txt
+pip install -r scripts/requirements.txt
 python -m playwright install chromium
 ```
 
