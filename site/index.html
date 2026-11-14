@@ -628,12 +628,8 @@ details.fullmethod{margin-top:40px}
 .chkres>div{background:var(--soft);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
 .chkres .k{font-size:13.5px;color:var(--muted);font-weight:600}.chkres b{font-size:28px;letter-spacing:-.03em;font-weight:600}.chkres .s{font-size:13px;color:var(--muted)}
 .gapbar{margin-top:18px}.chkerr{margin-top:16px;color:#8A1C1C;font-weight:600}
-.matcher{margin-top:40px}
 
-.mcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:24px}
-.mcard{background:var(--soft);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px}
-.mcard h3{font-size:17.5px;letter-spacing:-.02em}.mcard dl{margin:0;font-size:14px}.mcard dt{font-weight:600;color:var(--violet-ink);font-size:13px;margin-top:8px}.mcard dd{margin:2px 0 0}
-.mcard .pg{font-size:13.5px;margin-top:auto}@media (max-width:900px){.tgrid{grid-template-columns:1fr}.bmrow{grid-template-columns:1fr;gap:8px}.chkres{grid-template-columns:1fr}}
+@media (max-width:900px){.tgrid{grid-template-columns:1fr}.bmrow{grid-template-columns:1fr;gap:8px}.chkres{grid-template-columns:1fr}}
 
 /* form rows: label left, control right (Ideas library) */
 .fbox{display:grid;gap:10px;margin-top:22px;max-width:760px}
@@ -1563,15 +1559,8 @@ const TOOLS={
    read1:(s)=>s>=100?"At or beyond the frontier for these large dairy companies.":s>=75?"Close to the typical similar company. The gap to the frontier is mostly in output per person.":"Some way below these large companies. That is normal for a smaller firm; the ideas below show where others found gains.",
    caveat:"A rough guide only. The comparison group is five large listed dairy and milk-product companies, so a small business in another sector will usually sit lower. Use it to track your own change from year to year.",
    next:"Find ideas for your business",
-   mH:"Find ideas for your business",mSub:"Pick your main problem and the kind of business you run. We show matching ideas from the stories, each with a first step and a way to measure it.",
-   mProb:"Main problem",mType:"Your business",mSize:"Size",
-   types:[["make","Make products"],["move","Distribute or sell goods"],["serve","Services or office work"]],
-   sizes:[["s","Under 50 people"],["m","50–200 people"],["l","Over 200 people"]],
-   mNone:"No idea from the stories matches this yet. Try another problem, or browse the full library below.",
-   from:"From",reviewed:"Reviewed story",draftS:"Draft story",
-   lk:["What they did","For a smaller business","First step","How to measure"],
    tH:"Tools for your business",
-   t:[["#frontier","Check your business","Work out your value added per employee and see how it compares."],["#initiatives","Find ideas","Pick a problem and get ideas with a first step and a way to measure it."]]},
+   t:[["#frontier","Check your business","Work out your value added per employee and see how it compares."],["#initiatives","Ideas library","Search every initiative found in the reports, by company, problem or evidence."]]},
  bm:{bmH:"Jarak ke Aras Termaju",
    bmLede:"Aras termaju ialah nilai ditambah bagi setiap pekerja yang hanya dicapai syarikat sejenis yang paling kukuh (1 daripada 10 keputusan tahunan). Buat masa ini ia meliputi lima syarikat tenusu dan produk susu Bursa. Lihat kedudukan setiap syarikat dalam kisah, kemudian semak perniagaan anda sendiri.",
    listH:"Syarikat dalam kumpulan tenusu",listNote:"Disusun mengikut abjad. Setiap angka ialah bahagian aras termaju yang dicapai syarikat itu sendiri pada tahun terkininya. Ini bukan kedudukan.",
@@ -1585,15 +1574,8 @@ const TOOLS={
    read1:(s)=>s>=100?"Di atau melepasi aras termaju bagi syarikat tenusu besar ini.":s>=75?"Hampir dengan paras biasa syarikat sejenis. Jurang ke aras termaju kebanyakannya pada keluaran setiap orang.":"Agak jauh di bawah syarikat besar ini. Itu biasa bagi perniagaan yang lebih kecil; idea di bawah menunjukkan di mana syarikat lain mendapat hasil.",
    caveat:"Panduan kasar sahaja. Kumpulan perbandingan ialah lima syarikat tenusu dan produk susu besar di Bursa, jadi perniagaan kecil dalam sektor lain biasanya lebih rendah. Gunakannya untuk menjejak perubahan anda sendiri dari tahun ke tahun.",
    next:"Cari idea untuk perniagaan anda",
-   mH:"Cari idea untuk perniagaan anda",mSub:"Pilih masalah utama dan jenis perniagaan anda. Kami tunjukkan idea yang sepadan daripada kisah, setiap satu dengan langkah pertama dan cara mengukurnya.",
-   mProb:"Masalah utama",mType:"Perniagaan anda",mSize:"Saiz",
-   types:[["make","Mengeluarkan produk"],["move","Mengedar atau menjual barangan"],["serve","Perkhidmatan atau kerja pejabat"]],
-   sizes:[["s","Bawah 50 orang"],["m","50–200 orang"],["l","Lebih 200 orang"]],
-   mNone:"Belum ada idea daripada kisah yang sepadan. Cuba masalah lain, atau lihat pustaka penuh di bawah.",
-   from:"Daripada",reviewed:"Kisah disemak",draftS:"Kisah draf",
-   lk:["Apa yang mereka lakukan","Untuk perniagaan kecil","Langkah pertama","Cara mengukur"],
    tH:"Alat untuk perniagaan anda",
-   t:[["#frontier","Semak perniagaan anda","Kira nilai ditambah bagi setiap pekerja dan lihat perbandingannya."],["#initiatives","Cari idea","Pilih masalah dan dapatkan idea dengan langkah pertama dan cara mengukurnya."]]}
+   t:[["#frontier","Semak perniagaan anda","Kira nilai ditambah bagi setiap pekerja dan lihat perbandingannya."],["#initiatives","Pustaka idea","Cari setiap inisiatif yang ditemui dalam laporan, mengikut syarikat, masalah atau bukti."]]}
 };
 const rm=n=>(n<0?"−":"")+"RM"+Math.round(Math.abs(n)).toLocaleString("en-US");
 const num=v=>{const s=String(v||"").replace(/[,\s]/g,"").replace(/^RM/i,"").replace(/[−–]/g,"-");return s===""?0:Number(s);};
@@ -1628,26 +1610,8 @@ function bindBenchmark(){const T=TOOLS[lang],f=document.getElementById("chkForm"
       <a class="pill" href="#initiatives" style="margin-top:12px">${T.next} ${ARROW}</a>`;
     out.scrollIntoView({block:"nearest",behavior:"smooth"});});}
 
-/* idea matcher (fixed rules, ideas come only from the stories) */
-const match={prob:"output",type:"make",size:"m"};
-const TYPE_RE={make:/manufactur|plant|line|factory|machine|kilang|mesin|barisan|production|pengeluaran|recall|batch/i,move:/distribut|reseller|stock|warehouse|agent|dealer|stok|gudang|ejen|penjual|deliver|route|lori|truck/i,serve:/office|staff|training|software|digital|approval|pekerja|latihan|perisian|pejabat|kakitangan/i};
-function allLessons(){const out=[];COMPANIES.forEach(c=>(c.lessons||[]).forEach((l,i)=>out.push({c,i,l,id:c.slug+"-"+i})));return out;}
-function lessonProb(x){const t=x.l.title.en+" "+x.l.type.en+" "+x.l.body.en[0];const p=PROBS.find(p=>p.re.test(t));return p?p.k:"other";}
-function matchIdeas(){return allLessons().map(x=>{const t=[x.l.title[lang],x.l.type[lang],...x.l.body[lang]].join(" ")+" "+x.l.body.en.join(" ");
-   let ps=0;if(lessonProb(x)===match.prob)ps=3;else if(PROBS.find(p=>p.k===match.prob).re.test(x.l.title.en+" "+x.l.type.en))ps=1;
-   let s=ps;if(TYPE_RE[match.type].test(t))s+=1;if(x.c.reviewed)s+=.5;return {...x,s,ps};}).filter(x=>x.ps>=1).sort((a,b)=>b.s-a.s||a.c.name.localeCompare(b.c.name)).slice(0,4);}
 const fsel=(id,lbl,opts,val,all)=>`<div class="fsel"><select id="${id}" aria-label="${lbl}">${all?`<option value="">${all}</option>`:""}${opts.map(([k,l])=>`<option value="${k}" ${k===val?"selected":""}>${l}</option>`).join("")}</select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
 const frow=(lbl,ctl,forId)=>`<div class="frow"><label class="flbl"${forId?` for="${forId}"`:""}>${lbl}</label><div class="fctl">${ctl}</div></div>`;
-function matcherBox(){const T=TOOLS[lang];
-  return `<section class="panel matcher" id="matcher"><h2 style="font-size:clamp(26px,3vw,38px)">${T.mH}</h2><p class="muted" style="max-width:70ch">${T.mSub}</p>
-   <div class="fbox">${frow(T.mProb,fsel("mprob",T.mProb,PROBS.map(p=>[p.k,p[lang]]),match.prob),"mprob")}${frow(T.mType,fsel("mtype",T.mType,T.types,match.type),"mtype")}${frow(T.mSize,fsel("msize",T.mSize,T.sizes,match.size),"msize")}</div>
-   <div id="mres"></div></section>`;}
-function renderMatch(){const T=TOOLS[lang],box=document.getElementById("mres");if(!box)return;const ideas=matchIdeas();
-  box.innerHTML=ideas.length?`<div class="mcards">${ideas.map(x=>{const b=x.l.body[lang];return `<article class="mcard"><div class="chips"><span class="chip ${x.c.reviewed?"gA":"gC"}">${x.c.reviewed?T.reviewed:T.draftS}</span><span class="chip">${esc(x.l.type[lang])}</span></div>
-      <h3>${esc(x.l.title[lang])}</h3><dl>${T.lk.map((k,i)=>`<dt>${k}</dt><dd>${esc(b[i])}</dd>`).join("")}</dl>
-      <p class="pg">${T.from}: <a href="#${x.c.slug}">${esc(SHORT[x.c.slug]||x.c.name.replace(/ (Berhad|Bhd)$/,""))}</a></p></article>`;}).join("")}</div>`
-   :`<p class="muted" style="margin-top:18px">${T.mNone}</p>`;}
-function bindMatcher(){[["mprob","prob"],["mtype","type"],["msize","size"]].forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.addEventListener("change",()=>{match[k]=el.value;renderMatch();});});renderMatch();}
 
 const NAV={
   en:{items:["Home","Stories","Ideas library","Distance to Frontier","How we check"],menu:"Menu",close:"Close",search:"Search stories and initiatives",grpS:"Stories",grpI:"Initiatives",none:"No matches. Try another word, such as “warehouse” or “training”.",hint:"Press Esc to close",top:"Back to top",
@@ -1968,8 +1932,6 @@ function viewCompany(c){
 function viewLibrary(){
   const u=UI[lang],v=UI2[lang],d=D2[lang];
   return `<div class="draft">${u.draft}</div><h1>${u.libTitle}</h1><p class="lead muted">${v.libSub}</p>
-   ${matcherBox()}
-   <h2 style="font-size:clamp(26px,3vw,38px);margin-top:64px">${lang==="bm"?"Semua inisiatif":"All initiatives"}</h2>
    ${legend(false)}
    <div class="fbox libbox">
      ${frow(lang==="bm"?"Syarikat":"Company",fsel("cosel",lang==="bm"?"Syarikat":"Company",COMPANIES.map(c=>[c.slug,`${c.short} (${c.table.length+c.appendix.length})`]),lib.co,`${lang==="bm"?"Semua syarikat":"All companies"} (${allInitiatives().length})`),"cosel")}
@@ -2143,7 +2105,7 @@ function route(){
   if(co){app.innerHTML=viewCompany(co);bindCompany();}
   else if(h==="stories"){app.innerHTML=viewStories();
     document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));}
-  else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();bindMatcher();}
+  else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();}
   else if(h==="frontier"){app.innerHTML=viewBenchmark();bindBenchmark();}
   else if(h==="how-it-works"){app.innerHTML=viewMethod();}
   else if(h==="privacy"){app.innerHTML=viewPrivacy();}
