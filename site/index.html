@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Productivity Lens · MPC</title>
-<meta name="description" content="Productivity Lens by Perbadanan Produktiviti Malaysia (MPC): what Bursa Malaysia listed companies did to raise productivity, with every figure quoted from their annual reports, and lessons a 50–200 person firm can try. English and Bahasa Melayu.">
+<title>Productivity Lens</title>
+<meta name="description" content="Productivity Lens: what Bursa Malaysia listed companies did to raise productivity, with every figure quoted from their annual reports, and lessons a 50–200 person firm can try. English and Bahasa Melayu.">
 <link rel="canonical" href="https://productivitylens.pages.dev/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0B0B0F">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Productivity Lens · MPC">
-<meta property="og:title" content="Productivity Lens · MPC">
+<meta property="og:site_name" content="Productivity Lens">
+<meta property="og:title" content="Productivity Lens">
 <meta property="og:description" content="What Bursa Malaysia listed companies did to raise productivity, every figure quoted from their annual reports, with lessons SMEs can try.">
 <meta property="og:url" content="https://productivitylens.pages.dev/">
 <meta property="og:image" content="https://productivitylens.pages.dev/assets/og-image.png">
@@ -54,7 +54,7 @@ button{font:inherit;color:inherit}
 .top.scrolled{box-shadow:0 1px 0 var(--hair),0 10px 30px -18px rgba(11,11,15,.25)}
 .top .wrap{display:flex;align-items:center;gap:32px}
 .brand{display:flex;align-items:center;gap:16px;font-weight:600;font-size:16px;letter-spacing:-.01em;white-space:nowrap}
-.brand img{height:40px;width:auto;display:block}
+.brand .mark{height:36px;width:36px;display:block;flex:none}
 .brand .bar{width:1px;height:28px;background:var(--dash)}
 .nav{display:flex;gap:6px;margin:0 auto;flex-wrap:wrap;background:rgba(255,255,255,.55);border:1px solid var(--hair);border-radius:999px;padding:5px}
 .nav a{font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;color:var(--muted);padding:8px 16px;border-radius:999px;transition:color .3s,background .3s}
@@ -297,7 +297,7 @@ footer{margin-top:96px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0
 footer>div{background:var(--ink);padding:48px 56px 36px}
 footer>div:first-child{border-top-right-radius:64px}
 footer>div:nth-child(2){border-top-left-radius:64px}
-footer .flogo{height:52px;width:auto;display:block;margin-bottom:26px;background:var(--bg);padding:12px 16px;border-radius:16px;box-sizing:content-box}
+footer .flogo{display:flex;align-items:center;gap:14px;margin-bottom:22px;font-size:22px;font-weight:600;letter-spacing:-.02em;color:#fff}
 footer .small{font-size:13px;color:#9C9CA8;max-width:42ch}
 footer .links{display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;margin-top:8px}
 footer .links a{font-size:15px;color:#E9E9EE;display:flex;align-items:center;gap:10px;transition:color .3s}
@@ -364,7 +364,7 @@ section[id^="sec-"]{scroll-margin-top:150px}
   .secbar{top:calc(env(safe-area-inset-top,0px) + 62px)}
   .dtfhome{grid-template-columns:1fr}
 }
-@media (max-width:420px){#menuLbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menubtn{width:42px;padding:0}.brand{gap:10px;font-size:14px}.brand img{height:30px}.top .wrap{gap:10px}.wrap{padding:0 18px}}
+@media (max-width:420px){#menuLbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menubtn{width:42px;padding:0}.brand{gap:10px;font-size:14px}.brand .mark{height:30px;width:30px}.top .wrap{gap:10px}.wrap{padding:0 18px}}
 @media (max-width:600px){.carhead{flex-wrap:wrap}.carhead h2{flex:1 1 100%}.arrows button{width:48px;height:48px}.arrows button:last-child{width:68px}
 .pn{grid-template-columns:1fr}.pn a.next{grid-column:1}.sgrid{grid-template-columns:1fr}}
 @media (max-width:1040px){
@@ -393,7 +393,7 @@ section[id^="sec-"]{scroll-margin-top:150px}
   .snap4>div{border-left:0;padding-left:0}
   .lpanel dl>div:nth-child(even){padding-left:0;border-left:0}
   .legend .row{grid-template-columns:1fr;gap:8px}
-  .brand img{height:34px}
+  .brand .mark{height:32px;width:32px}
   .brand{font-size:14px}
   .legend summary,.legend .cols{padding-left:22px;padding-right:22px}
   .legend summary .hint{display:none}
@@ -567,6 +567,20 @@ section[id^="sec-"]{scroll-margin-top:150px}
 }
 .st-et{display:inline-block;margin-left:8px;font-size:13px;font-weight:600;letter-spacing:.02em;padding:2px 8px;border-radius:999px;border:1px solid var(--line,#E1DFE7);color:#5E6B7A;vertical-align:middle}.st-et-o,.st-et-p{border-color:#A26BF7;color:#5B2DB0}
 /* reader-experience update */
+.nl .split{align-items:start}
+.signup,.unsub{display:grid;gap:16px}
+.fl{display:grid;gap:6px;font-size:14px;font-weight:600;border:0;padding:0;margin:0}
+.fl input[type=email]{font:inherit;font-weight:400;font-size:16px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.fl input[type=email]:focus{outline:2px solid var(--violet);outline-offset:1px}
+fieldset.fl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}fieldset.fl legend{font-weight:600;margin-bottom:6px;width:100%}
+fieldset.fl label{font-weight:400;font-size:15px;display:flex;gap:8px;align-items:center}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--ink-2)}.consent input{margin-top:3px;flex:none;width:18px;height:18px}
+.consent a,.privacy a{color:var(--violet-ink);text-decoration:underline}
+.signup .pill,.unsub .pill{justify-self:start;border:0;cursor:pointer;font:inherit;font-weight:600}
+.signup .msg,.unsub .msg{margin:0;font-size:15px;font-weight:500;min-height:1.4em}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.draft.rev{color:var(--ink);background:#EEF9C6;border-color:#C9E25A}
+.draft.rev::before{background:#5C7A00}
 .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:32px}
 .sgrid .slide{min-height:0;padding:30px 28px 28px;gap:12px}
 .sgrid .slide h3{font-size:clamp(20px,1.7vw,24px);line-height:1.2;letter-spacing:-.02em}
@@ -588,7 +602,7 @@ details.fullmethod{margin-top:40px}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="#" aria-label="Productivity Lens by MPC, home"><img src="assets/mpc-logo.png" alt="Perbadanan Produktiviti Malaysia (MPC)"><span class="bar"></span><span class="bname">Productivity Lens</span></a>
+  <a class="brand" href="#" aria-label="Productivity Lens, home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B0B0F"/><circle cx="32" cy="32" r="17" fill="none" stroke="#D6F22E" stroke-width="5"/><circle cx="32" cy="32" r="7" fill="#A26BF7"/></svg><span class="bname">Productivity Lens</span></a>
   <nav class="nav" id="nav" aria-label="Main"></nav>
   <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="bm">BM</button></div>
   <div class="tools"><button type="button" class="iconbtn" id="searchBtn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
@@ -866,7 +880,7 @@ const D2={
     carH:"Productivity stories in one place",pendTitle:"Next in Consumer Products & Services",pendText:"In preparation. Four more stories in this sector also unlock Distance to Frontier.",
     whyA:"What makes a",whyB:"Productivity Lens story",whyC:"useful",whyToggle:"FY2022–FY2026",whyP:"Built for owners and managers of 50–200 person firms who want proof, not slogans.",
     whyList:["Every figure quoted","Printed page numbers","Three SME lessons","English and BM","No rankings"],
-    footText:"Productivity Lens · prototype for Perbadanan Produktiviti Malaysia. Draft content, not yet reviewed. Not for distribution.",
+    footText:"Productivity Lens · an independent project. Stories marked Reviewed have been checked against the company’s report; other stories are drafts.",
     quick:"Quick access",footH:"New stories are added as each annual report is reviewed.",footBtn:"Open the ideas library",
     up:"up from",results:"Key results",snapH:"Productivity snapshot, FY2026",dtfH:"Distance to Frontier",initH:"Key initiatives",swH:["Strengths","Areas to watch"],lesH:"Three lessons for SMEs",
     libFilters:"Filter",clear:"Clear filters",read:"Read the story"},
@@ -877,7 +891,7 @@ const D2={
     carH:"Kisah produktiviti di satu tempat",pendTitle:"Seterusnya dalam Produk & Perkhidmatan Pengguna",pendText:"Sedang disediakan. Empat lagi kisah dalam sektor ini juga membuka Jarak ke Sempadan.",
     whyA:"Apa yang menjadikan",whyB:"kisah Productivity Lens",whyC:"berguna",whyToggle:"FY2022–FY2026",whyP:"Dibina untuk pemilik dan pengurus firma 50–200 pekerja yang mahukan bukti, bukan slogan.",
     whyList:["Setiap angka bersumber","Nombor halaman bercetak","Tiga pengajaran PKS","Bahasa Inggeris dan BM","Tiada kedudukan"],
-    footText:"Productivity Lens · prototaip untuk Perbadanan Produktiviti Malaysia. Kandungan draf, belum disemak. Bukan untuk diedarkan.",
+    footText:"Productivity Lens · projek bebas. Kisah bertanda Disemak telah disemak dengan laporan syarikat; kisah lain masih draf.",
     quick:"Akses pantas",footH:"Kisah baharu ditambah apabila setiap laporan tahunan disemak.",footBtn:"Buka pustaka idea",
     up:"naik daripada",results:"Keputusan utama",snapH:"Ringkasan produktiviti, FY2026",dtfH:"Jarak ke Sempadan",initH:"Inisiatif utama",swH:["Kekuatan","Perkara untuk dipantau"],lesH:"Tiga pengajaran untuk PKS",
     libFilters:"Tapis",clear:"Kosongkan tapisan",read:"Baca kisahnya"}
@@ -1496,7 +1510,7 @@ let pendingSection=null;
 const stories={fy:""};
 try{const s=JSON.parse(sessionStorage.getItem("pl-lib2")||"null");if(s)Object.assign(lib,s);const st=sessionStorage.getItem("pl-fy");if(st)stories.fy=st;}catch(e){}
 const saveLib=()=>{try{sessionStorage.setItem("pl-lib2",JSON.stringify(lib));}catch(e){}};
-function storyCard(c){const d=D2[lang];return `<a class="slide" href="#${c.slug}"><div class="chips"><span class="chip gA">Bursa ${c.code}</span><span class="chip t1">${c.fy}</span></div>
+function storyCard(c){const d=D2[lang];return `<a class="slide" href="#${c.slug}"><div class="chips"><span class="chip gA">Bursa ${c.code}</span><span class="chip t1">${c.fy}</span>${c.reviewed?`<span class="chip t2">${REV[lang].badge} · PDF</span>`:""}</div>
   <h3>${esc(c.hl[lang])}</h3><p>${esc(c.intro[lang])}</p><div class="sbig"><b>${c.results[0].big[lang]}</b><span>${c.results[0].label[lang]} · ${c.results[0].page[lang]}</span></div><span class="pill lime" style="margin-top:14px">${d.read} ${ARROW}</span></a>`;}
 function viewStories(){
   const u=UI[lang],v=UI2[lang],n=NAV[lang];
@@ -1527,7 +1541,8 @@ function viewHome(){
 
    <section class="panel"><div class="split"><h2>${bm?"Cara setiap kisah membantu anda":"How each story helps you"}</h2>
      <div><p class="muted">${d.whatP}</p></div></div>
-     <div class="feat">${feat.map((f,i)=>`<div><h3>${f}</h3>${lang==="bm"?FEAT[i].replace(">p.23<",">hlm.23<"):FEAT[i]}</div>`).join("")}</div></section>`;
+     <div class="feat">${feat.map((f,i)=>`<div><h3>${f}</h3>${lang==="bm"?FEAT[i].replace(">p.23<",">hlm.23<"):FEAT[i]}</div>`).join("")}</div></section>
+   ${signupSection("home")}`;
 }
 const PROG_TXT={
  en:{h:"Five-year progress",sub:"Index, first year = 100. The sector frontier is shown above.",ind:["Value added per employee","Revenue per employee","Value added per RM1 staff cost","Value added per RM1 fixed assets","Inventory turnover"],latest:"Latest value",na:"–",foot:"Value added is an analyst-calculated nominal proxy. Each company is compared only with its own first year; this is not a ranking."},
@@ -1763,11 +1778,11 @@ function viewCompany(c){
   const inPeer=!!(DTF.co[c.slug]&&DTF_CO_TXT[c.slug]);
   return `<div class="story">
    <nav class="trail" aria-label="Breadcrumb"><a href="#">${n.trail[0]}</a><i>›</i><a href="#stories">${n.trail[1]}</a><i>›</i><b>${esc(c.short)}</b></nav>
-   <div class="draft">${u.draft}</div>
+   <div class="draft${c.reviewed?" rev":""}">${c.reviewed?REV[lang].note:u.draft}</div>
    <p class="st-meta">${c.name} · ${c.sector[lang]} · Bursa ${c.code} · ${c.ye[lang]}</p>
    <h1 class="st-h1">${esc(c.hl[lang])}</h1>
    <p class="st-deck">${esc(c.headline[lang])}</p>
-   <p class="st-lead">${esc(c.intro[lang])}</p>${c.needsCheck?`<p class="st-notice">${CHECK[lang]}</p>`:""}${c.sectorConfirmed===false?`<p class="st-notice">${SECTOR_TBC[lang]}</p>`:""}
+   <p class="st-lead">${esc(c.intro[lang])}</p>${pdfButtons(c)}${c.needsCheck?`<p class="st-notice">${CHECK[lang]}</p>`:""}${c.sectorConfirmed===false?`<p class="st-notice">${SECTOR_TBC[lang]}</p>`:""}
    ${stGlance(c)}
    ${glossBox()}
    <div class="secbar" role="navigation" aria-label="${esc(c.short)}">${S.short.map((s,i)=>`<button type="button" data-sec="${ST_IDS[i]}"><i>${String(i+1).padStart(2,"0")}</i>${i===4&&!inPeer?(lang==="bm"?"Prestasi sendiri":"Own progress"):s}</button>`).join("")}</div>
@@ -1853,10 +1868,10 @@ function footer(){
   const u=UI[lang],d=D2[lang];
   const C=["#0A0A0B","#FFFFFF","#0A0A0B","#FFFFFF"];const r=rng(3);
   let pix="";for(let i=0;i<34;i++){pix+=`<i style="background:${r()<.45?"#fff":(r()<.2?"#A26BF7":"transparent")}"></i>`;}
-  return `<div><img class="flogo" src="assets/mpc-logo.png" alt="Perbadanan Produktiviti Malaysia (MPC)"><p class="small">${d.footText}</p>
+  return `<div><div class="flogo"><svg class="mark" style="width:44px;height:44px" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B0B0F"/><circle cx="32" cy="32" r="17" fill="none" stroke="#D6F22E" stroke-width="5"/><circle cx="32" cy="32" r="7" fill="#A26BF7"/></svg><span>Productivity Lens</span></div><p class="small">${d.footText}</p>
      <h3 style="margin-top:34px">${d.quick}</h3>
-     <div class="links">${NAV[lang].items.map((l,i)=>`<a href="#${["","stories","initiatives","how-it-works"][i]}">${l}</a>`).join("")}${COMPANIES.map(c=>`<a href="#${c.slug}">${esc(c.short)}</a>`).join("")}</div></div>
-   <div><h3 style="max-width:26ch">${d.footH}</h3><a class="pill lime" href="#initiatives">${d.footBtn} ${ARROW}</a>
+     <div class="links">${NAV[lang].items.map((l,i)=>`<a href="#${["","stories","initiatives","how-it-works"][i]}">${l}</a>`).join("")}${COMPANIES.map(c=>`<a href="#${c.slug}">${esc(c.short)}</a>`).join("")}<a href="#privacy">${NL[lang].privacy}</a><a href="#unsubscribe">${NL[lang].unsub}</a></div></div>
+   <div><h3 style="max-width:26ch">${d.footH}</h3><a class="pill lime" href="#subscribe">${NL[lang].h} ${ARROW}</a>
      <p class="small" style="margin-top:34px">${u.foot}</p><div class="pix" aria-hidden="true">${pix}</div></div>
    <div class="wordmark" aria-hidden="true">Productivity <span>Lens</span></div>`;
 }
@@ -1886,6 +1901,75 @@ function footer(){
  EVID["farm-fresh"]=D.evid;
  if(DTF_CO_TXT["farm-fresh"]){DTF_CO_TXT["farm-fresh"].en.a=D.dtfA.en;DTF_CO_TXT["farm-fresh"].bm.a=D.dtfA.bm;DTF_CO_TXT["farm-fresh"].en.p="";DTF_CO_TXT["farm-fresh"].bm.p="";}
 })();
+/* ---------- Reviewed spotlights (Review sheet: Verified 2026-11-14) and their PDFs in site/spotlights ---------- */
+const PDFS={"dutch-lady":{en:"spotlights/dutch-lady-fy2025-en.pdf",bm:"spotlights/dutch-lady-fy2025-bm.pdf"},
+            "farm-fresh":{en:"spotlights/farm-fresh-fy2026-en.pdf",bm:"spotlights/farm-fresh-fy2026-bm.pdf"}};
+COMPANIES.forEach(c=>{c.pdf=PDFS[c.slug]||null;c.reviewed=!!PDFS[c.slug];});
+const REV={en:{badge:"Reviewed",note:"Reviewed spotlight: every figure checked against the company’s own report.",dl:"Download the spotlight",en:"PDF · English",bm:"PDF · Bahasa Melayu"},
+           bm:{badge:"Disemak",note:"Sorotan disemak: setiap angka disemak dengan laporan syarikat sendiri.",dl:"Muat turun sorotan",en:"PDF · Bahasa Inggeris",bm:"PDF · Bahasa Melayu"}};
+function pdfButtons(c){if(!c.pdf)return "";const R=REV[lang];
+  return `<div class="hero-ctas" aria-label="${R.dl}"><a class="pill dark" href="${c.pdf[lang==="bm"?"bm":"en"]}" download>${R.dl} · ${R[lang==="bm"?"bm":"en"]} ${ARROW}</a><a class="pill" href="${c.pdf[lang==="bm"?"en":"bm"]}" download>${R[lang==="bm"?"en":"bm"]} ${ARROW}</a></div>`;}
+/* ---------- Newsletter sign-up (Cloudflare Pages Functions /api/subscribe, /api/unsubscribe; D1 binding DB) and PDPA notice ---------- */
+const CONTACT="";   // contact address for access and correction requests (PDPA); add before the first newsletter is sent
+const NL={en:{h:"Get new stories by email",p:"One short email when a new productivity story is published. No other mail, and you can leave at any time.",
+  email:"Email address",langL:"Newsletter language",en:"English",bm:"Bahasa Melayu",
+  consent:'I agree that Productivity Lens may keep my email address to send me the newsletter, as set out in the <a href="#privacy">privacy notice</a>.',
+  btn:"Subscribe",busy:"Sending…",ok:"Thank you. You are on the list. You can unsubscribe at any time.",
+  bad:"Please enter a valid email address.",need:"Please tick the box to agree to the privacy notice.",closed:"Sign-up is not open yet. Please try again later.",err:"Something went wrong. Please try again later.",
+  privacy:"Privacy notice",unsub:"Unsubscribe",page:"Newsletter"},
+ bm:{h:"Terima kisah baharu melalui e-mel",p:"Satu e-mel ringkas apabila kisah produktiviti baharu diterbitkan. Tiada e-mel lain, dan anda boleh berhenti bila-bila masa.",
+  email:"Alamat e-mel",langL:"Bahasa surat berita",en:"Bahasa Inggeris",bm:"Bahasa Melayu",
+  consent:'Saya bersetuju Productivity Lens menyimpan alamat e-mel saya untuk menghantar surat berita, seperti dalam <a href="#privacy">notis privasi</a>.',
+  btn:"Langgan",busy:"Menghantar…",ok:"Terima kasih. Anda telah disenaraikan. Anda boleh berhenti melanggan bila-bila masa.",
+  bad:"Sila masukkan alamat e-mel yang sah.",need:"Sila tanda kotak untuk bersetuju dengan notis privasi.",closed:"Pendaftaran belum dibuka. Sila cuba lagi kemudian.",err:"Ada masalah. Sila cuba lagi kemudian.",
+  privacy:"Notis privasi",unsub:"Berhenti melanggan",page:"Surat berita"}};
+function signupForm(source){const T=NL[lang];return `<form class="signup" data-source="${source}" novalidate>
+  <label class="fl"><span>${T.email}</span><input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="name@example.com"></label>
+  <fieldset class="fl"><legend>${T.langL}</legend><label><input type="radio" name="nl" value="en" ${lang==="en"?"checked":""}> ${T.en}</label><label><input type="radio" name="nl" value="bm" ${lang==="bm"?"checked":""}> ${T.bm}</label></fieldset>
+  <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+  <label class="consent"><input type="checkbox" name="consent"> <span>${T.consent}</span></label>
+  <button type="submit" class="pill dark">${T.btn} ${ARROW}</button><p class="msg" role="status" aria-live="polite"></p></form>`;}
+function signupSection(source){const T=NL[lang];return `<section class="panel nl" id="newsletter"><div class="split"><div><h2>${T.h}</h2><p class="muted" style="margin-top:14px">${T.p}</p></div>${signupForm(source)}</div></section>`;}
+function bindForms(){document.querySelectorAll("form.signup,form.unsub").forEach(f=>f.addEventListener("submit",async e=>{e.preventDefault();
+  const T=NL[lang],msg=f.querySelector(".msg"),btn=f.querySelector("button"),unsub=f.classList.contains("unsub");
+  const email=f.email.value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){msg.textContent=T.bad;return;}
+  if(!unsub&&!f.consent.checked){msg.textContent=T.need;return;}
+  btn.disabled=true;const old=btn.innerHTML;btn.textContent=T.busy;
+  try{const r=await fetch(unsub?"/api/unsubscribe":"/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},
+      body:JSON.stringify(unsub?{email}:{email,lang:(f.querySelector('input[name="nl"]:checked')||{}).value||lang,consent:true,source:f.dataset.source,website:f.website.value})});
+    const j=await r.json().catch(()=>({}));
+    msg.textContent=j.ok?(unsub?UNS[lang].ok:T.ok):j.error==="invalid_email"?T.bad:j.error==="consent_required"?T.need:j.error==="not_configured"?T.closed:T.err;
+    if(j.ok)f.reset();}catch(err){msg.textContent=T.err;}
+  btn.disabled=false;btn.innerHTML=old;}));}
+const UNS={en:{h:"Unsubscribe",p:"Enter the email address you signed up with. We delete it, and everything stored with it, straight away.",btn:"Unsubscribe",ok:"Done. If that address was on the list, it has been deleted."},
+ bm:{h:"Berhenti melanggan",p:"Masukkan alamat e-mel yang anda daftarkan. Kami memadamnya, dan semua yang disimpan bersamanya, serta-merta.",btn:"Berhenti melanggan",ok:"Selesai. Jika alamat itu ada dalam senarai, ia telah dipadam."}};
+function viewUnsubscribe(){const T=UNS[lang],N=NL[lang];return `<h1>${T.h}</h1><p class="lead muted">${T.p}</p>
+  <form class="unsub panel" novalidate style="margin-top:32px;max-width:640px"><label class="fl"><span>${N.email}</span><input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+  <button type="submit" class="pill dark">${T.btn} ${ARROW}</button><p class="msg" role="status" aria-live="polite"></p></form>`;}
+function viewSubscribe(){const T=NL[lang];return `<h1>${T.page}</h1><p class="lead muted">${T.p}</p>${signupSection("page")}<p style="margin-top:24px"><a href="#privacy">${T.privacy}</a> · <a href="#unsubscribe">${T.unsub}</a></p>`;}
+const PRIV={en:{h:"Privacy notice",upd:"Last updated 14 November 2026",s:[
+ ["Who we are","Productivity Lens is an independent, personal project. It is not run by or for any government body or company. This notice explains how the newsletter sign-up handles your personal data, in line with Malaysia’s Personal Data Protection Act 2010 (PDPA)."],
+ ["What we collect","Only what you give us in the sign-up form: your email address and the newsletter language you choose. We also record the date and time you agreed to this notice and which version of the notice it was. We do not record your IP address, and the website uses no tracking or advertising cookies."],
+ ["Why we collect it","To send you an email when a new Productivity Lens story is published. We do not use your address for anything else, and we never sell, rent or share it for anyone’s marketing."],
+ ["Your choice","Signing up is voluntary. If you do not sign up, you can still read everything on the website; you just won’t receive the newsletter by email."],
+ ["Where it is kept","Your details are stored in a database run by Cloudflare, the company that hosts this website. Cloudflare may store or process data outside Malaysia. Only the owner of this project can see the list. If an email delivery service is added later to send the newsletter, this notice will be updated before the first email is sent."],
+ ["How long we keep it","Until you unsubscribe. When you unsubscribe, your email address and everything stored with it are deleted straight away, not just marked as inactive."],
+ ["Your rights","You can stop the newsletter at any time on the unsubscribe page. Under the PDPA you may also ask to see or correct the data we hold about you."],
+ ["Contact","__CONTACT__"]]},
+ bm:{h:"Notis privasi",upd:"Kemas kini terakhir 14 November 2026",s:[
+ ["Siapa kami","Productivity Lens ialah projek peribadi yang bebas. Ia tidak dikendalikan oleh atau untuk mana-mana badan kerajaan atau syarikat. Notis ini menerangkan cara pendaftaran surat berita mengendalikan data peribadi anda, selaras dengan Akta Perlindungan Data Peribadi 2010 (PDPA) Malaysia."],
+ ["Apa yang kami kumpul","Hanya apa yang anda berikan dalam borang: alamat e-mel anda dan bahasa surat berita yang anda pilih. Kami juga merekod tarikh dan masa anda bersetuju dengan notis ini dan versi notis tersebut. Kami tidak merekod alamat IP anda, dan laman web ini tidak menggunakan kuki penjejakan atau pengiklanan."],
+ ["Mengapa kami mengumpulnya","Untuk menghantar e-mel kepada anda apabila kisah Productivity Lens baharu diterbitkan. Kami tidak menggunakan alamat anda untuk tujuan lain, dan tidak sekali-kali menjual, menyewakan atau berkongsinya untuk pemasaran sesiapa."],
+ ["Pilihan anda","Pendaftaran adalah sukarela. Jika anda tidak mendaftar, anda masih boleh membaca semua kandungan laman web ini; anda cuma tidak akan menerima surat berita melalui e-mel."],
+ ["Di mana ia disimpan","Butiran anda disimpan dalam pangkalan data yang dikendalikan oleh Cloudflare, syarikat yang menghoskan laman web ini. Cloudflare mungkin menyimpan atau memproses data di luar Malaysia. Hanya pemilik projek ini boleh melihat senarai tersebut. Jika perkhidmatan penghantaran e-mel ditambah kemudian, notis ini akan dikemas kini sebelum e-mel pertama dihantar."],
+ ["Berapa lama kami menyimpannya","Sehingga anda berhenti melanggan. Apabila anda berhenti melanggan, alamat e-mel anda dan semua yang disimpan bersamanya dipadam serta-merta, bukan sekadar ditanda tidak aktif."],
+ ["Hak anda","Anda boleh menghentikan surat berita bila-bila masa di halaman berhenti melanggan. Di bawah PDPA, anda juga boleh meminta untuk melihat atau membetulkan data yang kami simpan tentang anda."],
+ ["Hubungi","__CONTACT__"]]}};
+function viewPrivacy(){const P=PRIV[lang];
+  const contact=CONTACT?(lang==="bm"?`Untuk permintaan melihat atau membetulkan data, tulis kepada ${esc(CONTACT)}.`:`For requests to see or correct your data, write to ${esc(CONTACT)}.`)
+    :(lang==="bm"?"Alamat untuk permintaan melihat atau membetulkan data akan diterbitkan di sini sebelum surat berita pertama dihantar. Sementara itu, anda boleh memadam data anda sendiri di halaman berhenti melanggan.":"An address for requests to see or correct your data will be published here before the first newsletter is sent. Until then, you can delete your data yourself on the unsubscribe page.");
+  return `<h1>${P.h}</h1><p class="lead muted">${P.upd}</p><div class="trustgrid privacy">${P.s.map(([h,t])=>`<div><h3>${h}</h3><p>${t==="__CONTACT__"?contact:t}</p></div>`).join("")}</div>
+  <p style="margin-top:28px"><a class="pill" href="#unsubscribe">${NL[lang].unsub} ${ARROW}</a></p>`;}
 function route(){
   const h=(location.hash||"").replace("#",""),u=UI[lang],n=NAV[lang];
   document.documentElement.lang=lang==="bm"?"ms":"en";
@@ -1894,7 +1978,7 @@ function route(){
   const act=co?"stories":keys.includes(h)?h:"";
   const links=keys.map((k,i)=>[k,n.items[i]]);
   document.getElementById("nav").innerHTML=links.map(([k,l])=>`<a href="#${k}" ${k===act?'aria-current="page"':""}>${l}</a>`).join("");
-  document.getElementById("menuSheet").innerHTML=`<div class="sh"><a class="brand" href="#"><img src="${document.querySelector(".brand img").src}" alt="Perbadanan Produktiviti Malaysia (MPC)"></a><button type="button" class="iconbtn menubtn" id="menuClose" style="display:grid">${n.close}</button></div>
+  document.getElementById("menuSheet").innerHTML=`<div class="sh"><a class="brand" href="#" aria-label="Productivity Lens, home">${document.querySelector(".top .brand").innerHTML}</a>><button type="button" class="iconbtn menubtn" id="menuClose" style="display:grid">${n.close}</button></div>
     ${links.map(([k,l])=>`<a class="big" href="#${k}" ${k===act?'aria-current="page"':""}>${l}<span>${ARROW}</span></a>`).join("")}
     <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="${lang==="en"}">EN</button><button type="button" data-lang="bm" aria-pressed="${lang==="bm"}">BM</button></div>`;
   document.getElementById("menuLbl").textContent=n.menu;
@@ -1908,9 +1992,13 @@ function route(){
     document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));}
   else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();}
   else if(h==="how-it-works"){app.innerHTML=viewMethod();}
+  else if(h==="privacy"){app.innerHTML=viewPrivacy();}
+  else if(h==="subscribe"){app.innerHTML=viewSubscribe();}
+  else if(h==="unsubscribe"){app.innerHTML=viewUnsubscribe();}
   else {app.innerHTML=viewHome();
 }
-  const vt=({stories:NAV[lang].items[1],initiatives:NAV[lang].items[2],"how-it-works":NAV[lang].items[3]})[h];document.title=co?`${SHORT[co.slug]||co.name.replace(/ (Berhad|Bhd)$/,"")} · Productivity Lens · MPC`:vt?`${vt} · Productivity Lens · MPC`:"Productivity Lens · MPC";
+  const vt=({stories:NAV[lang].items[1],initiatives:NAV[lang].items[2],"how-it-works":NAV[lang].items[3],privacy:PRIV[lang].h,subscribe:NL[lang].page,unsubscribe:UNS[lang].h})[h];document.title=co?`${SHORT[co.slug]||co.name.replace(/ (Berhad|Bhd)$/,"")} · Productivity Lens`:vt?`${vt} · Productivity Lens`:"Productivity Lens";
+  bindForms();
   bindLang();
 }
 let secObs=null;

@@ -54,4 +54,9 @@ Fonts: Lora and Inter, under the SIL Open Font License (see `.claude/skills/pl-r
 
 ## Website
 
-The `site/` folder (the Productivity Lens · MPC website, `site/index.html`) is published with Cloudflare Pages (production branch `main`, no build command, output directory `site`). Every push to `main` redeploys it.
+The `site/` folder (the Productivity Lens website, `site/index.html`) is published with Cloudflare Pages (production branch `main`, no build command, output directory `site`). Every push to `main` redeploys it.
+
+## Newsletter sign-up
+
+`functions/api/subscribe.js` and `functions/api/unsubscribe.js` run as Cloudflare Pages Functions and store sign-ups
+in a D1 database bound to the Pages project as `DB`. See the privacy notice on the site (`#privacy`).

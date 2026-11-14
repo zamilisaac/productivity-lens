@@ -7,7 +7,7 @@ Output is in English and Bahasa Melayu.
 - The user writes in Bahasa Melayu (mixed with English). Reply in Bahasa Melayu.
 - When the user asks you to check something, check it yourself with your tools and report the result.
   Do not ask the user to check it for you.
-- This repository is **public**. Never commit internal MPC data, the real Ledger, unapproved drafts,
+- This repository is **public**. Never commit internal data, the real Ledger, unapproved drafts,
   staff names or emails. Keep those in Drive/SharePoint.
 
 ## Repository layout
@@ -18,12 +18,11 @@ Output is in English and Bahasa Melayu.
 - Never label initiatives (counted, Tier, Grade, Evidence type) by judgement: use `pl-classify`.
 - `private/` is git-ignored: Drive copies and real gold sets live there, never in commits.
 - `inbox/`, `ledger/`, `data/`, `content/en|bm/`, `output/`, `templates/`, `scripts/`, `docs/` – workflow folders.
-- `site/index.html` – the live Productivity Lens · MPC website (Home, Stories, Ideas library,
+- `site/index.html` – the live Productivity Lens website (Home, Stories, Ideas library,
   How we check, EN/BM toggle; story data is embedded in the file). Written for newcomers: short human
   headlines (`HL`) with the data headline as the deck; story order = results → what they did → what you can
   try → the numbers; plain labels (Measured result / Scale only / Described only; Core / Supporting /
-  Resource move); a five-term glossary; specialist method folded at the end of "How we check". `site/assets/` holds the MPC logo,
-  favicon and the social preview image (`og-image.png`, 1200×630).
+  Resource move); a five-term glossary; specialist method folded at the end of "How we check". `site/assets/` holds the favicon and the social preview image (`og-image.png`, 1200×630).
 - Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
   no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
 - `site/` is exactly what the user hosts on Cloudflare Pages – the website must always keep working.
@@ -32,6 +31,18 @@ Output is in English and Bahasa Melayu.
   (done: Dutch Lady 3026 Content_v6, Farm Fresh 5306 Content_v7). Stories may have 0–3 lessons (R045).
 - Rendering in cloud sessions: `export PL_CHROMIUM=/opt/pw-browsers/chromium` before `pl-render` scripts.
 - `scripts/requirements.txt` – Python dependencies (kept out of the repo root so Cloudflare Pages does not try to install them) (`python -m playwright install chromium` for rendering).
+
+## Personal project, newsletter and downloads (2026-11-14)
+- Productivity Lens is a **personal project**: no MPC logo, name or branding anywhere on the site or outputs.
+  (`docs/` still mentions MPC in two lines; the Drive copies are the source, change them there first.)
+- Reviewed stories (Review sheet status Verified) get a "Reviewed" note and EN/BM PDF downloads from
+  `site/spotlights/` (`PDFS` map in `site/index.html`). Only add a PDF there after the user verifies it.
+- Newsletter sign-up: Cloudflare Pages Functions in `functions/` (`/api/subscribe`, `/api/unsubscribe`) with a D1
+  database bound to the Pages project as **`DB`** (table `subscribers`, created on first use). Stored: email,
+  language, consent time, notice version, source. No IP. Unsubscribe deletes the row. Without the binding the API
+  answers 503 `not_configured` and the form says sign-up is not open yet.
+- PDPA privacy notice at `#privacy` (EN/BM). `CONTACT` in `site/index.html` is empty until the user gives a contact
+  address; bump `CONSENT_VERSION` in `functions/_lib.js` and the notice date whenever the notice changes.
 
 ## Method documents (copied from Drive 07_Templates)
 - `docs/Productivity_Lens_Playbook_v1.12.md` – the full method. Read it before any run.
