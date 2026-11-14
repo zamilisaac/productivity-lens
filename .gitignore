@@ -1,0 +1,24 @@
+# Laporan sumber (PDF besar) – simpan di Drive/SharePoint, bukan git
+inbox/*
+!inbox/.gitkeep
+*.pdf
+!templates/**/*.pdf
+
+# Output yang dijana semula (render boleh dibuat semula daripada Content JSON)
+output/**/*.png
+output/**/*.pdf
+
+# Python / Node
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+~$*
+.vscode/
+.idea/
