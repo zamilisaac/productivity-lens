@@ -41,6 +41,8 @@ Output is in English and Bahasa Melayu.
   database bound to the Pages project as **`DB`** (table `subscribers`, created on first use). Stored: email,
   language, consent time, notice version, source. No IP. Unsubscribe deletes the row. Without the binding the API
   answers 503 `not_configured` and the form says sign-up is not open yet.
+  D1 binding `DB` connected and tested live on 2026-11-14 (subscribe, re-subscribe, unsubscribe; test rows deleted).
+  Bindings only reach new deployments: after changing a binding, push (or retry the deployment) before testing.
 - PDPA privacy notice at `#privacy` (EN/BM). `CONTACT` in `site/index.html` is empty until the user gives a contact
   address; bump `CONSENT_VERSION` in `functions/_lib.js` and the notice date whenever the notice changes.
 
