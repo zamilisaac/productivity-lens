@@ -18,8 +18,11 @@ Output is in English and Bahasa Melayu.
 - Never label initiatives (counted, Tier, Grade, Evidence type) by judgement: use `pl-classify`.
 - `private/` is git-ignored: Drive copies and real gold sets live there, never in commits.
 - `inbox/`, `ledger/`, `data/`, `content/en|bm/`, `output/`, `templates/`, `scripts/`, `docs/` – workflow folders.
-- `site/index.html` – the live Productivity Lens · MPC website (Home, Stories, Initiative library,
-  How it works, EN/BM toggle; story data is embedded in the file). `site/assets/` holds the MPC logo,
+- `site/index.html` – the live Productivity Lens · MPC website (Home, Stories, Ideas library,
+  How we check, EN/BM toggle; story data is embedded in the file). Written for newcomers: short human
+  headlines (`HL`) with the data headline as the deck; story order = results → what they did → what you can
+  try → the numbers; plain labels (Measured result / Scale only / Described only; Core / Supporting /
+  Resource move); a five-term glossary; specialist method folded at the end of "How we check". `site/assets/` holds the MPC logo,
   favicon and the social preview image (`og-image.png`, 1200×630).
 - Website wording rules: no internal workflow text on public pages (no Playbook versions, REDO, "full run");
   no "x of y" wording; BM page references use "hlm."; story lists are alphabetical; text at least 13px.
