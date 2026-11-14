@@ -261,6 +261,8 @@ section{margin-top:88px}
 .why.whytop{align-items:start}
 .why.whytop>div:last-child{max-width:380px;justify-self:center;width:100%;align-self:start;margin-top:12px}
 .why.whytop h1{font-size:clamp(40px,4.4vw,60px)!important;max-width:15ch}
+.why.whytop h1.hbm{max-width:none;font-size:clamp(36px,3.9vw,56px)!important}
+@media (max-width:1040px){.why.whytop h1 br{display:none}}
 @media (max-width:1040px){.why.whytop{min-height:0;gap:8px;grid-template-columns:1fr}.why.whytop>div:last-child{order:-1;width:min(340px,80%);margin:0 auto}}
 .why .nums li b{transition:transform .4s var(--ease)}
 .why .nums li:hover b{transform:scale(1.15)}
@@ -889,7 +891,7 @@ const D2={
     libFilters:"Filter",clear:"Clear filters",read:"Read the story"},
   bm:{heroSub:"Cara syarikat Bursa Malaysia mendapat lebih daripada pekerja, mesin dan kilang, dan apa yang boleh ditiru perniagaan 50–200 pekerja. Setiap angka ada petikan dan nombor halaman.",
     heroBtn:"Baca kisah Farm Fresh",facts:["Laporan tahunan Bursa Malaysia","FY2022 hingga FY2026","Halaman bercetak bagi setiap angka","Bahasa Inggeris dan Bahasa Melayu"],
-    whatH:"Belajar daripada syarikat besar Malaysia, kemudian cuba di perniagaan anda",whatP:"Setiap kisah membaca laporan tahunan satu syarikat, memilih langkah yang menaikkan keluaran daripada pekerja, mesin dan kilang, dan menjadikan tiga daripadanya langkah yang boleh diambil perniagaan kecil bulan ini.",whatBtn:"Cara ia berfungsi",
+    whatH:"Belajar daripada syarikat<br> besar Malaysia dan cuba<br> di perniagaan anda",whatP:"Setiap kisah membaca laporan tahunan satu syarikat, memilih langkah yang menaikkan keluaran daripada pekerja, mesin dan kilang, dan menjadikan tiga daripadanya langkah yang boleh diambil perniagaan kecil bulan ini.",whatBtn:"Cara ia berfungsi",
     feat:["Setiap angka ada petikan dan halaman","Label menunjukkan jenis langkah dan kekuatan bukti","Sejauh mana setiap syarikat dekat dengan penanda aras syarikat Bursa yang sejenis","Tiga idea untuk perniagaan kecil"],
     carH:"Kisah produktiviti di satu tempat",pendTitle:"Seterusnya dalam Produk & Perkhidmatan Pengguna",pendText:"Sedang disediakan. Empat lagi kisah dalam sektor ini juga membuka perbandingan penanda aras.",
     whyA:"Apa yang menjadikan",whyB:"kisah Productivity Lens",whyC:"berguna",whyToggle:"FY2022–FY2026",whyP:"Dibina untuk pemilik dan pengurus perniagaan 50–200 pekerja yang mahukan bukti, bukan slogan.",
@@ -1532,7 +1534,7 @@ function viewHome(){
   const feat=bm?["Setiap angka ada petikan dan halaman","Setiap langkah ditanda mengikut kekuatan buktinya","Setiap syarikat dibandingkan dengan syarikat Bursa yang serupa","Tiga idea bersaiz untuk perniagaan 50–200 pekerja"]
                :["Every figure has a quote and a page","Each move is marked by how strong its evidence is","Each company is compared with similar Bursa companies","Three ideas sized for a 50–200 person business"];
   return `<div class="draft" style="margin:24px 0 0">${u.draft}</div>
-   <section class="why whytop"><div><h1 style="font-size:clamp(40px,5vw,68px);line-height:1.04;letter-spacing:-.04em">${d.whatH}</h1>
+   <section class="why whytop"><div><h1${bm?' class="hbm"':''} style="font-size:clamp(40px,5vw,68px);line-height:1.04;letter-spacing:-.04em">${d.whatH}</h1>
      <p class="lead" style="margin-top:22px">${d.heroSub}</p>
      <div class="hero-ctas"><a class="pill dark" href="#stories">${bm?"Lihat semua kisah":"Browse the stories"} ${ARROW}</a><a class="pill" href="#how-it-works">${bm?"Kenapa anda boleh percaya":"Why you can trust them"} ${ARROW}</a></div>
      <ul class="trust">${trust.map(x=>`<li>${x}</li>`).join("")}</ul></div>
