@@ -64,6 +64,23 @@ def test_input_saving_passes_tier3():
     assert (c["counted"], c["tier"], c["grade"], c["evidence_type"]) == ("Y", 3, "A", "Operating result")
 
 
+def test_tier3_saving_is_lesson_eligible_but_only_one_chosen():
+    rows = [base(id=f"t{i}", area="resource", result_kind="input_saving", input="energy", figure="single_impact",
+                 quote="diesel use cut by 141,000 litres", type=f"Resource {i}") for i in range(3)]
+    res = C.run_rows(rows)
+    assert all(r["lesson_eligible"] == "Y" for r in res)
+    assert len(C.select_lessons(res)) == 1
+
+
+def test_lessons_prefer_tier1_productivity_and_distinct_types():
+    rows = [base(id="a", area="resource", result_kind="cost", input="water", figure="single_impact", quote="saved RM1m", type="Resource substitution"),
+            base(id="b", result_kind="time", input="people", figure="single_impact", quote="lead time cut 20%", type="Process redesign"),
+            base(id="c", result_kind="output_per_input", input="people", figure="single_impact", quote="output per worker up 15%", type="New/upgraded line"),
+            base(id="d", result_kind="downtime", input="machine_time", figure="single_impact", quote="downtime fell 30%", type="New/upgraded line")]
+    ids = [r["id"] for r in C.select_lessons(C.run_rows(rows))]
+    assert ids == ["c", "b", "a"], ids
+
+
 def test_validate_rejects_unknown_values():
     assert C.validate([base(result_kind="productivity")])
 

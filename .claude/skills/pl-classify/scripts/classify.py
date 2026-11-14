@@ -185,7 +185,10 @@ def classify(a):
             out["warnings"].append(f"{a['rule']} changed the engine result ({before} -> {out['counted']})")
 
     if out["counted"] == "Y":
-        if out["grade"] == "A" and out["evidence_type"] != "Enabler" and out["tier"] in (1, 2):
+        # Playbook Module 4 "SME lessons" eligibility: passes the test, Grade A, Operating or
+        # Productivity result (never an Enabler), achieved. Tier is NOT an eligibility rule; it only
+        # orders the choice (see select_lessons), with at most one Tier 3 lesson.
+        if out["grade"] == "A" and out["evidence_type"] != "Enabler":
             out["lesson_eligible"] = "Y"
         # Playbook headline hierarchy (Module 4): Tier 1, Grade A only
         if out["tier"] == 1 and out["grade"] == "A":
@@ -258,6 +261,30 @@ def write_xlsx(path, res):
     wb.save(path)
 
 
+EVID_RANK = {"Productivity result": 0, "Operating result": 1}
+
+
+def select_lessons(res):
+    """Playbook Module 4 selection: Tier 1 first (Tier 2 only if needed) -> Productivity before Operating
+    -> at most one Tier 3 lesson -> three different initiative types. Items without a type are treated
+    as distinct. Ties keep file order; the analyst still judges impact and SME fit among equals."""
+    pool = sorted([r for r in res if r["counted"] == "Y" and r["lesson_eligible"] == "Y"],
+                  key=lambda r: (int(r["tier"]), EVID_RANK[r["evidence_type"]]))
+    chosen, types, tier3 = [], set(), 0
+    for r in pool:
+        t = (r.get("type") or "").strip().lower()
+        if int(r["tier"]) == 3 and tier3:
+            continue
+        if t and t in types:
+            continue
+        chosen.append(r)
+        types.add(t) if t else None
+        tier3 += int(r["tier"]) == 3
+        if len(chosen) == 3:
+            break
+    return chosen
+
+
 def summary(res):
     counted = [r for r in res if r["counted"] == "Y"]
     by = lambda k, data: {str(v): sum(1 for r in data if str(r[k]) == str(v)) for v in sorted({str(r[k]) for r in data})}
@@ -268,7 +295,9 @@ def summary(res):
             "lesson_eligible": sum(1 for r in counted if r["lesson_eligible"] == "Y"),
             "decisions": sum(1 for r in res if r["decision_needed"] == "Y"),
             "fail_reasons": by("fail_reason", [r for r in res if r["counted"] == "N"]),
-            "enough_for_story": sum(1 for r in counted if r["lesson_eligible"] == "Y") >= 3}
+            "lesson_candidates": [f"{r['id']} {r['initiative']} (Tier {r['tier']}, {r['evidence_type']})"
+                                  for r in select_lessons(res)],
+            "enough_for_story": len(select_lessons(res)) >= 3}
 
 
 def cmd_run(a):
@@ -284,7 +313,8 @@ def cmd_run(a):
     out.with_suffix(".summary.json").write_text(json.dumps(s, indent=2, ensure_ascii=False))
     print(json.dumps(s, indent=2, ensure_ascii=False))
     if not s["enough_for_story"]:
-        print("\nFewer than three lesson-eligible initiatives: read the FY-2, then FY-4 reports (Playbook 2A).")
+        print(f"\nOnly {len(s['lesson_candidates'])} lesson(s) can be chosen (max one Tier 3, three different types): "
+              "read the FY-2, then FY-4 reports (Playbook 2A) and add their initiatives to this answers file.")
     return 0
 
 
