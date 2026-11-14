@@ -53,4 +53,4 @@ Fonts: Lora and Inter, under the SIL Open Font License (see `.claude/skills/pl-r
 
 ## Website
 
-The `site/` folder is published with Cloudflare Pages (production branch `main`, no build command, output directory `site`). Every push to `main` redeploys it.
+The `site/` folder (the Productivity Lens · MPC website, `site/index.html`) is published with Cloudflare Pages (production branch `main`, no build command, output directory `site`). Every push to `main` redeploys it.

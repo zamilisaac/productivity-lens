@@ -15,8 +15,9 @@ Output is in English and Bahasa Melayu.
   `pl-ledger` (Ledger/Rules, intake), `pl-evidence` (PageMap, quote audit), `pl-calc` (8 indicators, DTF),
   `pl-bm` (Bahasa Melayu Content file), `pl-lint` (house rules), `pl-render` (PDF, PNG, newsletter HTML).
 - `inbox/`, `ledger/`, `data/`, `content/en|bm/`, `output/`, `templates/`, `scripts/`, `docs/` – workflow folders.
-- `site/` – website published with Cloudflare Pages. `site/data/spotlights.json` lists published spotlights
-  (`company`, `sector`, `fy`, `headline`, `pdf`); PDFs go in `site/spotlights/`.
+- `site/index.html` – the live Productivity Lens · MPC website (single self-contained file: Home, Stories,
+  Initiative library, How it works, EN/BM toggle; story data and MPC logo are embedded in the file).
+  This is the exact file the user hosts on Cloudflare Pages – the website must always keep working.
 - `requirements.txt` – Python dependencies (`python -m playwright install chromium` for rendering).
 
 ## Method documents (copied from Drive 07_Templates)
@@ -37,11 +38,9 @@ Folder "Productivity Lens" (Drive connector):
 Spotlights are still **Draft** in the Review sheet – do not publish them to `site/` until the user marks them Verified/Published.
 
 ## Cloudflare Pages status (as of 2026-11-14)
-- Live site: https://productivitylens.pages.dev/ – serves the existing MPC-branded "Productivity Lens · MPC"
-  page (EN/BM toggle, menu). Its source is **not** in this repo.
+- Live site: https://productivitylens.pages.dev/ – its source is now `site/index.html` in this repo.
 - The repo is **not yet connected** to that Pages project: a push to `main` produced no Cloudflare build.
 - Plan: add the existing site's source files into `site/` first, then connect Git
   (production branch `main`, no build command, output directory `site`). A Direct Upload project cannot
   be switched to Git, so a new Git-connected project may be needed, with the domain moved across.
-- Connecting before the source is in `site/` would replace the live MPC page with the placeholder.
 - `*.pages.dev` is not reachable with curl from cloud sessions; WebFetch works for productivitylens.pages.dev.
