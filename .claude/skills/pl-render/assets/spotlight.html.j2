@@ -151,6 +151,7 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 <section class="page" data-page="4">{{ header() }}
 <div class="body" style="gap:6mm">
   <h2 style="margin:0">{{ L.sme_lessons }}</h2>
+  {% if not c.lessons %}<div class="lesson" data-block="lesson-none"><p style="margin:0">{{ c.lessons_note }}</p></div>{% endif %}
   {% for l in c.lessons %}
   <div class="lesson" data-block="lesson{{ loop.index }}">
     <div class="lbl">{{ l.label }}</div>

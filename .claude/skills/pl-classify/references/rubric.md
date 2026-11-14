@@ -126,6 +126,8 @@ Capacity at a **new** site is `new_site`, never `capacity_existing_site`.
 | R033 | No stated result → `figure = none`; the Grade stays C whatever the Tier |
 | R036 | Too few lessons → add initiatives from the FY-2 and FY-4 annual reports, with the report year in `page` (e.g. `27 (FY2024 AR)`) |
 | R040 | Disposal or consolidation → `area = consolidation`; it counts only with a productivity or operating result (engine rule) |
+| R043 / R046 | A plant that **replaces** an existing one (all production moved, old plant closed) → `area = consolidation`, `rule = R046`, `rule_outcome = pass` (counts as a Tier 1 Enabler without an operating result) |
+| R045 | No lesson qualifies after FY, FY-2 and FY-4 are searched → publish without lessons; never pad |
 | R041 | Information too unclear to answer (e.g. a trial with no outcome) → `rule = R041`, `rule_outcome = skip` |
 | R042 | Clearly environment-only results → `result_kind = environmental_only`; the engine keeps them out of every list |
 

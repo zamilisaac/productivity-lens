@@ -82,7 +82,8 @@ def chart_svg(c, L, w=680, h=270, big=False):
         out.append(f'<text x="{w-right+8}" y="{Y(100)+fs/3:.1f}" fill="{INK}">{L["frontier_label"]}</text>')
     styles = {"company": (TEAL, "", 3), "median": (SLATE, "6 4", 2), "index": (TEAL, "", 2.5)}
     idx_cols = [TEAL, SLATE, GREY]
-    label_y = []
+    # the frontier label is a label too: a company at 100% must not print its name on top of it
+    label_y = [Y(100)] if d["mode"] == 1 else []
     for k, s in enumerate(series[:3]):
         col, dash, sw = styles.get(s["role"], (TEAL, "", 2))
         if s["role"] == "index":
@@ -265,7 +266,8 @@ def render_email(c, out_dir):
     if len(preview) > 90:
         fails.append("preview text over 90 characters")
     links = c.get("links", {"spotlight_pdf": "(path)", "bm_pdf": "(path)", "snapshots": "(path)"})
-    html = env.get_template("email.html.j2").render(c=c, subject=subject, preview=preview, links=links)
+    L = {**LABELS[c.get("lang", "en")], **(c.get("label_overrides") or {})}
+    html = env.get_template("email.html.j2").render(c=c, L=L, subject=subject, preview=preview, links=links)
     if re.search(r"<script|<link|@import", html, re.I):
         fails.append("email contains script or external CSS")
     name, _ = base_name(c)

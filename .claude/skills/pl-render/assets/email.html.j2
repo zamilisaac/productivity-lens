@@ -26,7 +26,8 @@
 </td></tr></table></td></tr>
 <tr><td style="padding:4px 20px 12px;"><p style="margin:0;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">{{ c.dtf.title | upper }}</p>
   <p style="margin:4px 0 0;">{{ c.dtf.email_line }}</p></td></tr>
-<tr><td style="padding:4px 20px;"><p style="margin:0 0 8px;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">THREE SME LESSONS</p>
+<tr><td style="padding:4px 20px;"><p style="margin:0 0 8px;color:#0F8B7E;font-weight:bold;font-size:13px;letter-spacing:1px;">{{ L.sme_lessons | upper }}</p>
+{% if not c.lessons %}<div>{{ c.lessons_note }}</div>{% endif %}
 {% for l in c.lessons %}<div style="border-left:3px solid #E2A42B;padding-left:12px;margin-bottom:14px;">
   <div style="font-family:Georgia,serif;font-size:18px;">{{ l.title }}</div>
   <div>{{ l.did_short }}</div><div><b>Starter step:</b> {{ l.starter }}</div></div>{% endfor %}</td></tr>

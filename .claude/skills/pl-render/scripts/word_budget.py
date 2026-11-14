@@ -20,9 +20,9 @@ EN = {
     "dtf.analysis": 70, "dtf.notes": 35,
     "lessons[].title": 14, "lessons[].did": 40, "lessons[].sme": 40,
     "lessons[].starter": 25, "lessons[].measure": 20,
-    "notes": 50,
+    "notes": 50, "lessons_note": 45,
 }
-COUNTS = {"headline_results": 3, "lessons": (1, 3), "strengths": 2, "watch": 2}  # lessons: up to three, never padded (Playbook Module 4)
+COUNTS = {"headline_results": 3, "lessons": (0, 3), "strengths": 2, "watch": 2}  # lessons: up to three, never padded (Playbook Module 4); none when nothing qualifies (R045)
 MAX_ROWS = {"key_initiatives": 10}
 
 
@@ -55,7 +55,7 @@ def check(c, lang):
             rows.append((p, n, limit))
             if n > limit:
                 fails.append(f"{p}: {n} words > {limit}")
-            if val in (None, "") and not path.startswith(("snapshot.notes", "dtf.notes")):
+            if val in (None, "") and not path.startswith(("snapshot.notes", "dtf.notes", "lessons_note")):
                 fails.append(f"{p}: empty")
     for k, n in COUNTS.items():
         have = len(c.get(k) or [])
