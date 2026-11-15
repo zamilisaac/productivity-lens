@@ -613,6 +613,19 @@ details.fullmethod{margin-top:40px}
 .bmrow .go svg{width:14px;height:14px}
 
 @media (max-width:900px){.bmrow{grid-template-columns:1fr;gap:8px}}
+/* frontier page: sector cards (2026-11-15) */
+.secgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.seccard{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0;text-align:left;font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:26px 28px;box-shadow:var(--shadow);cursor:pointer;transition:box-shadow .3s var(--ease)}
+.seccard:hover{box-shadow:var(--shadow-lg)}
+.seccard:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.seccard .t{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.seccard .chip{white-space:normal}
+.seccard .meta{color:var(--muted);font-size:14.5px;line-height:1.5}
+.seccard .go{margin-top:auto;padding-top:6px;font-size:13.5px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.sec-ey{margin:0 0 6px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet-ink)}
+.bmrow.own{grid-template-columns:minmax(120px,180px) 1fr auto}
+@media (max-width:900px){.bmrow.own{grid-template-columns:1fr}}
+@media (max-width:700px){.secgrid{grid-template-columns:1fr}.seccard{padding:22px}}
 
 /* form rows: label left, control right (Ideas library) */
 .fbox{display:grid;gap:10px;margin-top:22px;max-width:760px}
@@ -628,6 +641,14 @@ details.fullmethod{margin-top:40px}
  .sgrid{gap:12px;margin-top:22px}.sgrid .slide{padding:20px 20px 18px;gap:8px;border-radius:22px}.sgrid .slide h3{font-size:18px}
  .sgrid .slide .sbig{padding-top:12px}.sgrid .slide .sbig b{font-size:32px}.sgrid .slide .sread{display:none}
  .sgrid .slide.pending .ill{display:none}.filters{margin-top:18px}}
+/* Stories: company drop-down and search */
+.sfilt .scosel{flex:0 1 240px;margin-left:8px}
+.sfilt .scosel select{height:44px;border-radius:999px;font-size:14.5px}
+.sfilt input[type=search]{flex:1 1 240px;min-width:220px;max-width:360px;padding:11px 20px}
+.sfilt input[type=search]:focus{outline:2px solid var(--violet);outline-offset:1px}
+.sgrid>[hidden]{display:none!important}
+.stempty .clearf{margin-left:4px}
+@media (max-width:600px){.sfilt .scosel,.sfilt input[type=search]{flex:1 1 100%;margin-left:0;min-width:0;max-width:none}}
 </style>
 </head>
 <body>
@@ -1631,24 +1652,45 @@ const gradeChip=g=>`<span class="chip g${g}" title="${esc(LEG[lang].grades["ABC"
 /* ---------- tools for readers: frontier page, business check, idea matcher ---------- */
 const TOOLS={
  en:{bmH:"Distance to Frontier",
-   bmLede:"The frontier is the value added per employee that only the strongest similar companies reach (1 in 10 yearly results). Today it covers five Bursa dairy and milk-product companies. See where each story company stands.",
+   bmLede:"Distance to Frontier compares a company's value added per employee with the frontier: the level that only 1 in 10 yearly results in the same sector reach. A sector gets its frontier once five of its Bursa companies have been profiled. The dairy and milk-products sector has five, so its frontier is set. The retail sector, which includes MR DIY and Eco-Shop, has two so far, so for now each of these companies is compared with its own earlier years.",
    listH:"Companies in the dairy group",listNote:"Listed alphabetically. Each figure is that company's own share of the frontier in its latest year. This is not a ranking.",
-   share:(a,y)=>`${a}% of the frontier, FY${y}`,read:"Read the story",outsideH:"Other stories",outside:"Not in the dairy group, so each is compared with its own past years on its story page.",},
+   share:(a,y)=>`${a}% of the frontier, FY${y}`,read:"Read the story",outsideH:"Other stories",outside:"Not in the dairy group, so each is compared with its own past years on its story page.",
+   secH:"Sectors",secLede:"Choose a sector to see how far each of its story companies is from the frontier.",
+   dairyT:"Dairy",frSet:"Frontier set",grpN:n=>`${n} companies in the comparison group`,frVal:f=>`Frontier: ${f} value added per employee`,
+   profiled:(n,t)=>`${n} of ${t} companies profiled`,pending:k=>`Frontier pending: ${k} more needed`,frCalc:"Frontier to be calculated",goSec:"Go to section",
+   rListH:"Companies in the retail sector",rNote:"A retail frontier needs five profiled retail companies. Until then, each company is shown against its own first year, so the figures are not compared between companies.",
+   vaIdx:(v,y,b)=>`Value added per employee: ${v} in ${y} (${b} = 100)`,noIdx:"Own progress is shown on the story page",more:k=>`${k} more retail ${k===1?"company":"companies"} needed`,},
  bm:{bmH:"Jarak ke Aras Termaju",
-   bmLede:"Aras termaju ialah nilai ditambah bagi setiap pekerja yang hanya dicapai syarikat sejenis yang paling kukuh (1 daripada 10 keputusan tahunan). Buat masa ini ia meliputi lima syarikat tenusu dan produk susu Bursa. Lihat kedudukan setiap syarikat dalam kisah.",
+   bmLede:"Jarak ke Aras Termaju membandingkan nilai ditambah bagi setiap pekerja sesebuah syarikat dengan aras termaju, iaitu paras yang hanya dicapai oleh 1 daripada 10 keputusan tahunan dalam sektor yang sama. Sesuatu sektor mendapat aras termajunya apabila lima syarikat Bursa dalam sektor itu telah diprofilkan. Sektor tenusu dan produk susu mempunyai lima syarikat, jadi aras termajunya telah ditetapkan. Sektor peruncitan, termasuk MR DIY dan Eco-Shop, baru mempunyai dua syarikat, jadi buat masa ini setiap syarikat itu dibandingkan dengan tahun-tahun awalnya sendiri.",
    listH:"Syarikat dalam kumpulan tenusu",listNote:"Disusun mengikut abjad. Setiap angka ialah bahagian aras termaju yang dicapai syarikat itu sendiri pada tahun terkininya. Ini bukan kedudukan.",
-   share:(a,y)=>`${a}% daripada aras termaju, FY${y}`,read:"Baca kisah",outsideH:"Kisah lain",outside:"Bukan dalam kumpulan tenusu, jadi setiap syarikat dibandingkan dengan tahun-tahun lepasnya sendiri di halaman kisah.",}
+   share:(a,y)=>`${a}% daripada aras termaju, FY${y}`,read:"Baca kisah",outsideH:"Kisah lain",outside:"Bukan dalam kumpulan tenusu, jadi setiap syarikat dibandingkan dengan tahun-tahun lepasnya sendiri di halaman kisah.",
+   secH:"Sektor",secLede:"Pilih sektor untuk melihat sejauh mana setiap syarikat dalam kisah sektor itu daripada aras termaju.",
+   dairyT:"Tenusu",frSet:"Aras termaju ditetapkan",grpN:n=>`${n} syarikat dalam kumpulan perbandingan`,frVal:f=>`Aras termaju: ${f} nilai ditambah bagi setiap pekerja`,
+   profiled:(n,t)=>`${n} daripada ${t} syarikat telah diprofil`,pending:k=>`Aras termaju belum ditetapkan: ${k} lagi diperlukan`,frCalc:"Aras termaju akan dikira",goSec:"Pergi ke bahagian",
+   rListH:"Syarikat dalam sektor peruncitan",rNote:"Aras termaju peruncitan memerlukan lima syarikat peruncitan yang telah diprofil. Sehingga itu, setiap syarikat ditunjukkan berbanding tahun pertamanya sendiri, jadi angka ini tidak dibandingkan antara syarikat.",
+   vaIdx:(v,y,b)=>`Nilai ditambah bagi setiap pekerja: ${v} pada ${y} (${b} = 100)`,noIdx:"Kemajuan sendiri ditunjukkan di halaman kisah",more:k=>`${k} lagi syarikat peruncitan diperlukan`,}
 };
 
 
 function viewBenchmark(){const T=TOOLS[lang],u=UI[lang];
   const sorted=[...COMPANIES].sort((a,b)=>a.name.localeCompare(b.name));
-  const inG=sorted.filter(c=>DTF.co[c.slug]),outG=sorted.filter(c=>!DTF.co[c.slug]);
+  const inG=sorted.filter(c=>DTF.co[c.slug]),outG=sorted.filter(c=>!DTF.co[c.slug]&&secOf(c)!=="retail");
+  const nm=c=>esc(SHORT[c.slug]||c.name.replace(/ (Berhad|Bhd)$/,""));
+  const RS=SECTORS.find(s=>s.k==="retail"),rCo=secConf("retail").sort((a,b)=>a.name.localeCompare(b.name)),rN=rCo.length,rNeed=Math.max(0,5-rN),dN=DTF.n||Object.keys(DTF.co).length;
+  const own=c=>{const P=PROG[c.slug],r=P&&P.rows&&P.rows.find(x=>x.k===0);if(!r)return "";let li=-1;r.idx.forEach((v,i)=>{if(v!=null)li=i;});const bi=r.idx.indexOf(100);return li>=0&&bi>=0&&li!==bi?T.vaIdx(r.idx[li],P.years[li],P.years[bi]):"";};
+  const secBlk=`<section style="margin-top:48px"><h2 style="font-size:clamp(26px,3vw,38px)">${T.secH}</h2><p class="muted" style="font-size:14.5px;max-width:70ch">${T.secLede}</p>
+    <div class="secgrid"><button type="button" class="seccard" data-jump="dtf-dairy"><span class="t">${T.dairyT}</span><span class="chip gA">${T.frSet}</span><span class="meta">${T.grpN(dN)}</span><span class="meta">${T.frVal(DTF.frTxt)}</span><span class="go">${T.goSec} ${ARR_DN}</span></button>
+    <button type="button" class="seccard" data-jump="dtf-retail"><span class="t">${RS[lang]}</span><span class="chip gC">${rNeed?T.pending(rNeed):T.frCalc}</span><span class="meta">${T.profiled(rN,5)}</span><span class="meta">${rCo.map(nm).join(" · ")}</span><span class="go">${T.goSec} ${ARR_DN}</span></button></div></section>`;
+  const rSec=`<section id="dtf-retail" style="margin-top:72px"><p class="sec-ey">${RS[lang]}</p><h2 style="font-size:clamp(26px,3vw,38px)">${T.rListH}</h2><p class="muted" style="font-size:14.5px;max-width:70ch">${T.rNote}</p>
+    <div class="bmlist">${rCo.map(c=>`<a class="bmrow own" href="#${c.slug}"><b>${nm(c)}</b><span class="pc">${own(c)||T.noIdx}</span><span class="go">${T.read} ${ARROW}</span></a>`).join("")}</div>
+    ${rNeed?`<p class="muted" style="font-size:14.5px;margin-top:22px">${T.more(rNeed)}</p>`:""}</section>`;
   return `<div class="draft">${u.draft}</div><h1>${T.bmH}</h1><p class="lead muted">${T.bmLede}</p>
-   <section style="margin-top:48px"><h2 style="font-size:clamp(26px,3vw,38px)">${T.listH}</h2><p class="muted" style="font-size:14.5px;max-width:70ch">${T.listNote}</p>
+   ${secBlk}
+   <div id="dtf-dairy"><section style="margin-top:72px"><p class="sec-ey">${T.dairyT}</p><h2 style="font-size:clamp(26px,3vw,38px)">${T.listH}</h2><p class="muted" style="font-size:14.5px;max-width:70ch">${T.listNote}</p>
     <div class="bmlist">${inG.map(c=>{const D=DTF.co[c.slug];return `<a class="bmrow" href="#${c.slug}"><b>${esc(SHORT[c.slug]||c.name.replace(/ (Berhad|Bhd)$/,""))}</b><span class="bar"><i style="width:${Math.min(100,D.a1)}%"></i></span><span class="pc">${T.share(D.a1,D.last)}</span><span class="go">${T.read} ${ARROW}</span></a>`;}).join("")}</div>
     ${outG.length?`<p class="muted" style="font-size:14.5px;margin-top:22px"><b>${T.outsideH}:</b> ${outG.map(c=>`<a href="#${c.slug}">${esc(SHORT[c.slug]||c.name.replace(/ (Berhad|Bhd)$/,""))}</a>`).join(" · ")}. ${T.outside}</p>`:""}</section>
-   ${dtfHome()}`;}
+   ${dtfHome()}</div>
+   ${rSec}`;}
 
 
 const fsel=(id,lbl,opts,val,all)=>`<div class="fsel"><select id="${id}" aria-label="${lbl}">${all?`<option value="">${all}</option>`:""}${opts.map(([k,l])=>`<option value="${k}" ${k===val?"selected":""}>${l}</option>`).join("")}</select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
@@ -1657,26 +1699,48 @@ const frow=(lbl,ctl,forId)=>`<div class="frow"><label class="flbl"${forId?` for=
 const NAV={
   en:{items:["Home","Stories","Ideas library","Distance to Frontier","How we check"],menu:"Menu",close:"Close",search:"Search stories and initiatives",grpS:"Stories",grpI:"Initiatives",none:"No matches. Try another word, such as “warehouse” or “training”.",hint:"Press Esc to close",top:"Back to top",
       trail:["Home","Stories"],sec:["Key results","Snapshot","Distance to Frontier","Initiatives","Lessons"],prev:"Previous story",next:"Next story",
-      storiesSub:"Draft stories, listed alphabetically. Pick a year to narrow the list.",all:"All",seeAll:"See all stories",dtfHomeH:"Distance to Frontier, dairy companies"},
+      storiesSub:"Draft stories, listed alphabetically. Pick a year, choose a company or search to narrow the list.",stCo:"Company",stAll:"All companies",stQ:"Search companies",stPh:"Search by company name",stNone:"No stories match. Try another name or clear the search.",stClear:"Clear",all:"All",seeAll:"See all stories",dtfHomeH:"Distance to Frontier, dairy companies"},
   bm:{items:["Utama","Kisah","Pustaka idea","Jarak ke Aras Termaju","Cara kami menyemak"],menu:"Menu",close:"Tutup",search:"Cari kisah dan inisiatif",grpS:"Kisah",grpI:"Inisiatif",none:"Tiada padanan. Cuba perkataan lain, contohnya “gudang” atau “latihan”.",hint:"Tekan Esc untuk tutup",top:"Kembali ke atas",
       trail:["Utama","Kisah"],sec:["Keputusan utama","Ringkasan","Jarak ke Aras Termaju","Inisiatif","Pengajaran"],prev:"Kisah sebelum",next:"Kisah seterusnya",
-      storiesSub:"Kisah draf, disusun mengikut abjad. Pilih tahun untuk mengecilkan senarai.",all:"Semua",seeAll:"Lihat semua kisah",dtfHomeH:"Jarak ke Aras Termaju, syarikat tenusu"}
+      storiesSub:"Kisah draf, disusun mengikut abjad. Pilih tahun, pilih syarikat atau cari untuk mengecilkan senarai.",stCo:"Syarikat",stAll:"Semua syarikat",stQ:"Cari syarikat",stPh:"Cari nama syarikat",stNone:"Tiada kisah sepadan. Cuba nama lain atau kosongkan carian.",stClear:"Kosongkan",all:"Semua",seeAll:"Lihat semua kisah",dtfHomeH:"Jarak ke Aras Termaju, syarikat tenusu"}
 };
 const SEC_IDS=["sec-res","sec-init","sec-les","sec-snap","sec-dtf"];
 let pendingSection=null;
-const stories={fy:""};
-try{const s=JSON.parse(sessionStorage.getItem("pl-lib2")||"null");if(s)Object.assign(lib,s);const st=sessionStorage.getItem("pl-fy");if(st)stories.fy=st;}catch(e){}
+const stories={fy:"",co:"",q:""};
+try{const s=JSON.parse(sessionStorage.getItem("pl-lib2")||"null");if(s)Object.assign(lib,s);const st=sessionStorage.getItem("pl-fy");if(st)stories.fy=st;const sc=sessionStorage.getItem("pl-co");if(sc)stories.co=sc;}catch(e){}
 const saveLib=()=>{try{sessionStorage.setItem("pl-lib2",JSON.stringify(lib));}catch(e){}};
-function storyCard(c){const d=D2[lang];return `<a class="slide" href="#${c.slug}"><div class="chips"><span class="chip gA">Bursa ${c.code}</span><span class="chip t1">${c.fy}</span></div>
+function storyCard(c){const d=D2[lang];return `<a class="slide" href="#${c.slug}" data-slug="${c.slug}"><div class="chips"><span class="chip gA">Bursa ${c.code}</span><span class="chip t1">${c.fy}</span></div>
   <h3>${esc(c.hl[lang])}</h3><p>${esc(c.intro[lang])}</p><div class="sbig">${c.cardStat?`<b>${c.cardStat.big}</b><span>${c.cardStat.label[lang]}</span>`:`<b>${c.results[0].big[lang]}</b><span>${c.results[0].label[lang]} · ${c.results[0].page[lang]}</span>`}</div><span class="pill lime sread" style="margin-top:14px">${d.read} ${ARROW}</span></a>`;}
 function viewStories(){
   const u=UI[lang],v=UI2[lang],n=NAV[lang];
-  const list=COMPANIES.filter(c=>!stories.fy||c.fy===stories.fy);
+  if(stories.co&&!COMPANIES.some(c=>c.slug===stories.co))stories.co="";
+  const list=COMPANIES.filter(c=>(!stories.fy||c.fy===stories.fy)&&(!stories.co||c.slug===stories.co));
+  const coName=c=>SHORT[c.slug]||c.short||c.name;
+  const coOpts=SECTORS.map(s=>{const cs=COMPANIES.filter(c=>secOf(c)===s.k).sort((a,b)=>coName(a).localeCompare(coName(b)));return cs.length?`<optgroup label="${esc(s[lang])}">${cs.map(c=>`<option value="${c.slug}"${c.slug===stories.co?" selected":""}>${esc(coName(c))}</option>`).join("")}</optgroup>`:"";}).join("");
+  const showPend=!stories.fy&&!stories.co;
   return `<nav class="trail" aria-label="Breadcrumb"><a href="#">${n.trail[0]}</a><i>›</i><b>${n.trail[1]}</b></nav>
    <div class="draft">${u.draft}</div><h1>${v.spotTitle}</h1><p class="lead muted">${n.storiesSub}</p>
-   <div class="filters">${["","FY2025","FY2026"].map(y=>`<button type="button" class="fpill" data-fy="${y}" aria-pressed="${stories.fy===y}">${y||n.all} <span style="opacity:.6">${y?COMPANIES.filter(c=>c.fy===y).length:COMPANIES.length}</span></button>`).join("")}</div>
-   <div class="sgrid">${list.map(storyCard).join("")}${!stories.fy?SECTORS.map(s=>Array.from({length:s.need}).map(()=>`<div class="slide pending"><h3>${s.pend[lang].t}</h3><p>${s.pend[lang].p}</p><div class="ill" style="opacity:.35">${slideArt()}</div></div>`).join("")).join(""):""}</div>
+   <div class="filters sfilt">${["","FY2025","FY2026"].map(y=>`<button type="button" class="fpill" data-fy="${y}" aria-pressed="${stories.fy===y}">${y||n.all} <span style="opacity:.6">${y?COMPANIES.filter(c=>c.fy===y).length:COMPANIES.length}</span></button>`).join("")}<div class="fsel scosel"><select id="stco" aria-label="${n.stCo}"><option value="">${n.stAll}</option>${coOpts}</select><svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><input type="search" id="stq" aria-label="${n.stQ}" placeholder="${n.stPh}" value="${esc(stories.q)}" autocomplete="off"></div>
+   <div class="sgrid" id="stgrid">${list.map(storyCard).join("")}${showPend?SECTORS.map(s=>Array.from({length:s.need}).map(()=>`<div class="slide pending"><h3>${s.pend[lang].t}</h3><p>${s.pend[lang].p}</p><div class="ill" style="opacity:.35">${slideArt()}</div></div>`).join("")).join(""):""}<div class="empty stempty" id="stempty" role="status" hidden>${n.stNone} <button type="button" class="clearf" id="stclear">${n.stClear}</button></div></div>
    ${legend(false)}`;
+}
+/* Stories: live search (no re-render, keeps focus) */
+const normQ=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+function filterStories(){
+  const g=document.getElementById("stgrid");if(!g)return;
+  const q=normQ(stories.q);let shown=0;
+  g.querySelectorAll("[data-slug]").forEach(el=>{const c=COMPANIES.find(x=>x.slug===el.dataset.slug);
+    const hay=c?" "+normQ([c.name,c.short,SHORT[c.slug],c.code,c.hl&&c.hl[lang],c.intro&&c.intro[lang]].filter(Boolean).join(" ")):"";
+    const ok=!q||hay.includes(" "+q);el.hidden=!ok;if(ok)shown++;});
+  g.querySelectorAll(".slide.pending").forEach(el=>{el.hidden=!!q;});
+  const e=document.getElementById("stempty");if(e)e.hidden=shown>0;
+}
+function bindStories(){
+  const s=document.getElementById("stco"),q=document.getElementById("stq"),cl=document.getElementById("stclear");
+  if(s)s.addEventListener("change",()=>{stories.co=s.value;try{sessionStorage.setItem("pl-co",stories.co);}catch(e){}const y=scrollY;route();scrollTo(0,y);const s2=document.getElementById("stco");if(s2)s2.focus({preventScroll:true});});
+  if(q)q.addEventListener("input",()=>{stories.q=q.value;filterStories();});
+  if(cl)cl.addEventListener("click",()=>{stories.q="";stories.co="";try{sessionStorage.setItem("pl-co","");}catch(e){}const y=scrollY;route();scrollTo(0,y);const i=document.getElementById("stq");if(i)i.focus({preventScroll:true});});
+  filterStories();
 }
 /* ---------- views ---------- */
 function viewHome(){
@@ -2148,9 +2212,9 @@ function route(){
   const app=document.getElementById("app");
   if(co){app.innerHTML=viewCompany(co);bindCompany();}
   else if(h==="stories"){app.innerHTML=viewStories();
-    document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));}
+    document.querySelectorAll("[data-fy]").forEach(b=>b.addEventListener("click",()=>{stories.fy=b.dataset.fy;try{sessionStorage.setItem("pl-fy",stories.fy);}catch(e){}const y=scrollY;route();scrollTo(0,y);}));bindStories();}
   else if(h==="initiatives"){app.innerHTML=viewLibrary();renderLib();bindLib();}
-  else if(h==="frontier"){app.innerHTML=viewBenchmark();}
+  else if(h==="frontier"){app.innerHTML=viewBenchmark();app.querySelectorAll("[data-jump]").forEach(b=>b.addEventListener("click",()=>{const el=document.getElementById(b.dataset.jump);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}));}
   else if(h==="how-it-works"){app.innerHTML=viewMethod();}
   else if(h==="privacy"){app.innerHTML=viewPrivacy();}
   else if(h==="subscribe"){app.innerHTML=viewSubscribe();}
