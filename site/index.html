@@ -2082,6 +2082,7 @@ function viewPrivacy(){const P=PRIV[lang];
   <p style="margin-top:28px"><a class="pill" href="#unsubscribe">${NL[lang].unsub} ${ARROW}</a></p>`;}
 /* story card figure: lead with value added per employee (user request 2026-11-15) */
 {const c=COMPANIES.find(x=>x.slug==="dutch-lady");if(c){const s0=c.snapshot[0];c.cardStat={big:s0.v,label:{en:`Value added per employee, ${s0.cs} vs FY2024`,bm:`Nilai ditambah bagi setiap pekerja, ${s0.cs} berbanding FY2024`}};}}
+{const c=COMPANIES.find(x=>x.slug==="mr-diy");if(c)c.cardStat={big:"RM107,880",label:{en:"Value added per employee, +6.7% vs FY2024",bm:"Nilai ditambah bagi setiap pekerja, +6.7% berbanding FY2024"}};}
 function route(){
   const h=(location.hash||"").replace("#","").replace(/^benchmark$/,"frontier"),u=UI[lang],n=NAV[lang];
   document.documentElement.lang=lang==="bm"?"ms":"en";
