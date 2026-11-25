@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://productivitylens.pages.dev/sitemap.xml
