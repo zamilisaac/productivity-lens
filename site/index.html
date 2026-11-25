@@ -649,7 +649,28 @@ details.fullmethod{margin-top:40px}
 .sgrid>[hidden]{display:none!important}
 .stempty .clearf{margin-left:4px}
 @media (max-width:600px){.sfilt .scosel,.sfilt input[type=search]{flex:1 1 100%;margin-left:0;min-width:0;max-width:none}}
+
+/* static first paint, replaced by route() */
+.prerender{padding:48px 0 96px;max-width:760px}
+.prerender h1{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.035em;margin:0 0 24px}
+.prerender h2{font-size:clamp(24px,3vw,34px);margin:48px 0 12px}
+.pr-draft{display:inline-block;font-size:13px;font-weight:600;color:var(--violet-ink);background:var(--violet-soft);border-radius:999px;padding:6px 14px;margin:0 0 24px}
+.pr-lede{font-size:17px;line-height:1.6;color:var(--muted);margin:0 0 16px}
+.pr-list{margin:0;padding:0;list-style:none}
+.pr-list li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.pr-list a{font-weight:500}
+.pr-list a:hover{color:var(--violet-ink)}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Productivity Lens",
+  "url": "https://productivitylens.pages.dev/",
+  "inLanguage": ["en", "ms"],
+  "description": "Productivity spotlights on Bursa Malaysia listed companies, built from their annual reports, with ideas small businesses can try."
+}
+</script>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -662,7 +683,36 @@ details.fullmethod{margin-top:40px}
 <div class="sheet" id="menuSheet" hidden></div>
 <div class="search" id="searchBox" hidden></div>
 <button type="button" class="totop" id="toTop"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<main class="wrap" id="app"></main>
+<main class="wrap" id="app">
+<!-- Static first paint. Search engines, link previews and readers without JavaScript
+     see this; route() replaces it as soon as the script runs. Keep it free of figures
+     that change: headline, lede, company list and method only. -->
+<div class="prerender">
+  <p class="pr-draft">Prototype. Draft content, not yet reviewed. Not for distribution.</p>
+  <h1>What big Malaysian companies did to get more from their people, machines and plants</h1>
+  <p class="pr-lede">Each spotlight reads a Bursa Malaysia company&rsquo;s annual reports, picks out the productivity moves it made, and turns them into steps a 50&ndash;200 person business can try. Every figure carries a quote and a printed page number.</p>
+  <p class="pr-lede" lang="ms">Setiap kisah membaca laporan tahunan syarikat Bursa Malaysia, memilih langkah produktiviti yang diambil, dan menjadikannya langkah yang boleh dicuba oleh perniagaan 50&ndash;200 pekerja. Setiap angka disertakan petikan dan nombor halaman bercetak.</p>
+
+  <h2>Stories</h2>
+  <p class="pr-lede">Draft stories, listed alphabetically.</p>
+  <ul class="pr-list">
+    <li><a href="#99-speed-mart">99 Speed Mart Retail Holdings Berhad</a></li>
+    <li><a href="#able-global">Able Global Berhad</a></li>
+    <li><a href="#dutch-lady">Dutch Lady Milk Industries Berhad</a></li>
+    <li><a href="#eco-shop">Eco-Shop Marketing Berhad</a></li>
+    <li><a href="#farm-fresh">Farm Fresh Berhad</a></li>
+    <li><a href="#fraser-neave">Fraser &amp; Neave Holdings Bhd</a></li>
+    <li><a href="#mr-diy">Mr D.I.Y. Group (M) Berhad</a></li>
+    <li><a href="#ql-resources">QL Resources Berhad</a></li>
+    <li><a href="#spritzer">Spritzer Bhd</a></li>
+  </ul>
+
+  <h2>How we check</h2>
+  <p class="pr-lede">Every number comes from a company&rsquo;s own annual or sustainability report and is quoted word for word with its printed page number. Productivity initiatives are separated from sustainability, hiring and revenue news by a fixed test, applied the same way for every company. Distance to Frontier compares a company with the level reached by the strongest similar companies on Bursa Malaysia. It is never a named company, and it is not a ranking.</p>
+
+  <p class="pr-lede"><a href="#stories">Stories</a> &middot; <a href="#initiatives">Ideas library</a> &middot; <a href="#frontier">Distance to Frontier</a> &middot; <a href="#how-it-works">How we check</a></p>
+</div>
+</main>
 <footer id="foot"></footer>
 <script>
 /* ---------- content (from 5306_FarmFresh_FY2026_Content_v2.json and the approved BM spotlight) ---------- */
